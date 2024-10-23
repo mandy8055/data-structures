@@ -15,10 +15,6 @@ ignore:
   - src/errors/
   - src/utils/
 
-# Optional: Configure which files to include (whitelist instead of blacklist)
-fixes:
-  - '::src/' # Map root coverage to src/ directory
-
 # Optional: Configure comment behavior on PRs
 comment:
   layout: 'reach, diff, flags, files'
