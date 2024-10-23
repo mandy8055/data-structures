@@ -1,6 +1,30 @@
 import { EmptyStructureError, IndexOutOfBoundsError } from '../errors/index.ts';
 import type { LinkedListNode } from '../types/index.ts';
 
+/**
+ * A generic singly linked list implementation.
+ *
+ * This class provides a standard linked list data structure with operations for adding,
+ * removing, and accessing elements. The list maintains both head and tail pointers
+ * for efficient operations at both ends of the list.
+ *
+ * Features:
+ * - O(1) insertions at the beginning and end
+ * - O(n) access to arbitrary elements
+ * - Implements Iterable interface for use in for...of loops
+ * - Type-safe implementation using generics
+ *
+ * @template T The type of elements stored in the linked list
+ *
+ * @example
+ * ```typescript
+ * const list = new LinkedList<number>();
+ * list.append(1);
+ * list.append(2);
+ * list.prepend(0);
+ * console.log(list.toArray()); // [0, 1, 2]
+ * ```
+ */
 export class LinkedList<T> {
   private head: LinkedListNode<T> | null = null;
   private tail: LinkedListNode<T> | null = null;

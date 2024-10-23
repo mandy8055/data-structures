@@ -1,3 +1,16 @@
+/**
+ * @module
+ * A comprehensive collection of data structures implemented in TypeScript for Deno.
+ *
+ * Basic usage:
+ * ```ts
+ * import { LinkedList, Queue, MinHeap } from "jsr:@msk/data-structures";
+ *
+ * const list = new LinkedList<number>();
+ * list.append(1);
+ * ```
+ */
+
 // Core data structures
 export { LinkedList } from './core/linked-list.ts';
 // export { DoublyLinkedList } from "./doubly_linked_list.ts";
@@ -39,24 +52,5 @@ export {
   MAX_ARRAY_SIZE,
 } from './constants/index.ts';
 
-// Version information
+/** Version information */
 export const VERSION = '1.0.0';
-
-/**
- * @module
- * A comprehensive collection of data structures implemented in TypeScript for Deno.
- *
- * Basic usage:
- * ```ts
- * import { LinkedList, Queue, MinHeap } from "jsr:@msk/data-structures";
- *
- * const list = new LinkedList<number>();
- * list.append(1);
- *
- * const queue = new Queue<string>();
- * queue.enqueue("first");
- *
- * const heap = new MinHeap<number>();
- * heap.insert(5);
- * ```
- */
