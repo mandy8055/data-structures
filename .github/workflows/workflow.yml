@@ -28,17 +28,26 @@ jobs:
       - name: Type check
         run: deno check **/*.ts
 
-      - name: Run tests
-        run: deno test
-        # run: deno test --allow-none --coverage=coverage
+      - name: Run tests with coverage
+        run: deno test --coverage=coverage
 
-      # - name: Generate coverage report
-      #   run: deno coverage coverage --lcov > coverage.lcov
+      - name: Generate coverage report
+        # Add exclude patterns for files you want to ignore
+        run: |
+          deno coverage --lcov \
+            --exclude="src/tests/" \
+            --exclude="src/constants/" \
+            --exclude="src/types/" \
+            --exclude="src/errors/" \
+            --exclude="src/utils/" \
+            > coverage/coverage.lcov
 
-      # - name: Upload coverage
-      #   uses: codecov/codecov-action@v3
-      #   with:
-      #     file: coverage.lcov
+      - name: Upload coverage to CodeCov
+        uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: ./coverage/coverage.lcov
+          fail_ci_if_error: true
 
   publish:
     needs: test
