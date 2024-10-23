@@ -1,7 +1,7 @@
 {
-  "name": "@msk/data-structures",
+  "name": "@mskr/data-structures",
   "version": "0.1.0",
-  "exports": "./src/mod.ts",
+  "exports": "./mod.ts",
   "license": "MIT",
   "publish": {
     "include": ["src", "README.md", "LICENSE"],

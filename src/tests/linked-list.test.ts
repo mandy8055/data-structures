@@ -1,5 +1,5 @@
 import { assertEquals, assertThrows } from '@std/assert';
-import { LinkedList } from '../linked-list.ts';
+import { LinkedList } from '../core/linked-list.ts';
 import { EmptyStructureError, IndexOutOfBoundsError } from '../mod.ts';
 
 Deno.test('LinkedList - basic operations', async (t) => {
