@@ -1,5 +1,5 @@
-import { EmptyStructureError, IndexOutOfBoundsError } from './errors/index.ts';
-import type { LinkedListNode } from './types/index.ts';
+import { EmptyStructureError, IndexOutOfBoundsError } from '../errors/index.ts';
+import type { LinkedListNode } from '../types/index.ts';
 
 export class LinkedList<T> {
   private head: LinkedListNode<T> | null = null;

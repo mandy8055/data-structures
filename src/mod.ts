@@ -1,5 +1,5 @@
 // Core data structures
-export { LinkedList } from './linked-list.ts';
+export { LinkedList } from './core/linked-list.ts';
 // export { DoublyLinkedList } from "./doubly_linked_list.ts";
 // export { Queue } from "./queue.ts";
 // export { Deque } from "./deque.ts";
