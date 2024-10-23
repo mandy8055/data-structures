@@ -13,8 +13,8 @@ export { LinkedList } from './linked-list.ts';
 // Types and interfaces
 export type { Comparable } from './types/index.ts';
 export type {
-  LinkedListNode,
   DoublyLinkedListNode,
+  LinkedListNode,
   QueueNode,
 } from './types/index.ts';
 
