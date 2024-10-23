@@ -2,6 +2,8 @@
 
 A comprehensive collection of generic data structure implementations for TypeScript/JavaScript, designed for use with Deno and published on JSR.
 
+[![codecov](https://codecov.io/gh/mandy8055/data-structures/branch/main/graph/badge.svg)](https://codecov.io/gh/mandy8055/data-structures)
+
 ## Features
 
 - 🎯 Type-safe implementations with TypeScript generics
