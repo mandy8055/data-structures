@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "exports": "./src/mod.ts",
   "license": "MIT",
+  "publish": {
+    "include": ["src"],
+    "exclude": ["src/tests", ".github", ".vscode"]
+  },
   "tasks": {
     "test": "deno test --allow-none",
     "check": "deno check **/*.ts",
