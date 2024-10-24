@@ -4,18 +4,35 @@
  *
  * Basic usage:
  * ```ts
- * import { LinkedList, Queue, MinHeap } from "jsr:@msk/data-structures";
+ * import { LinkedList, DoublyLinkedList, Deque } from "jsr:@msk/data-structures";
  *
  * const list = new LinkedList<number>();
  * list.append(1);
+ *
+ * const dll = new DoublyLinkedList<number>();
+ * // Add elements
+ * dll.append(1);
+ * dll.append(2);
+ * dll.append(3);
+ *
+ * // Forward traversal
+ * console.log('Forward:', [...dll]); // [1, 2, 3]
+ *
+ * // Reverse traversal
+ * console.log('Reverse:', [...dll.reverseIterator()]); // [3, 2, 1]
+ *
+ * const deque = new Deque<number>();
+ * deque.addFirst(1); // [1]
+ * deque.addLast(2); // [1, 2]
+ * deque.addFirst(0); // [0, 1, 2]
+ * console.log([...deque]); // [0, 1, 2]
  * ```
  */
 
 // Core data structures
 export { LinkedList } from './core/linked-list.ts';
-// export { DoublyLinkedList } from "./doubly_linked_list.ts";
-// export { Queue } from "./queue.ts";
-// export { Deque } from "./deque.ts";
+export { DoublyLinkedList } from './core/doubly-linked-list.ts';
+export { Deque } from './core/deque.ts';
 // export { PriorityQueue } from "./priority_queue.ts";
 
 // Heap implementations
