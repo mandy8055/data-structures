@@ -16,7 +16,7 @@ A comprehensive collection of generic data structure implementations which are n
 ## Installation
 
 ```typescript
-import { LinkedList, DoublyLinkedList } from 'jsr:@msk/data-structures';
+import { LinkedList, DoublyLinkedList, Deque } from 'jsr:@msk/data-structures';
 ```
 
 ## Quick Start
@@ -35,12 +35,23 @@ dList.append(1);
 dList.append(2);
 dList.prepend(0);
 console.log([...dList.reverseIterator()]); // [2, 1, 0]
+
+// Using Deque
+const deque = new Deque<number>();
+
+// Add elements at both ends
+deque.addFirst(1); // [1]
+deque.addLast(2); // [1, 2]
+deque.addFirst(0); // [0, 1, 2]
+
+console.log([...deque]); // [0, 1, 2]
 ```
 
-## Available Data Structures
+## Available Data Structures and their detailed documentations
 
-- [LinkedList](./docs/LinkedList.md): Singly linked list implementation
-- [DoublyLinkedList](./docs/DoublyLinkedList.md): Doubly linked list with bidirectional traversal
+- [LinkedList](./docs/linked-list.md): Singly linked list implementation
+- [DoublyLinkedList](./docs/doubly-linked-list.md): Doubly linked list with bidirectional traversal
+- [Deque](./docs/deque.md): For efficient support of insertion and removal of elements from both ends.
 
 ## Error Handling
 
@@ -52,9 +63,7 @@ The library includes custom error types:
 
 ## Contribution
 
-Contributions are welcome! Please feel free to submit a Pull Request.
-
-- [Contributing Guide](./docs/CONTRIBUTING.md)
+Contributions are welcome! Please feel free to submit a Pull Request after going through the [Contributing Guidelines](./docs/CONTRIBUTING.md).
 
 ## License
 
