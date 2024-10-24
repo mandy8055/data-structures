@@ -12,6 +12,7 @@ dist
 dist-ssr
 *.local
 coverage/
+cov_profile
 
 # Editor directories and files
 .idea
