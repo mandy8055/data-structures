@@ -2,18 +2,17 @@ coverage:
   status:
     project:
       default:
-        target: 70% # Set your desired coverage target
+        target: 85% # Set your desired coverage target
         threshold: 2% # Allow coverage to drop by 2% while still passing
     patch:
       default:
-        target: 70% # Coverage target for new code
+        target: 90% # Coverage target for new code
 
 ignore:
   - src/tests/
   - src/constants/
   - src/types/
   - src/errors/
-  - src/utils/
 
 # Optional: Configure comment behavior on PRs
 comment:

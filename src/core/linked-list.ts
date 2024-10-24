@@ -40,7 +40,7 @@ export class LinkedList<T> {
   /**
    * Returns the number of elements in the list
    */
-  size(): number {
+  get size(): number {
     return this.count;
   }
 
@@ -59,12 +59,10 @@ export class LinkedList<T> {
 
     if (!this.head) {
       this.head = newNode;
-      this.tail = newNode;
     } else {
       this.tail!.next = newNode;
-      this.tail = newNode;
     }
-
+    this.tail = newNode;
     this.count++;
   }
 
@@ -75,12 +73,11 @@ export class LinkedList<T> {
     const newNode = this.createNode(value);
 
     if (!this.head) {
-      this.head = newNode;
       this.tail = newNode;
     } else {
       newNode.next = this.head;
-      this.head = newNode;
     }
+    this.head = newNode;
 
     this.count++;
   }
