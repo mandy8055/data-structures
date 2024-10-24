@@ -4,14 +4,17 @@
   "exports": "./src/mod.ts",
   "license": "MIT",
   "publish": {
-    "include": ["src", "README.md", "LICENSE"],
+    "include": ["src", "README.md", "LICENSE", "docs"],
     "exclude": ["src/tests", ".github", ".vscode", "deno.json"]
   },
   "tasks": {
-    "test": "deno test --allow-none",
+    "test": "deno test",
+    "coverage": "deno test --coverage=coverage && deno coverage --html coverage && open coverage/html/index.html",
     "check": "deno check **/*.ts",
     "lint": "deno lint",
-    "fmt": "deno fmt"
+    "fmt": "deno fmt",
+    "check-jsdoc": "deno doc --lint **/*.ts",
+    "verify": "deno task check && deno task fmt --check && deno task lint && deno task check-jsdoc"
   },
   "fmt": {
     "include": ["src/", "tests/"],
