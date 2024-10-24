@@ -1,6 +1,6 @@
 # data-structures
 
-A comprehensive collection of generic data structure implementations for TypeScript/JavaScript, designed for use with Deno and published on JSR.
+A comprehensive collection of generic data structure implementations which are not supported natively by the for TypeScript/JavaScript, and published on JSR.
 
 [![codecov](https://codecov.io/gh/mandy8055/data-structures/branch/main/graph/badge.svg)](https://codecov.io/gh/mandy8055/data-structures)
 
@@ -16,76 +16,45 @@ A comprehensive collection of generic data structure implementations for TypeScr
 ## Installation
 
 ```typescript
-import { ... } from "jsr:@msk/data-structures";
+import { LinkedList, DoublyLinkedList } from 'jsr:@msk/data-structures';
 ```
-
-## Available Data Structures
-
-- **LinkedList**: Singly linked list implementation
 
 ## Quick Start
 
 ```typescript
-import { LinkedList } from 'jsr:@msk/data-structures';
-
 // Using LinkedList
 const list = new LinkedList<number>();
 list.append(1);
 list.append(2);
 list.prepend(0);
 console.log([...list]); // [0, 1, 2]
+
+// Using DoublyLinkedList with reverse iteration
+const dList = new DoublyLinkedList<number>();
+dList.append(1);
+dList.append(2);
+dList.prepend(0);
+console.log([...dList.reverseIterator()]); // [2, 1, 0]
 ```
 
-## Detailed Documentation
+## Available Data Structures
 
-Each data structure is fully documented with TypeScript types and JSDoc comments. Here's an overview of the main data structures:
-
-### LinkedList<T>
-
-A singly linked list implementation that stores elements of type `T`.
-
-```typescript
-const list = new LinkedList<number>();
-
-// Basic operations
-list.append(1); // Add to end
-list.prepend(0); // Add to start
-list.insertAt(2, 1); // Insert at index
-list.removeFirst(); // Remove from start
-list.removeAt(1); // Remove at index
-list.get(0); // Get element at index
-list.indexOf(1); // Find index of element
-list.contains(1); // Check if element exists
-list.size(); // Get number of elements
-list.isEmpty(); // Check if empty
-list.clear(); // Remove all elements
-
-// Iteration
-for (const value of list) {
-  console.log(value);
-}
-```
+- [LinkedList](./docs/LinkedList.md): Singly linked list implementation
+- [DoublyLinkedList](./docs/DoublyLinkedList.md): Doubly linked list with bidirectional traversal
 
 ## Error Handling
 
-The library includes custom error types for proper error handling:
+The library includes custom error types:
 
-- `EmptyStructureError`: Thrown when attempting to access or remove elements from an empty structure
-- `IndexOutOfBoundsError`: Thrown when attempting to access an invalid index
+- `EmptyStructureError`: For operations on empty structures
+- `IndexOutOfBoundsError`: For invalid index access
+- `InvalidOperationsError`: For performing invalid operations
 
-## Performance Considerations
-
-Time complexities for common operations:
-
-### LinkedList
-
-- Append/Prepend: O(1)
-- Insert/Remove at index: O(n)
-- Search: O(n)
-
-## Contributing
+## Contribution
 
 Contributions are welcome! Please feel free to submit a Pull Request.
+
+- [Contributing Guide](./docs/CONTRIBUTING.md)
 
 ## License
 

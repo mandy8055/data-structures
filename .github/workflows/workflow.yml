@@ -19,14 +19,8 @@ jobs:
         with:
           deno-version: v2.x
 
-      - name: Verify formatting
-        run: deno fmt --check
-
-      - name: Run linter
-        run: deno lint
-
-      - name: Type check
-        run: deno check **/*.ts
+      - name: Verify formatting, linting, proper JSDoc checking
+        run: deno task verify
 
       - name: Run tests with coverage
         run: deno test --coverage=coverage
