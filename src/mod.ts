@@ -8,9 +8,13 @@ export { LinkedList } from './core/linked-list.ts';
 export { DoublyLinkedList } from './core/doubly-linked-list.ts';
 export { Deque } from './core/deque.ts';
 export { PriorityQueue } from './core/priority-queue.ts';
+export { SortedMap } from './core/sorted-map.ts';
 
 // Heap implementations
 export { BinaryHeap, MaxHeap, MinHeap } from './core/binary-heap.ts';
+
+// Special Trees implementation
+export { RedBlackTree } from './core/red-black-tree.ts';
 
 // Types and interfaces
 export type { Comparable } from './types/index.ts';
@@ -18,6 +22,8 @@ export type {
   DoublyLinkedListNode,
   LinkedListNode,
   QueueNode,
+  RBColor,
+  RBNode,
   TrieNode,
 } from './types/index.ts';
 
