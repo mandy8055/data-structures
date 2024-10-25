@@ -24,6 +24,8 @@ import {
   MaxHeap,
   Trie,
   PriorityQueue,
+  SortedMap,
+  RedBlackTree,
 } from 'jsr:@msk/data-structures';
 ```
 
@@ -35,6 +37,8 @@ import {
 - [Trie](./docs/trie.md): For efficient storage and retrieval of strings while supporting associated values.
 - [Binary Heap](./docs/binary-heap.md): Binary heap implementation that provides both Min Heap and Max Heap variants with efficient operations.
 - [PriorityQueue](./docs/priority-queue.md): Implementation backed by a binary heap, where elements are dequeued based on their priority.
+- [RedBlackTree](./docs/red-black-tree.md): Implementation providing self-balancing binary search tree operations
+- [SortedMap](./docs/sorted-map.md): A generic key-value map that maintains its entries sorted by key using a Red-Black Tree.
 
 ## Error Handling
 
