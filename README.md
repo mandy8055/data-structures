@@ -45,6 +45,13 @@ deque.addLast(2); // [1, 2]
 deque.addFirst(0); // [0, 1, 2]
 
 console.log([...deque]); // [0, 1, 2]
+
+// Using Trie
+const trie = new Trie<number>();
+trie.insert('hello', 1);
+trie.insert('help', 2);
+console.log(trie.search('hello')); // 1
+console.log(trie.getAllWithPrefix('hel')); // ["hello", "help"]
 ```
 
 ## Available Data Structures and their detailed documentations
@@ -52,6 +59,7 @@ console.log([...deque]); // [0, 1, 2]
 - [LinkedList](./docs/linked-list.md): Singly linked list implementation
 - [DoublyLinkedList](./docs/doubly-linked-list.md): Doubly linked list with bidirectional traversal
 - [Deque](./docs/deque.md): For efficient support of insertion and removal of elements from both ends.
+- [Trie](./docs/trie.md): For efficient storage and retrieval of strings while supporting associated values.
 
 ## Error Handling
 

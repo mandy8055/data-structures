@@ -4,7 +4,7 @@
  *
  * Basic usage:
  * ```ts
- * import { LinkedList, DoublyLinkedList, Deque } from "jsr:@msk/data-structures";
+ * import { LinkedList, DoublyLinkedList, Deque, Trie } from "jsr:@msk/data-structures";
  *
  * const list = new LinkedList<number>();
  * list.append(1);
@@ -26,6 +26,12 @@
  * deque.addLast(2); // [1, 2]
  * deque.addFirst(0); // [0, 1, 2]
  * console.log([...deque]); // [0, 1, 2]
+ *
+ * const trie = new Trie<number>();
+ * trie.insert("hello", 1);
+ * trie.insert("help", 2);
+ * console.log(trie.search("hello")); // 1
+ * console.log(trie.getAllWithPrefix("hel")); // ["hello", "help"]
  * ```
  */
 
@@ -46,6 +52,7 @@ export type {
   DoublyLinkedListNode,
   LinkedListNode,
   QueueNode,
+  TrieNode,
 } from './types/index.ts';
 
 // Optional: Common errors/exceptions
