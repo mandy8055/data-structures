@@ -46,3 +46,16 @@ export interface QueueNode<T> {
   /** Reference to the next node in the queue */
   next: QueueNode<T> | null;
 }
+
+/**
+ * Represents a node in the Trie.
+ * @template T The type of value associated with complete words
+ */
+export interface TrieNode<T> {
+  /** Map denoting the children which are currently associated with this node */
+  children: Map<string, TrieNode<T>>;
+  /** The value stored in the Trie Node */
+  value: T | null;
+  /** Flag to represent if the current node marks the end of inserted word */
+  isEndOfWord: boolean;
+}
