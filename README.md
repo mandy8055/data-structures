@@ -33,6 +33,8 @@ import {
 - [DoublyLinkedList](./docs/doubly-linked-list.md): Doubly linked list with bidirectional traversal
 - [Deque](./docs/deque.md): For efficient support of insertion and removal of elements from both ends.
 - [Trie](./docs/trie.md): For efficient storage and retrieval of strings while supporting associated values.
+- [Binary Heap](./docs/binary-heap.md): Binary heap implementation that provides both Min Heap and Max Heap variants with efficient operations.
+- [PriorityQueue](./docs/priority-queue.md): Implementation backed by a binary heap, where elements are dequeued based on their priority.
 
 ## Error Handling
 
