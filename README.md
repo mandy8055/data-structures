@@ -16,42 +16,15 @@ A comprehensive collection of generic data structure implementations which are n
 ## Installation
 
 ```typescript
-import { LinkedList, DoublyLinkedList, Deque } from 'jsr:@msk/data-structures';
-```
-
-## Quick Start
-
-```typescript
-// Using LinkedList
-const list = new LinkedList<number>();
-list.append(1);
-list.append(2);
-list.prepend(0);
-console.log([...list]); // [0, 1, 2]
-
-// Using DoublyLinkedList with reverse iteration
-const dList = new DoublyLinkedList<number>();
-dList.append(1);
-dList.append(2);
-dList.prepend(0);
-console.log([...dList.reverseIterator()]); // [2, 1, 0]
-
-// Using Deque
-const deque = new Deque<number>();
-
-// Add elements at both ends
-deque.addFirst(1); // [1]
-deque.addLast(2); // [1, 2]
-deque.addFirst(0); // [0, 1, 2]
-
-console.log([...deque]); // [0, 1, 2]
-
-// Using Trie
-const trie = new Trie<number>();
-trie.insert('hello', 1);
-trie.insert('help', 2);
-console.log(trie.search('hello')); // 1
-console.log(trie.getAllWithPrefix('hel')); // ["hello", "help"]
+import {
+  LinkedList,
+  DoublyLinkedList,
+  Deque,
+  MinHeap,
+  MaxHeap,
+  Trie,
+  PriorityQueue,
+} from 'jsr:@msk/data-structures';
 ```
 
 ## Available Data Structures and their detailed documentations

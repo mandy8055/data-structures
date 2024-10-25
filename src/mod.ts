@@ -1,50 +1,16 @@
 /**
  * @module
  * A comprehensive collection of data structures implemented in TypeScript for Deno.
- *
- * Basic usage:
- * ```ts
- * import { LinkedList, DoublyLinkedList, Deque, Trie } from "jsr:@msk/data-structures";
- *
- * const list = new LinkedList<number>();
- * list.append(1);
- *
- * const dll = new DoublyLinkedList<number>();
- * // Add elements
- * dll.append(1);
- * dll.append(2);
- * dll.append(3);
- *
- * // Forward traversal
- * console.log('Forward:', [...dll]); // [1, 2, 3]
- *
- * // Reverse traversal
- * console.log('Reverse:', [...dll.reverseIterator()]); // [3, 2, 1]
- *
- * const deque = new Deque<number>();
- * deque.addFirst(1); // [1]
- * deque.addLast(2); // [1, 2]
- * deque.addFirst(0); // [0, 1, 2]
- * console.log([...deque]); // [0, 1, 2]
- *
- * const trie = new Trie<number>();
- * trie.insert("hello", 1);
- * trie.insert("help", 2);
- * console.log(trie.search("hello")); // 1
- * console.log(trie.getAllWithPrefix("hel")); // ["hello", "help"]
- * ```
  */
 
 // Core data structures
 export { LinkedList } from './core/linked-list.ts';
 export { DoublyLinkedList } from './core/doubly-linked-list.ts';
 export { Deque } from './core/deque.ts';
-// export { PriorityQueue } from "./priority_queue.ts";
+export { PriorityQueue } from './core/priority-queue.ts';
 
 // Heap implementations
-// export { MinHeap } from "./heap/min_heap.ts";
-// export { MaxHeap } from "./heap/max_heap.ts";
-// export { type Heap } from "./heap/heap_interface.ts";
+export { BinaryHeap, MaxHeap, MinHeap } from './core/binary-heap.ts';
 
 // Types and interfaces
 export type { Comparable } from './types/index.ts';
