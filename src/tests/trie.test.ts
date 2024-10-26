@@ -12,6 +12,7 @@ Deno.test('Trie - basic operations', async (t) => {
     const trie = new Trie<number>();
     trie.insert('hello', 1);
     trie.insert('help', 2);
+    trie.insert('', 3);
     assertEquals(trie.search('hello'), 1);
     assertEquals(trie.search('help'), 2);
     assertEquals(trie.search('hell'), null);

@@ -101,3 +101,76 @@ Deno.test('LinkedList - basic operations', async (t) => {
     assertEquals(values, [1, 2, 3]);
   });
 });
+
+Deno.test('LinkedList - complex removal operations', async (t) => {
+  await t.step('remove some middle value of the linked list', () => {
+    const list = new LinkedList<number>();
+    list.append(2);
+    list.append(3);
+    list.append(56);
+    list.append(4);
+    assertEquals(list.size, 4);
+    list.remove(56);
+    assertEquals(list.toArray(), [2, 3, 4]);
+    assertEquals(list.size, 3);
+  });
+
+  await t.step('remove some non-existent value from the linked list', () => {
+    const list = new LinkedList<number>();
+    list.append(2);
+    list.append(3);
+    list.append(56);
+    list.append(4);
+    assertEquals(list.size, 4);
+    const val = list.remove(79);
+    assertEquals(list.toArray(), [2, 3, 56, 4]);
+    assertEquals(list.size, 4);
+    assertEquals(val, false);
+  });
+
+  await t.step('remove one value from a 2-sized linked list', () => {
+    const list = new LinkedList<number>();
+    list.append(3);
+    list.append(4);
+    assertEquals(list.size, 2);
+    const val = list.remove(4);
+    assertEquals(list.size, 1);
+    assertEquals(val, true);
+  });
+
+  await t.step('remove head using removeAt method', () => {
+    const list = new LinkedList<number>();
+    list.append(3);
+    list.append(4);
+    list.append(8);
+    assertEquals(list.size, 3);
+    const val = list.removeAt(0);
+    assertEquals(list.size, 2);
+    assertEquals(val, 3);
+  });
+
+  await t.step('remove middle indexed value using removeAt method', () => {
+    const list = new LinkedList<number>();
+    list.append(3);
+    list.append(4);
+    list.append(11);
+    list.append(8);
+    assertEquals(list.size, 4);
+    const val = list.removeAt(2);
+    assertEquals(list.size, 3);
+    assertEquals(val, 11);
+  });
+});
+
+Deno.test('LinkedList - edge case for insertAt operation', async (t) => {
+  await t.step('remove head using removeAt method', () => {
+    const list = new LinkedList<number>();
+    list.append(3);
+    list.append(4);
+    list.append(8);
+    assertEquals(list.size, 3);
+    list.insertAt(0, 2);
+    assertEquals(list.size, 4);
+    assertEquals(list.toArray(), [3, 4, 0, 8]);
+  });
+});
