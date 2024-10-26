@@ -181,3 +181,59 @@ Deno.test('DoublyLinkedList - basic operations', async (t) => {
     assertEquals(values, [3, 2, 1]);
   });
 });
+
+Deno.test('DoublyLinkedList - complex removal operations', async (t) => {
+  await t.step(
+    'removing first element in 1-sized list using removeFirst method',
+    () => {
+      const list = new DoublyLinkedList<number>();
+      list.append(1);
+      assertEquals(list.size, 1);
+      const val = list.removeFirst();
+      assertEquals(val, 1);
+      assertEquals(list.size, 0);
+    },
+  );
+
+  await t.step(
+    'removing last element in 1-sized list using removeLast method',
+    () => {
+      const list = new DoublyLinkedList<number>();
+      list.append(1);
+      assertEquals(list.size, 1);
+      const val = list.removeLast();
+      assertEquals(val, 1);
+      assertEquals(list.size, 0);
+    },
+  );
+
+  await t.step('removing first and last elements using removeAt method', () => {
+    const list = new DoublyLinkedList<number>();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.append(8);
+    assertEquals(list.size, 4);
+    const stVal = list.removeAt(0);
+    assertEquals(stVal, 1);
+    assertEquals(list.size, 3);
+    const endVal = list.removeAt(2);
+    assertEquals(endVal, 8);
+    assertEquals(list.size, 2);
+  });
+
+  await t.step('removing first and last elements using remove method', () => {
+    const list = new DoublyLinkedList<number>();
+    list.append(1);
+    list.append(2);
+    list.append(3);
+    list.append(8);
+    assertEquals(list.size, 4);
+    const stVal = list.remove(1);
+    assertEquals(stVal, true);
+    assertEquals(list.size, 3);
+    const endVal = list.remove(8);
+    assertEquals(endVal, true);
+    assertEquals(list.size, 2);
+  });
+});
