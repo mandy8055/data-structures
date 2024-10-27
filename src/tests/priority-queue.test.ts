@@ -61,6 +61,9 @@ Deno.test('PriorityQueue operations', async (t) => {
       queue.enqueue('hi');
       queue.enqueue('greetings');
       queue.enqueue('hey');
+      assertEquals(queue.toArray(), ['hi', 'hey', 'greetings', 'hello']);
+      const values = [...queue];
+      assertEquals(values, ['hi', 'hey', 'greetings', 'hello']);
 
       assertEquals(queue.dequeue(), 'hi');
       assertEquals(queue.dequeue(), 'hey');
