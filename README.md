@@ -2,7 +2,7 @@
 
 A comprehensive collection of generic data structure implementations which are not supported natively by the for TypeScript/JavaScript, and published on JSR.
 
-[![codecov](https://codecov.io/gh/mandy8055/data-structures/branch/main/graph/badge.svg)](https://codecov.io/gh/mandy8055/data-structures)
+[![JSR](https://jsr.io/badges/@mskr/data-structures)](https://jsr.io/@mskr/data-structures) [![JSR Score](https://jsr.io/badges/@mskr/data-structures/score)](https://jsr.io/@mskr/data-structures) [![codecov](https://codecov.io/gh/mandy8055/data-structures/branch/main/graph/badge.svg)](https://codecov.io/gh/mandy8055/data-structures) [![CI](https://github.com/mandy8055/data-structures/actions/workflows/workflow.yml/badge.svg)](https://github.com/mandy8055/data-structures/actions/workflows/workflow.yml)
 
 ## Features
 

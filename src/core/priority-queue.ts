@@ -156,6 +156,7 @@ export class PriorityQueue<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Creates an iterator for the queue
    * Note: Iteration order is based on the internal heap structure,
    * not necessarily in priority order

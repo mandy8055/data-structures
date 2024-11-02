@@ -42,6 +42,7 @@ export class Trie<T> {
   }
 
   /**
+   * @ignore
    * Creates a new TrieNode
    * @private
    */
@@ -54,6 +55,7 @@ export class Trie<T> {
   }
 
   /**
+   * @ignore
    * Normalizes the key based on case sensitivity setting
    * @private
    */
@@ -209,6 +211,7 @@ export class Trie<T> {
   }
 
   /**
+   * @ignore
    * Gets the node at the end of the given word path
    * @private
    */
@@ -228,6 +231,7 @@ export class Trie<T> {
   }
 
   /**
+   * @ignore
    * Recursively collects all words under a node
    * @private
    */
@@ -246,6 +250,7 @@ export class Trie<T> {
   }
 
   /**
+   * @ignore
    * Recursively collects all entries under a node
    * @private
    */

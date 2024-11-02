@@ -30,9 +30,15 @@ import { compareNumbers, compareStrings } from '../utils/index.ts';
  * ```
  */
 export abstract class BinaryHeap<T> implements Iterable<T> {
-  /** Heap array which stores the elements */
+  /**
+   * @ignore
+   * Heap array which stores the elements
+   */
   protected heap: T[];
-  /** Custom Comparator that can be passed to Heap */
+  /**
+   * @ignore
+   * Custom Comparator that can be passed to Heap
+   */
   protected compare: (a: T, b: T) => number;
 
   /**
@@ -126,6 +132,7 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Creates an iterator for the heap (level-order traversal)
    */
   [Symbol.iterator](): Iterator<T> {
@@ -160,6 +167,7 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Gets the parent index for a given child index
    * @protected
    */
@@ -168,6 +176,7 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Gets the left child index for a given parent index
    * @protected
    */
@@ -176,6 +185,7 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Gets the right child index for a given parent index
    * @protected
    */
@@ -184,12 +194,14 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Moves an element up the heap until heap property is satisfied
    * @protected
    */
   protected abstract siftUp(index: number): void;
 
   /**
+   * @ignore
    * Moves an element down the heap until heap property is satisfied
    * @protected
    */
@@ -202,6 +214,7 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
  */
 export class MinHeap<T> extends BinaryHeap<T> {
   /**
+   * @ignore
    * Moves an element up in the heap until it is in the correct position
    * to maintain the min heap property (parent is smaller than or equal to children)
    * @protected
@@ -223,6 +236,7 @@ export class MinHeap<T> extends BinaryHeap<T> {
   }
 
   /**
+   * @ignore
    * Moves an element down in the heap until it is in the correct position
    * to maintain the min heap property (parent is smaller than or equal to children)
    * @protected
@@ -267,6 +281,7 @@ export class MinHeap<T> extends BinaryHeap<T> {
  */
 export class MaxHeap<T> extends BinaryHeap<T> {
   /**
+   * @ignore
    * Moves an element up in the heap until it is in the correct position
    * to maintain the max heap property (parent is larger than or equal to children)
    * @protected
@@ -288,6 +303,7 @@ export class MaxHeap<T> extends BinaryHeap<T> {
   }
 
   /**
+   * @ignore
    * Moves an element down in the heap until it is in the correct position
    * to maintain the max heap property (parent is larger than or equal to children)
    * @protected
