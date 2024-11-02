@@ -16,6 +16,7 @@ export { BinaryHeap, MaxHeap, MinHeap } from './core/binary-heap.ts';
 
 // Special Trees implementation
 export { RedBlackTree } from './core/red-black-tree.ts';
+export { Trie } from './core/trie.ts';
 
 // Types and interfaces
 export type { Comparable } from './types/index.ts';
