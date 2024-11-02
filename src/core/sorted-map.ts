@@ -211,6 +211,7 @@ export class SortedMap<K, V> implements Iterable<[K, V]> {
   }
 
   /**
+   * @ignore
    * Default comparison function for values
    * @private
    * @param a First value to compare

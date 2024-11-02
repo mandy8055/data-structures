@@ -144,6 +144,7 @@ export class Deque<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Creates a forward iterator for the deque (front to back)
    */
   [Symbol.iterator](): Iterator<T> {

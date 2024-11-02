@@ -74,6 +74,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Creates a new node with the given value
    * @private
    * @param value The value to store in the node
@@ -228,6 +229,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Creates an iterator that traverses the tree in-order
    */
   [Symbol.iterator](): Iterator<T> {
@@ -245,6 +247,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Default comparison function for values
    * @private
    * @param a First value to compare
@@ -258,6 +261,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Finds a node with the given value in the tree
    * @private
    * @param value The value to search for
@@ -276,6 +280,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Performs a left rotation on the given node
    * @private
    * @param node The node to rotate
@@ -303,6 +308,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Performs a right rotation on the given node
    * @private
    * @param node The node to rotate
@@ -330,6 +336,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Fixes the Red-Black Tree properties after insertion
    * @private
    * @param node The newly inserted node
@@ -377,6 +384,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Deletes a node from the tree
    * @private
    * @param node The node to delete
@@ -417,6 +425,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Fixes the Red-Black Tree properties after deletion
    * @private
    * @param node The node to start fixing from
@@ -490,6 +499,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Replaces one subtree with another subtree
    * @private
    * @param u The root of the subtree to replace
@@ -509,6 +519,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Finds the node with the minimum value in a subtree
    * @private
    * @param node The root of the subtree
@@ -523,6 +534,7 @@ export class RedBlackTree<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Performs an in-order traversal of the tree
    * @private
    * @param node The root of the subtree to traverse

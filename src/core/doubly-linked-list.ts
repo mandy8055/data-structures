@@ -35,6 +35,7 @@ export class DoublyLinkedList<T> {
   private count = 0;
 
   /**
+   * @ignore
    * Creates a new node with the given value
    * @private
    */
@@ -313,6 +314,7 @@ export class DoublyLinkedList<T> {
   }
 
   /**
+   * @ignore
    * Creates a forward iterator for the list
    */
   *[Symbol.iterator](): Iterator<T> {

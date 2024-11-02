@@ -31,6 +31,7 @@ export class LinkedList<T> {
   private count = 0;
 
   /**
+   * @ignore
    * Creates a new node with the given value
    */
   private createNode(value: T): LinkedListNode<T> {
@@ -259,6 +260,7 @@ export class LinkedList<T> {
   }
 
   /**
+   * @ignore
    * Creates an iterator for the list
    */
   *[Symbol.iterator](): Iterator<T> {
