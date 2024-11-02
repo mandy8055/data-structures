@@ -1,3 +1,5 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+
 import { Comparable, EmptyStructureError } from '../mod.ts';
 import { compareNumbers, compareStrings } from '../utils/index.ts';
 
@@ -140,6 +142,7 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Gets the default comparator based on the type of the first element
    * @protected
    */
@@ -159,6 +162,7 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
   }
 
   /**
+   * @ignore
    * Type guard to check if an object implements the Comparable interface
    * @protected
    */
@@ -209,8 +213,36 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
 }
 
 /**
- * MinHeap implementation where the root is always the minimum element
- * @extends BinaryHeap
+ * MinHeap implementation where the root is always the minimum element.
+ *
+ * All operations inherited from {@link BinaryHeap} are available:
+ * @augments BinaryHeap<T>
+ *
+ * Methods available from BinaryHeap:
+ * - {@link BinaryHeap#size} - Returns the number of elements in the heap
+ * - {@link BinaryHeap#isEmpty} - Checks if the heap is empty
+ * - {@link BinaryHeap#peek} - Returns the minimum element without removing it
+ * - {@link BinaryHeap#insert} - Inserts a new element into the heap
+ * - {@link BinaryHeap#remove} - Removes and returns the minimum element
+ * - {@link BinaryHeap#contains} - Checks if an element exists in the heap
+ * - {@link BinaryHeap#clear} - Removes all elements from the heap
+ * - {@link BinaryHeap#toArray} - Converts the heap to an array
+ *
+ * @template T The type of elements stored in the heap
+ *
+ * @example
+ * ```typescript
+ * const minHeap = new MinHeap<number>();
+ * minHeap.insert(5);
+ * minHeap.insert(3);
+ * console.log(minHeap.peek()); // 3
+ * console.log(minHeap.remove()); // 3
+ * console.log(minHeap.size); // 1
+ * // Level-order traversal
+ * for (const value of minHeap) {
+ *  console.log(value);
+ * }
+ * ```
  */
 export class MinHeap<T> extends BinaryHeap<T> {
   /**
@@ -276,8 +308,36 @@ export class MinHeap<T> extends BinaryHeap<T> {
 }
 
 /**
- * MaxHeap implementation where the root is always the maximum element
- * @extends BinaryHeap
+ * MaxHeap implementation where the root is always the maximum element.
+ *
+ * All operations inherited from {@link BinaryHeap} are available:
+ * @augments BinaryHeap<T>
+ *
+ * Methods available from BinaryHeap:
+ * - {@link BinaryHeap#size} - Returns the number of elements in the heap
+ * - {@link BinaryHeap#isEmpty} - Checks if the heap is empty
+ * - {@link BinaryHeap#peek} - Returns the maximum element without removing it
+ * - {@link BinaryHeap#insert} - Inserts a new element into the heap
+ * - {@link BinaryHeap#remove} - Removes and returns the maximum element
+ * - {@link BinaryHeap#contains} - Checks if an element exists in the heap
+ * - {@link BinaryHeap#clear} - Removes all elements from the heap
+ * - {@link BinaryHeap#toArray} - Converts the heap to an array
+ *
+ * @template T The type of elements stored in the heap
+ *
+ * @example
+ * ```typescript
+ * const maxHeap = new MaxHeap<number>();
+ * maxHeap.insert(5);
+ * maxHeap.insert(3);
+ * console.log(maxHeap.peek()); // 5
+ * console.log(maxHeap.remove()); // 5
+ * console.log(maxHeap.size); // 1
+ * // Level-order traversal
+ * for (const value of maxHeap) {
+ *  console.log(value);
+ * }
+ * ```
  */
 export class MaxHeap<T> extends BinaryHeap<T> {
   /**

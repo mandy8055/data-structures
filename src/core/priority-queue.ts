@@ -1,3 +1,5 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+
 import { MinHeap } from './binary-heap.ts';
 
 /**
@@ -38,6 +40,7 @@ import { MinHeap } from './binary-heap.ts';
  * ```
  */
 export class PriorityQueue<T> implements Iterable<T> {
+  /** @ignore */
   private heap: MinHeap<T>;
 
   /**

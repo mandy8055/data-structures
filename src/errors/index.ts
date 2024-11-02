@@ -1,3 +1,5 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+
 /**
  * Error thrown when attempting to perform operations on an empty data structure.
  * @extends Error

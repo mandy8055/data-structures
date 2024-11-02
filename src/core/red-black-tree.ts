@@ -1,3 +1,5 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+
 import { EmptyStructureError } from '../errors/index.ts';
 import { RBColor, type RBNode } from '../types/index.ts';
 
@@ -45,8 +47,11 @@ import { RBColor, type RBNode } from '../types/index.ts';
  * ```
  */
 export class RedBlackTree<T> implements Iterable<T> {
+  /** @ignore */
   private root: RBNode<T> | null = null;
+  /** @ignore */
   private size_: number = 0;
+  /** @ignore */
   private compare: (a: T, b: T) => number;
 
   /**

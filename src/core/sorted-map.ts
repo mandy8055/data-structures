@@ -1,3 +1,5 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+
 import { EmptyStructureError } from '../errors/index.ts';
 import { RedBlackTree } from './red-black-tree.ts';
 
@@ -40,7 +42,9 @@ import { RedBlackTree } from './red-black-tree.ts';
  * ```
  */
 export class SortedMap<K, V> implements Iterable<[K, V]> {
+  /** @ignore */
   private tree: RedBlackTree<[K, V]>;
+  /** @ignore */
   private keyComparator: (a: K, b: K) => number;
 
   /**

@@ -1,3 +1,5 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+
 import { EmptyStructureError } from '../errors/index.ts';
 import { DoublyLinkedList } from './doubly-linked-list.ts';
 
@@ -28,9 +30,18 @@ import { DoublyLinkedList } from './doubly-linked-list.ts';
  * console.log(deque.toArray()); // [0, 1, 2]
  * console.log(deque.removeFirst()); // 0
  * console.log(deque.removeLast()); // 2
+ * // Forward iteration (front to back)
+ * for (const value of deque) {
+ *  console.log(value);
+ * }
+ * // Reverse iteration (back to front)
+ * for (const value of deque.reverseIterator()) {
+ *  console.log(value);
+ * }
  * ```
  */
 export class Deque<T> implements Iterable<T> {
+  /** @ignore */
   private list: DoublyLinkedList<T>;
 
   /**
