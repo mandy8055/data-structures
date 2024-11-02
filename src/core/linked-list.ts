@@ -1,3 +1,5 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+
 import { EmptyStructureError, IndexOutOfBoundsError } from '../errors/index.ts';
 import type { LinkedListNode } from '../types/index.ts';
 
@@ -26,8 +28,11 @@ import type { LinkedListNode } from '../types/index.ts';
  * ```
  */
 export class LinkedList<T> {
+  /** @ignore */
   private head: LinkedListNode<T> | null = null;
+  /** @ignore */
   private tail: LinkedListNode<T> | null = null;
+  /** @ignore */
   private count = 0;
 
   /**

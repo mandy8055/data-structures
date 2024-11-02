@@ -1,3 +1,5 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+
 /**
  * Compares two numbers and returns their difference.
  * @param a First number to compare

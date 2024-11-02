@@ -1,3 +1,4 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
 /**
  * @module
  * A comprehensive collection of data structures implemented in TypeScript for Deno.

@@ -1,3 +1,5 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+
 import type { TrieNode } from '../types/index.ts';
 
 /**
@@ -27,8 +29,11 @@ import type { TrieNode } from '../types/index.ts';
  * ```
  */
 export class Trie<T> {
+  /** @ignore */
   private root: TrieNode<T>;
+  /** @ignore */
   private wordCount: number;
+  /** @ignore */
   private caseSensitive: boolean;
 
   /**

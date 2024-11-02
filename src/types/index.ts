@@ -1,3 +1,5 @@
+// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+
 /**
  * Interface for objects that can be compared to each other.
  * @template T The type of objects being compared
