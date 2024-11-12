@@ -26,6 +26,7 @@ import {
   PriorityQueue,
   SortedMap,
   RedBlackTree,
+  BiDirectionalMap,
 } from 'jsr:@msk/data-structures';
 ```
 
@@ -39,6 +40,7 @@ import {
 - [PriorityQueue](./docs/priority-queue.md): Implementation backed by a binary heap, where elements are dequeued based on their priority.
 - [RedBlackTree](./docs/red-black-tree.md): Implementation providing self-balancing binary search tree operations
 - [SortedMap](./docs/sorted-map.md): A generic key-value map that maintains its entries sorted by key using a Red-Black Tree.
+- [BiDirectional Map](./docs/bi-map.md): maintains one-to-one mappings between two sets of elements. Each key maps to a unique value, and each value maps to a unique key.
 
 ## Error Handling
 
