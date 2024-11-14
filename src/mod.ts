@@ -9,8 +9,10 @@ export { LinkedList } from './core/linked-list.ts';
 export { DoublyLinkedList } from './core/doubly-linked-list.ts';
 export { Deque } from './core/deque.ts';
 export { PriorityQueue } from './core/priority-queue.ts';
+// Special Maps and Caches
 export { SortedMap } from './core/sorted-map.ts';
 export { BiDirectionalMap } from './core/bi-map.ts';
+export { LRUCache } from './core/lru-cache.ts';
 
 // Heap implementations
 export { BinaryHeap, MaxHeap, MinHeap } from './core/binary-heap.ts';

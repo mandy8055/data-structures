@@ -27,6 +27,7 @@ import {
   SortedMap,
   RedBlackTree,
   BiDirectionalMap,
+  LRUCache,
 } from 'jsr:@msk/data-structures';
 ```
 
@@ -41,6 +42,7 @@ import {
 - [RedBlackTree](./docs/red-black-tree.md): Implementation providing self-balancing binary search tree operations
 - [SortedMap](./docs/sorted-map.md): A generic key-value map that maintains its entries sorted by key using a Red-Black Tree.
 - [BiDirectional Map](./docs/bi-map.md): maintains one-to-one mappings between two sets of elements. Each key maps to a unique value, and each value maps to a unique key.
+- [LRU Cache](./docs/lru-cache.md): implementation that provides efficient O(1) operations for both accessing and storing elements, with automatic eviction of least recently used items when capacity is reached.
 
 ## Error Handling
 
