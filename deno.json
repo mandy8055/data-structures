@@ -4,8 +4,8 @@
   "exports": "./src/mod.ts",
   "license": "MIT",
   "publish": {
-    "include": ["src", "README.md", "LICENSE", "docs"],
-    "exclude": ["src/tests", ".github", ".vscode", "deno.json"]
+    "include": ["src", "README.md", "LICENSE"],
+    "exclude": ["src/tests", ".github", ".vscode", "deno.json", "docs"]
   },
   "tasks": {
     "test": "deno test",

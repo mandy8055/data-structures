@@ -1,6 +1,7 @@
 // Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
 
 /**
+ * @ignore
  * Interface for objects that can be compared to each other.
  * @template T The type of objects being compared
  */
@@ -15,6 +16,7 @@ export interface Comparable<T> {
 }
 
 /**
+ * @ignore
  * Represents a node in a singly linked list.
  * @template T The type of value stored in the node
  */
@@ -26,6 +28,7 @@ export interface LinkedListNode<T> {
 }
 
 /**
+ * @ignore
  * Represents a node in a doubly linked list.
  * @template T The type of value stored in the node
  */
@@ -39,6 +42,7 @@ export interface DoublyLinkedListNode<T> {
 }
 
 /**
+ * @ignore
  * Represents a node in a queue implementation.
  * @template T The type of value stored in the node
  */
@@ -50,6 +54,7 @@ export interface QueueNode<T> {
 }
 
 /**
+ * @ignore
  * Represents a node in the Trie.
  * @template T The type of value associated with complete words
  */
@@ -63,6 +68,7 @@ export interface TrieNode<T> {
 }
 
 /**
+ * @ignore
  * Represents the color of a node in a Red-Black Tree.
  */
 export enum RBColor {
@@ -71,6 +77,7 @@ export enum RBColor {
 }
 
 /**
+ * @ignore
  * Represents a node in a Red-Black Tree.
  * @template T The type of value stored in the node
  */

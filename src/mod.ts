@@ -21,17 +21,6 @@ export { BinaryHeap, MaxHeap, MinHeap } from './core/binary-heap.ts';
 export { RedBlackTree } from './core/red-black-tree.ts';
 export { Trie } from './core/trie.ts';
 
-// Types and interfaces
-export type { Comparable } from './types/index.ts';
-export type {
-  DoublyLinkedListNode,
-  LinkedListNode,
-  QueueNode,
-  RBColor,
-  RBNode,
-  TrieNode,
-} from './types/index.ts';
-
 // Optional: Common errors/exceptions
 export {
   EmptyStructureError,
@@ -39,19 +28,9 @@ export {
   InvalidOperationError,
 } from './errors/index.ts';
 
-// Optional: Utility functions
-export {
-  compareNumbers,
-  compareStrings,
-  createCustomComparer,
-} from './utils/index.ts';
-
 // Optional: Constants
 export {
   DEFAULT_CAPACITY,
   GROWTH_FACTOR,
   MAX_ARRAY_SIZE,
 } from './constants/index.ts';
-
-/** Version information */
-export const VERSION = '1.0.0';

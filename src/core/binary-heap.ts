@@ -1,6 +1,7 @@
 // Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
 
-import { Comparable, EmptyStructureError } from '../mod.ts';
+import { EmptyStructureError } from '../errors/index.ts';
+import type { Comparable } from '../types/index.ts';
 import { compareNumbers, compareStrings } from '../utils/index.ts';
 
 /**
