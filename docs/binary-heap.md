@@ -5,7 +5,7 @@ A generic binary heap implementation that provides both Min Heap and Max Heap va
 ## Usage
 
 ```typescript
-import { MinHeap, MaxHeap } from 'jsr:@msk/data-structures';
+import { MinHeap, MaxHeap } from 'jsr:@mskr/data-structures';
 
 const minHeap = new MinHeap<number>();
 const maxHeap = new MaxHeap<number>();

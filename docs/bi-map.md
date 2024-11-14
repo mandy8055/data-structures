@@ -5,7 +5,7 @@ A bidirectional map (BiMap) implementation that maintains one-to-one mappings be
 ## Usage
 
 ```typescript
-import { BiDirectionalMap } from 'jsr:@msk/data-structures';
+import { BiDirectionalMap } from 'jsr:@mskr/data-structures';
 
 const biMap = new BiDirectionalMap<string, number>();
 ```

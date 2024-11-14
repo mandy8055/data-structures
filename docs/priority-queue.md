@@ -5,7 +5,7 @@ A generic priority queue implementation backed by a binary heap, where elements 
 ## Usage
 
 ```typescript
-import { PriorityQueue } from 'jsr:@msk/data-structures';
+import { PriorityQueue } from 'jsr:@mskr/data-structures';
 
 const queue = new PriorityQueue<number>();
 ```
