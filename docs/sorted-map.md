@@ -5,7 +5,7 @@ A generic key-value collection that maintains entries sorted by key using a Red-
 ## Usage
 
 ```typescript
-import { SortedMap } from 'jsr:@msk/data-structures';
+import { SortedMap } from 'jsr:@mskr/data-structures';
 
 const map = new SortedMap<number, string>();
 ```

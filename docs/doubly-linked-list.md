@@ -5,7 +5,7 @@ A doubly linked list implementation that stores elements of type `T` and support
 ## Usage
 
 ```typescript
-import { DoublyLinkedList } from 'jsr:@msk/data-structures';
+import { DoublyLinkedList } from 'jsr:@mskr/data-structures';
 
 const list = new DoublyLinkedList<number>();
 ```

@@ -28,7 +28,7 @@ import {
   RedBlackTree,
   BiDirectionalMap,
   LRUCache,
-} from 'jsr:@msk/data-structures';
+} from 'jsr:@mskr/data-structures';
 ```
 
 ## Available Data Structures and their detailed documentations

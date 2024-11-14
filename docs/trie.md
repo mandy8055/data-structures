@@ -5,7 +5,7 @@ A generic trie (prefix tree) implementation that efficiently stores and retrieve
 ## Usage
 
 ```typescript
-import { Trie } from 'jsr:@msk/data-structures';
+import { Trie } from 'jsr:@mskr/data-structures';
 
 const trie = new Trie<number>();
 ```

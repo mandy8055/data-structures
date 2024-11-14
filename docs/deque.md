@@ -5,7 +5,7 @@ A double-ended queue (deque) implementation that efficiently supports insertion 
 ## Usage
 
 ```typescript
-import { Deque } from 'jsr:@msk/data-structures';
+import { Deque } from 'jsr:@mskr/data-structures';
 
 const deque = new Deque<number>();
 ```

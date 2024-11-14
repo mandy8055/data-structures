@@ -5,7 +5,7 @@ A generic self-balancing binary search tree implementation that maintains balanc
 ## Usage
 
 ```typescript
-import { RedBlackTree } from 'jsr:@msk/data-structures';
+import { RedBlackTree } from 'jsr:@mskr/data-structures';
 
 const tree = new RedBlackTree<number>();
 ```
