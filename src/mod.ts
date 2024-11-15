@@ -13,6 +13,7 @@ export { PriorityQueue } from './core/priority-queue.ts';
 export { SortedMap } from './core/sorted-map.ts';
 export { BiDirectionalMap } from './core/bi-map.ts';
 export { LRUCache } from './core/lru-cache.ts';
+export { LFUCache } from './core/lfu-cache.ts';
 
 // Heap implementations
 export { BinaryHeap, MaxHeap, MinHeap } from './core/binary-heap.ts';

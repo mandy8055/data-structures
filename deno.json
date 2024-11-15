@@ -5,7 +5,7 @@
   "license": "MIT",
   "publish": {
     "include": ["src", "README.md", "LICENSE"],
-    "exclude": ["src/tests", ".github", ".vscode", "deno.json", "docs"]
+    "exclude": ["src/**/*.test.ts", ".github", ".vscode", "deno.json", "docs"]
   },
   "tasks": {
     "test": "deno test",
