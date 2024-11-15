@@ -1,11 +1,11 @@
 {
   "name": "@mskr/data-structures",
-  "version": "0.5.0",
+  "version": "0.6.0",
   "exports": "./src/mod.ts",
   "license": "MIT",
   "publish": {
     "include": ["src", "README.md", "LICENSE"],
-    "exclude": ["src/tests", ".github", ".vscode", "deno.json", "docs"]
+    "exclude": ["src/**/*.test.ts", ".github", ".vscode", "deno.json", "docs"]
   },
   "tasks": {
     "test": "deno test",
