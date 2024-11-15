@@ -1,64 +1,102 @@
 // Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
 
-import { DoublyLinkedList } from './doubly-linked-list.ts';
-
 /**
- * A generic Least Frequently Used (LFU) Cache implementation.
+ * A Least Frequently Used (LFU) Cache implementation using HashMaps for O(1) operations.
  *
- * This class provides an O(1) time complexity implementation of the LFU cache
- * eviction policy. It maintains items based on their access frequency and
- * recency within each frequency level.
+ * The LFU Cache is a fixed-size cache that removes the least frequently used item when
+ * the cache reaches its capacity. If multiple items have the same frequency, it removes
+ * the least recently used among them. It provides constant time O(1) operations for both
+ * getting and putting elements.
  *
  * Features:
- * - O(1) time complexity for get and put operations
- * - Configurable capacity
- * - Automatic eviction of least frequently used items
- * - Implements Iterable interface for use in for...of loops
+ * - O(1) get operations
+ * - O(1) put operations
+ * - Fixed capacity with automatic eviction
  * - Type-safe implementation using generics
- *
- * The implementation uses a combination of HashMaps and DoublyLinkedLists to
- * achieve O(1) time complexity for the main operations.
+ * - Optional time-based expiration
+ * - Implements Iterable interface for use in for...of loops
  *
  * @template K The type of keys stored in the cache
  * @template V The type of values stored in the cache
  *
  * @example
  * ```typescript
- * const cache = new LFUCache<string, number>(2);
+ * // Create a cache with capacity of 3
+ * const cache = new LFUCache<string, number>({ capacity: 3 });
+ *
+ * // Add some items
  * cache.put("a", 1);
  * cache.put("b", 2);
+ * cache.put("c", 3);
+ *
+ * // Access an item (increases its frequency)
  * console.log(cache.get("a")); // 1
- * cache.put("c", 3); // evicts "b" since "a" was accessed more recently
- * console.log(cache.has("b")); // false
+ * console.log(cache.get("a")); // 1
+ *
+ * // Add a new item when at capacity
+ * cache.put("d", 4); // Evicts either "b" or "c" (whichever was accessed less)
+ *
+ * // Create a cache with time-based expiration
+ * const timedCache = new LFUCache<string, number>({
+ *   capacity: 100,
+ *   ttl: 60000 // Items expire after 60 seconds
+ * });
  * ```
  */
 export class LFUCache<K, V> implements Iterable<[K, V]> {
   /** @ignore */
   private capacity: number;
   /** @ignore */
-  private cache: Map<K, [V, number]>;
+  private cache: Map<K, V>;
   /** @ignore */
-  private frequencies: Map<number, DoublyLinkedList<K>>;
+  private frequencies: Map<K, number>;
   /** @ignore */
-  private minFrequency: number;
+  private freqLists: Map<number, Set<K>>;
+  /** @ignore */
+  private minFreq: number;
+  /** @ignore */
+  private ttl?: number;
+  /** @ignore */
+  private timestamps?: Map<K, number>;
+  /** @ignore */
+  private accessOrder: Map<number, Map<K, number>>;
+  /** @ignore */
+  private accessCounter: number;
 
   /**
-   * Creates a new LFU Cache with the specified capacity
-   * @param capacity Maximum number of items the cache can hold
-   * @throws {Error} If capacity is less than or equal to 0
+   * Creates a new LFU Cache
+   * @param options Configuration options for the cache
    */
-  constructor(capacity: number) {
-    if (capacity <= 0) {
+  constructor(options: {
+    /**
+     * Maximum number of items the cache can hold
+     */
+    capacity: number;
+    /**
+     * Optional time-to-live in milliseconds for cache entries
+     */
+    ttl?: number;
+  }) {
+    if (options.capacity <= 0) {
       throw new Error('Capacity must be greater than 0');
     }
-    this.capacity = capacity;
+
+    this.capacity = options.capacity;
     this.cache = new Map();
     this.frequencies = new Map();
-    this.minFrequency = 0;
+    this.freqLists = new Map();
+    this.minFreq = 0;
+    this.accessOrder = new Map();
+    this.accessCounter = 0;
+
+    if (options.ttl !== undefined) {
+      this.ttl = options.ttl;
+      this.timestamps = new Map();
+    }
   }
 
   /**
-   * Returns the current number of items in the cache
+   * Returns the number of elements in the cache
    */
   get size(): number {
     return this.cache.size;
@@ -67,17 +105,18 @@ export class LFUCache<K, V> implements Iterable<[K, V]> {
   /**
    * Retrieves an item from the cache
    * @param key The key of the item to retrieve
-   * @returns The value associated with the key, or undefined if not found
+   * @returns The value associated with the key, or undefined if not found or expired
    */
   get(key: K): V | undefined {
-    const item = this.cache.get(key);
-    if (!item) {
+    if (!this.cache.has(key)) return undefined;
+
+    if (this.isExpired(key)) {
+      this.delete(key);
       return undefined;
     }
 
-    const [value, frequency] = item;
-    this.incrementFrequency(key, frequency);
-    return value;
+    this.incrementFrequency(key);
+    return this.cache.get(key);
   }
 
   /**
@@ -88,66 +127,72 @@ export class LFUCache<K, V> implements Iterable<[K, V]> {
   put(key: K, value: V): void {
     if (this.capacity <= 0) return;
 
-    const currentItem = this.cache.get(key);
-    if (currentItem) {
-      const [_, frequency] = currentItem;
-      this.cache.set(key, [value, frequency]);
-      this.incrementFrequency(key, frequency);
-      return;
+    if (this.isExpired(key)) {
+      this.delete(key);
     }
 
-    if (this.cache.size >= this.capacity) {
-      this.evict();
+    if (this.cache.has(key)) {
+      this.cache.set(key, value);
+      this.incrementFrequency(key);
+    } else {
+      if (this.size >= this.capacity) {
+        this.removeLFU();
+      }
+
+      this.cache.set(key, value);
+      this.frequencies.set(key, 1);
+      if (!this.freqLists.has(1)) {
+        this.freqLists.set(1, new Set());
+        this.accessOrder.set(1, new Map());
+      }
+      this.freqLists.get(1)!.add(key);
+      this.accessOrder.get(1)!.set(key, ++this.accessCounter);
+      this.minFreq = 1;
     }
 
-    // Add new item with frequency 1
-    this.cache.set(key, [value, 1]);
-    if (!this.frequencies.has(1)) {
-      this.frequencies.set(1, new DoublyLinkedList<K>());
+    if (this.timestamps) {
+      this.timestamps.set(key, Date.now());
     }
-    this.frequencies.get(1)!.append(key);
-    this.minFrequency = 1;
   }
 
   /**
-   * Checks if an item exists in the cache
+   * Checks if a key exists in the cache and hasn't expired
    * @param key The key to check
-   * @returns true if the key exists in the cache
+   * @returns {boolean} true if the key exists and hasn't expired
    */
   has(key: K): boolean {
-    return this.cache.has(key);
+    if (!this.cache.has(key)) return false;
+    if (this.isExpired(key)) {
+      this.delete(key);
+      return false;
+    }
+    return true;
   }
 
   /**
    * Removes an item from the cache
    * @param key The key of the item to remove
-   * @returns true if an item was removed
+   * @returns {boolean} true if an item was removed
    */
   delete(key: K): boolean {
-    const item = this.cache.get(key);
-    if (!item) {
-      return false;
-    }
+    if (!this.cache.has(key)) return false;
 
-    const [_, frequency] = item;
-    const freqList = this.frequencies.get(frequency)!;
+    const freq = this.frequencies.get(key)!;
+    const freqSet = this.freqLists.get(freq)!;
+    freqSet.delete(key);
+    this.accessOrder.get(freq)?.delete(key);
 
-    // Remove from frequency list
-    const index = freqList.indexOf(key);
-    if (index !== -1) {
-      freqList.removeAt(index);
-    }
-
-    // Update minFrequency if necessary
-    if (freqList.isEmpty() && this.minFrequency === frequency) {
-      this.minFrequency = frequency + 1;
-      if (this.cache.size === 0) {
-        this.minFrequency = 0;
+    if (freqSet.size === 0) {
+      this.freqLists.delete(freq);
+      this.accessOrder.delete(freq);
+      if (freq === this.minFreq) {
+        this.minFreq = this.findNewMinFreq();
       }
     }
 
-    // Remove from cache
     this.cache.delete(key);
+    this.frequencies.delete(key);
+    this.timestamps?.delete(key);
     return true;
   }
 
@@ -157,59 +202,126 @@ export class LFUCache<K, V> implements Iterable<[K, V]> {
   clear(): void {
     this.cache.clear();
     this.frequencies.clear();
-    this.minFrequency = 0;
+    this.freqLists.clear();
+    this.timestamps?.clear();
+    this.accessOrder.clear();
+    this.minFreq = 0;
+    this.accessCounter = 0;
   }
 
   /**
-   * Returns an iterator of all [key, value] pairs in the cache
+   * Returns an array of all entries in the cache ordered by frequency (highest to lowest)
+   * and then by recency within each frequency level
+   * @returns An array of [key, value] pairs
    */
-  entries(): IterableIterator<[K, V]> {
-    return this.generateEntries();
+  entries(): [K, V][] {
+    const entries: [K, V][] = [];
+    const freqs = Array.from(this.freqLists.keys()).sort((a, b) => b - a);
+
+    for (const freq of freqs) {
+      const keys = Array.from(this.freqLists.get(freq)!);
+      // Sort keys by access order within the same frequency
+      keys.sort((a, b) => {
+        const aAccess = this.accessOrder.get(freq)?.get(a) || 0;
+        const bAccess = this.accessOrder.get(freq)?.get(b) || 0;
+        return bAccess - aAccess; // Most recent first
+      });
+
+      for (const key of keys) {
+        if (!this.isExpired(key)) {
+          const value = this.cache.get(key);
+          if (value !== undefined) {
+            entries.push([key, value]);
+          }
+        }
+      }
+    }
+
+    return entries;
   }
 
   /**
    * @ignore
-   * Iterator implementation
+   * Creates an iterator for the cache
+   * Iteration order is from highest frequency to lowest,
+   * and by recency within each frequency level
    */
   [Symbol.iterator](): Iterator<[K, V]> {
-    return this.generateEntries();
+    const entries = this.entries();
+    let index = 0;
+
+    return {
+      next: (): IteratorResult<[K, V]> => {
+        if (index < entries.length) {
+          return {
+            value: entries[index++],
+            done: false,
+          };
+        }
+        return { value: undefined as unknown as [K, V], done: true };
+      },
+    };
   }
 
   /** @ignore */
-  private *generateEntries(): IterableIterator<[K, V]> {
-    for (const [key, [value, _]] of this.cache) {
-      yield [key, value];
+  private incrementFrequency(key: K): void {
+    const freq = this.frequencies.get(key)!;
+    const freqSet = this.freqLists.get(freq)!;
+    freqSet.delete(key);
+    this.accessOrder.get(freq)?.delete(key);
+
+    if (freqSet.size === 0) {
+      this.freqLists.delete(freq);
+      this.accessOrder.delete(freq);
+      if (freq === this.minFreq) {
+        this.minFreq = freq + 1;
+      }
     }
+
+    const newFreq = freq + 1;
+    this.frequencies.set(key, newFreq);
+
+    if (!this.freqLists.has(newFreq)) {
+      this.freqLists.set(newFreq, new Set());
+      this.accessOrder.set(newFreq, new Map());
+    }
+    this.freqLists.get(newFreq)!.add(key);
+    this.accessOrder.get(newFreq)!.set(key, ++this.accessCounter);
   }
 
   /** @ignore */
-  private incrementFrequency(key: K, frequency: number): void {
-    const currentFreqList = this.frequencies.get(frequency)!;
-    const index = currentFreqList.indexOf(key);
-    if (index !== -1) {
-      currentFreqList.removeAt(index);
+  private removeLFU(): void {
+    if (this.minFreq === 0 || !this.freqLists.has(this.minFreq)) return;
+
+    const leastFreqSet = this.freqLists.get(this.minFreq)!;
+    const leastFreqAccessOrder = this.accessOrder.get(this.minFreq)!;
+
+    // Find the least recently used key among the least frequent items
+    let lruKey = Array.from(leastFreqSet)[0];
+    let minAccess = leastFreqAccessOrder.get(lruKey) || Infinity;
+
+    for (const key of leastFreqSet) {
+      const access = leastFreqAccessOrder.get(key) || Infinity;
+      if (access < minAccess) {
+        minAccess = access;
+        lruKey = key;
+      }
     }
 
-    // Update minFrequency if necessary
-    if (this.minFrequency === frequency && currentFreqList.isEmpty()) {
-      this.minFrequency++;
-    }
-
-    const newFrequency = frequency + 1;
-    if (!this.frequencies.has(newFrequency)) {
-      this.frequencies.set(newFrequency, new DoublyLinkedList<K>());
-    }
-
-    this.frequencies.get(newFrequency)!.append(key);
-    this.cache.set(key, [this.cache.get(key)![0], newFrequency]);
+    this.delete(lruKey);
   }
 
   /** @ignore */
-  private evict(): void {
-    const minFreqList = this.frequencies.get(this.minFrequency)!;
-    if (!minFreqList.isEmpty()) {
-      const keyToRemove = minFreqList.removeFirst();
-      this.cache.delete(keyToRemove);
-    }
+  private findNewMinFreq(): number {
+    if (this.freqLists.size === 0) return 0;
+    return Math.min(...this.freqLists.keys());
+  }
+
+  /** @ignore */
+  private isExpired(key: K): boolean {
+    if (!this.ttl || !this.timestamps) return false;
+    const timestamp = this.timestamps.get(key);
+    if (!timestamp) return true;
+    return Date.now() - timestamp > this.ttl;
   }
 }
