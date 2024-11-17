@@ -43,18 +43,6 @@ export interface DoublyLinkedListNode<T> {
 
 /**
  * @ignore
- * Represents a node in a queue implementation.
- * @template T The type of value stored in the node
- */
-export interface QueueNode<T> {
-  /** The value stored in the node */
-  value: T;
-  /** Reference to the next node in the queue */
-  next: QueueNode<T> | null;
-}
-
-/**
- * @ignore
  * Represents a node in the Trie.
  * @template T The type of value associated with complete words
  */
