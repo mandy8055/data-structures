@@ -5,8 +5,11 @@
  */
 
 // Core data structures
+// LinkedLists
 export { LinkedList } from './core/linked-list.ts';
 export { DoublyLinkedList } from './core/doubly-linked-list.ts';
+// Queues
+export { Queue } from './core/queue.ts';
 export { Deque } from './core/deque.ts';
 export { PriorityQueue } from './core/priority-queue.ts';
 // Special Maps and Caches
