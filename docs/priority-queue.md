@@ -165,6 +165,7 @@ try {
 - toArray: O(n)
 - toSortedArray: O(n log n)
 - Space complexity: O(n)
+- Initialize Priority Queue with array: O(n)
 
 ## Implementation Details
 
@@ -179,7 +180,7 @@ The priority queue is implemented using a binary min-heap where:
 
 1. Generic type support
 2. Customizable priority ordering through comparator function
-3. Optional initialization with existing values
+3. Optional initialization with existing values in O(n)
 4. Both heap-ordered and priority-ordered array conversions
 5. Efficient priority-based operations
 6. Iterator implementation for collection processing
