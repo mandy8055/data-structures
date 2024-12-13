@@ -60,13 +60,7 @@ export class PriorityQueue<T> implements Iterable<T> {
      */
     initial?: T[];
   }) {
-    this.heap = new MinHeap<T>(options?.comparator);
-
-    if (options?.initial) {
-      for (const value of options.initial) {
-        this.enqueue(value);
-      }
-    }
+    this.heap = new MinHeap<T>(options?.comparator, options?.initial);
   }
 
   /**

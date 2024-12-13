@@ -105,6 +105,19 @@ minHeap.insert({ name: 'Charlie', age: 30 });
 console.log(minHeap.peek()); // { name: "Bob", age: 20 }
 ```
 
+### Heap Construction
+
+```typescript
+// Create a heap with initial elements O(n)
+const minHeap = new MinHeap<number>(null, [5, 3, 8, 1, 7]);
+console.log(minHeap.peek()); // 1 (minimum element)
+console.log(minHeap.size); // 5
+// Similarly for MaxHeap
+const maxHeap = new MaxHeap<number>(null, [5, 3, 8, 1]);
+console.log(maxHeap.peek()); // 8
+console.log(maxHeap.size); // 4
+```
+
 ### Type-Safe Comparable Objects
 
 ```typescript
@@ -140,6 +153,7 @@ try {
 - Peek: O(1)
 - Contains: O(n)
 - Space complexity: O(n)
+- Build Heap from Array: O(n)
 
 ## Implementation Details
 
@@ -148,6 +162,10 @@ The heap is implemented as a complete binary tree stored in an array, where for 
 - Left child is at index: 2i + 1
 - Right child is at index: 2i + 2
 - Parent is at index: floor((i-1)/2)
+
+## Efficient heap Initialization
+
+When creating a heap with an initial array of elements, the construction is optimized to use an O(n) algorithm. This means that initializing a heap with an array is significantly more efficient than inserting elements one by one(takes O(n log n)), providing a performant way to create heaps from existing collections.
 
 ### Key Features
 

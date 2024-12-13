@@ -231,3 +231,113 @@ Deno.test('BinaryHeap - Coverage Enhancement Tests', async (t) => {
     assertEquals(elements, [3, 7, 8, 9, 10]);
   });
 });
+
+Deno.test('BinaryHeap - BuildHeap Method', async (t) => {
+  await t.step('should build MinHeap from initial array efficiently', () => {
+    const initialArray = [5, 3, 7, 1, 4];
+    const heap = new MinHeap<number>(undefined, initialArray);
+
+    // Verify size
+    assertEquals(heap.size, 5);
+
+    // Verify heap property (root should be minimum)
+    assertEquals(heap.peek(), 1);
+
+    // Verify contents
+    const elements = [];
+    while (!heap.isEmpty()) {
+      elements.push(heap.remove());
+    }
+    assertEquals(elements, [1, 3, 4, 5, 7]);
+  });
+
+  await t.step('should build MaxHeap from initial array efficiently', () => {
+    const initialArray = [5, 3, 7, 1, 4];
+    const heap = new MaxHeap<number>(undefined, initialArray);
+
+    // Verify size
+    assertEquals(heap.size, 5);
+
+    // Verify heap property (root should be maximum)
+    assertEquals(heap.peek(), 7);
+
+    // Verify contents
+    const elements = [];
+    while (!heap.isEmpty()) {
+      elements.push(heap.remove());
+    }
+    assertEquals(elements, [7, 5, 4, 3, 1]);
+  });
+
+  await t.step('should build heap with custom comparator', () => {
+    interface Person {
+      name: string;
+      priority: number;
+    }
+
+    const people: Person[] = [
+      { name: 'Alice', priority: 3 },
+      { name: 'Bob', priority: 1 },
+      { name: 'Charlie', priority: 2 },
+    ];
+
+    const heap = new MinHeap<Person>((a, b) => a.priority - b.priority, people);
+
+    // Verify size
+    assertEquals(heap.size, 3);
+
+    // Verify heap property
+    assertEquals(heap.peek().name, 'Bob');
+
+    // Remove elements and verify order
+    const removedPeople = [];
+    while (!heap.isEmpty()) {
+      removedPeople.push(heap.remove());
+    }
+    assertEquals(
+      removedPeople.map((p) => p.name),
+      ['Bob', 'Charlie', 'Alice'],
+    );
+  });
+
+  await t.step('should handle empty initial array', () => {
+    const heap = new MinHeap<number>(undefined, []);
+
+    // Verify empty heap
+    assertEquals(heap.size, 0);
+    assertEquals(heap.isEmpty(), true);
+    assertThrows(() => heap.peek(), EmptyStructureError);
+  });
+
+  await t.step('should handle single element array', () => {
+    const heap = new MinHeap<number>(undefined, [42]);
+
+    // Verify heap properties
+    assertEquals(heap.size, 1);
+    assertEquals(heap.peek(), 42);
+    assertEquals(heap.remove(), 42);
+    assertEquals(heap.isEmpty(), true);
+  });
+
+  await t.step('should work with Comparable objects', () => {
+    const items = [
+      new ComparableItem(5),
+      new ComparableItem(3),
+      new ComparableItem(7),
+      new ComparableItem(1),
+      new ComparableItem(4),
+    ];
+
+    const heap = new MinHeap<ComparableItem>(undefined, items);
+
+    // Verify heap property
+    assertEquals(heap.peek().getValue(), 1);
+
+    // Remove and verify order
+    const values = [];
+    while (!heap.isEmpty()) {
+      values.push(heap.remove().getValue());
+    }
+    assertEquals(values, [1, 3, 4, 5, 7]);
+  });
+});

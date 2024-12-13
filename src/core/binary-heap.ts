@@ -31,6 +31,17 @@ import { compareNumbers, compareStrings } from '../utils/index.ts';
  * console.log(minHeap.peek()); // 3
  * console.log(minHeap.remove()); // 3
  * ```
+ *
+ * @example
+ * ```typescript
+ * const minHeap = new MinHeap<number>(null, [5, 3, 8, 1]);
+ * console.log(minHeap.peek()); // 1
+ * console.log(minHeap.size); // 4
+ * // Similarly for MaxHeap
+ * const maxHeap = new MaxHeap<number>(null, [5, 3, 8, 1]);
+ * console.log(maxHeap.peek()); // 8
+ * console.log(maxHeap.size); // 4
+ * ```
  */
 export abstract class BinaryHeap<T> implements Iterable<T> {
   /**
@@ -47,10 +58,15 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
   /**
    * Creates an empty binary heap
    * @param comparator Optional custom comparison function
+   * @param initial Optional array of elements to initialize the heap
    */
-  constructor(comparator?: (a: T, b: T) => number) {
+  constructor(comparator?: (a: T, b: T) => number, initial?: T[]) {
     this.heap = [];
     this.compare = comparator || this.getDefaultComparator();
+
+    if (initial && initial.length > 0) {
+      this.buildHeap(initial);
+    }
   }
 
   /**
@@ -182,6 +198,19 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
 
   /**
    * @ignore
+   * Efficiently builds a heap from an initial array in O(n) time
+   * @protected
+   * @param initial Array of elements to build the heap from
+   */
+  protected buildHeap(initial: T[]): void {
+    this.heap = [...initial];
+    for (let i = Math.floor(this.heap.length / 2) - 1; i >= 0; i--) {
+      this.siftDown(i);
+    }
+  }
+
+  /**
+   * @ignore
    * Gets the left child index for a given parent index
    * @protected
    */
@@ -216,18 +245,7 @@ export abstract class BinaryHeap<T> implements Iterable<T> {
 /**
  * MinHeap implementation where the root is always the minimum element.
  *
- * All operations inherited from {@link BinaryHeap} are available:
- * @augments BinaryHeap<T>
- *
- * Methods available from BinaryHeap:
- * - {@link BinaryHeap#size} - Returns the number of elements in the heap
- * - {@link BinaryHeap#isEmpty} - Checks if the heap is empty
- * - {@link BinaryHeap#peek} - Returns the minimum element without removing it
- * - {@link BinaryHeap#insert} - Inserts a new element into the heap
- * - {@link BinaryHeap#remove} - Removes and returns the minimum element
- * - {@link BinaryHeap#contains} - Checks if an element exists in the heap
- * - {@link BinaryHeap#clear} - Removes all elements from the heap
- * - {@link BinaryHeap#toArray} - Converts the heap to an array
+ * All operations inherited from {@link BinaryHeap} are available.
  *
  * @template T The type of elements stored in the heap
  *
@@ -311,18 +329,7 @@ export class MinHeap<T> extends BinaryHeap<T> {
 /**
  * MaxHeap implementation where the root is always the maximum element.
  *
- * All operations inherited from {@link BinaryHeap} are available:
- * @augments BinaryHeap<T>
- *
- * Methods available from BinaryHeap:
- * - {@link BinaryHeap#size} - Returns the number of elements in the heap
- * - {@link BinaryHeap#isEmpty} - Checks if the heap is empty
- * - {@link BinaryHeap#peek} - Returns the maximum element without removing it
- * - {@link BinaryHeap#insert} - Inserts a new element into the heap
- * - {@link BinaryHeap#remove} - Removes and returns the maximum element
- * - {@link BinaryHeap#contains} - Checks if an element exists in the heap
- * - {@link BinaryHeap#clear} - Removes all elements from the heap
- * - {@link BinaryHeap#toArray} - Converts the heap to an array
+ * All operations inherited from {@link BinaryHeap} are available.
  *
  * @template T The type of elements stored in the heap
  *

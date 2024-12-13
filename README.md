@@ -30,10 +30,16 @@ import {
   BiDirectionalMap,
   LRUCache,
 } from 'jsr:@mskr/data-structures';
-// or if you want to use it with esm.sh
+```
+
+### Using directly without installing the package with esm.sh
+
+```typescript
 // import * as ds from 'https://esm.sh/jsr/@mskr/data-structures';
 // import { ... } from 'https://esm.sh/jsr/@mskr/data-structures';
 ```
+
+[**_Demo_**](https://codepen.io/mandy8055/pen/ZYzBpjL)
 
 ## Available Data Structures and their detailed documentations
 
