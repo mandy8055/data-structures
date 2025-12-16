@@ -1,16 +1,11 @@
-name: CI/CD
+name: CI
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
-  release:
-    types: [published, created] # Listen to both events
 
 permissions:
   contents: read
-  id-token: write
 
 jobs:
   test:
@@ -45,55 +40,3 @@ jobs:
           token: ${{ secrets.CODECOV_TOKEN }}
           file: ./coverage/coverage.lcov
           fail_ci_if_error: true
-
-  publish-jsr:
-    needs: test
-    if: github.event_name == 'release' # Simplified condition
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      id-token: write
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
-
-      - name: Publish to JSR
-        run: deno publish
-
-  publish-npm:
-    needs: test
-    if: github.event_name == 'release' # Simplified condition
-    runs-on: ubuntu-latest
-
-    permissions:
-      contents: read
-      id-token: write
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Build npm package
-        run: deno task build:npm
-
-      - name: Publish to npm
-        working-directory: ./npm
-        run: npm publish --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
