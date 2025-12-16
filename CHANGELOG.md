@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/mandy8055/data-structures/compare/@mskr/data-structures-v1.1.0...@mskr/data-structures-v1.1.1) (2025-12-16)
+
+
+### Bug Fixes
+
+* **ci:** 💚 update workflow to properly trigger on release events ([d07d30f](https://github.com/mandy8055/data-structures/commit/d07d30f717aafd9e8cc99102813ceeb7f5d06a3f))
+
 ## [1.1.0](https://github.com/mandy8055/data-structures/compare/@mskr/data-structures-v1.0.1...@mskr/data-structures-v1.1.0) (2025-12-16)
 
 
