@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/mandy8055/data-structures/compare/@mskr/data-structures-v1.2.0...@mskr/data-structures-v1.2.1) (2025-12-16)
+
+
+### Documentations
+
+* 📝 add npm installation and tree-shaking info ([4e4f754](https://github.com/mandy8055/data-structures/commit/4e4f7547988e838e5c34f501ed614c9c9f6e8b9b))
+
 ## [1.2.0](https://github.com/mandy8055/data-structures/compare/@mskr/data-structures-v1.1.1...@mskr/data-structures-v1.2.0) (2025-12-16)
 
 
