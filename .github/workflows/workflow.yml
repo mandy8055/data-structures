@@ -6,11 +6,11 @@ on:
   pull_request:
     branches: [main]
   release:
-    types: [published]
+    types: [published, created] # Listen to both events
 
 permissions:
   contents: read
-  id-token: write # Required for JSR publishing
+  id-token: write
 
 jobs:
   test:
@@ -48,7 +48,7 @@ jobs:
 
   publish-jsr:
     needs: test
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: github.event_name == 'release' # Simplified condition
     runs-on: ubuntu-latest
 
     permissions:
@@ -68,7 +68,7 @@ jobs:
 
   publish-npm:
     needs: test
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: github.event_name == 'release' # Simplified condition
     runs-on: ubuntu-latest
 
     permissions:
