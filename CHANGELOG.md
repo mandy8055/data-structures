@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/mandy8055/data-structures/compare/v1.3.0...v1.3.1) (2025-12-16)
+
+
+### ✅ Others
+
+* ♻️ cleanup duplicate entries from changelog ([ac03cf9](https://github.com/mandy8055/data-structures/commit/ac03cf928323a2dbc4cb1f5d7b3a733b2c7b835d))
+
 ## [1.3.0](https://github.com/mandy8055/data-structures/compare/v1.2.1...v1.3.0) (2025-12-16)
 
 ### ✨ Features
