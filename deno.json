@@ -1,11 +1,21 @@
 {
   "name": "@mskr/data-structures",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "exports": "./src/mod.ts",
   "license": "MIT",
   "publish": {
-    "include": ["src", "README.md", "LICENSE"],
-    "exclude": ["src/**/*.test.ts", ".github", ".vscode", "deno.json", "docs"]
+    "include": [
+      "src",
+      "README.md",
+      "LICENSE"
+    ],
+    "exclude": [
+      "src/**/*.test.ts",
+      ".github",
+      ".vscode",
+      "deno.json",
+      "docs"
+    ]
   },
   "tasks": {
     "test": "deno test",
@@ -18,15 +28,23 @@
     "build:npm": "deno run -A scripts/build_npm.ts"
   },
   "fmt": {
-    "include": ["src/", "tests/"],
+    "include": [
+      "src/",
+      "tests/"
+    ],
     "lineWidth": 80,
     "indentWidth": 2,
     "singleQuote": true
   },
   "lint": {
-    "include": ["src/", "tests/"],
+    "include": [
+      "src/",
+      "tests/"
+    ],
     "rules": {
-      "tags": ["recommended"]
+      "tags": [
+        "recommended"
+      ]
     }
   },
   "compilerOptions": {
