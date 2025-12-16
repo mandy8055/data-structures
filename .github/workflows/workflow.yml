@@ -1,15 +1,20 @@
-name: Data Structures CI
+name: CI/CD
 
 on:
   push:
     branches: [main]
   pull_request:
     branches: [main]
+  release:
+    types: [published]
+
+permissions:
+  contents: read
+  id-token: write # Required for JSR publishing
 
 jobs:
   test:
     runs-on: ubuntu-latest
-
     steps:
       - name: Setup repo
         uses: actions/checkout@v4
@@ -26,7 +31,6 @@ jobs:
         run: deno test --coverage=coverage
 
       - name: Generate coverage report
-        # Add exclude patterns for files you want to ignore
         run: |
           deno coverage --lcov \
             --exclude="src/tests/" \
@@ -42,9 +46,9 @@ jobs:
           file: ./coverage/coverage.lcov
           fail_ci_if_error: true
 
-  publish:
+  publish-jsr:
     needs: test
-    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    if: github.event_name == 'release' && github.event.action == 'published'
     runs-on: ubuntu-latest
 
     permissions:
@@ -61,3 +65,35 @@ jobs:
 
       - name: Publish to JSR
         run: deno publish
+
+  publish-npm:
+    needs: test
+    if: github.event_name == 'release' && github.event.action == 'published'
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v2
+        with:
+          deno-version: v2.x
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          registry-url: "https://registry.npmjs.org"
+
+      - name: Build npm package
+        run: deno task build:npm
+
+      - name: Publish to npm
+        working-directory: ./npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

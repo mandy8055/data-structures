@@ -22,3 +22,6 @@ cov_profile
 *.njsproj
 *.sln
 *.sw?
+
+# npm directory
+npm/
