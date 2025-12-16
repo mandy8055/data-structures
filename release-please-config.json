@@ -1,62 +1,62 @@
 {
-  "packages": {
-    ".": {
-      "release-type": "simple",
-      "package-name": "@mskr/data-structures",
-      "changelog-sections": [
-        {
-          "type": "feat",
-          "section": "Features",
-          "hidden": false
-        },
-        {
-          "type": "fix",
-          "section": "Bug Fixes",
-          "hidden": false
-        },
-        {
-          "type": "docs",
-          "section": "Documentations",
-          "hidden": false
-        },
-        {
-          "type": "perf",
-          "section": "Others",
-          "hidden": false
-        },
-        {
-          "type": "refactor",
-          "section": "Others",
-          "hidden": false
-        },
-        {
-          "type": "test",
-          "section": "Others",
-          "hidden": false
-        },
-        {
-          "type": "build",
-          "section": "Others",
-          "hidden": false
-        },
-        {
-          "type": "ci",
-          "section": "Others",
-          "hidden": false
-        },
-        {
-          "type": "chore",
-          "section": "Others",
-          "hidden": false
-        }
-      ],
-      "extra-files": [
-        {
-          "type": "json",
-          "path": "deno.json",
-          "jsonpath": "$.version"
-        }
-      ]
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "release-type": "simple",
+  "include-component-in-tag": false,
+  "changelog-sections": [
+    {
+      "type": "feat",
+      "section": "✨ Features",
+      "hidden": false
+    },
+    {
+      "type": "fix",
+      "section": "🐛 Bug Fixes",
+      "hidden": false
+    },
+    {
+      "type": "docs",
+      "section": "📝 Documentation",
+      "hidden": false
+    },
+    {
+      "type": "perf",
+      "section": "✅ Others",
+      "hidden": false
+    },
+    {
+      "type": "refactor",
+      "section": "✅ Others",
+      "hidden": false
+    },
+    {
+      "type": "test",
+      "section": "✅ Others",
+      "hidden": false
+    },
+    {
+      "type": "build",
+      "section": "✅ Others",
+      "hidden": false
+    },
+    {
+      "type": "ci",
+      "section": "✅ Others",
+      "hidden": false
+    },
+    {
+      "type": "chore",
+      "section": "✅ Others",
+      "hidden": false
     }
+  ],
+  "extra-files": [
+    {
+      "type": "json",
+      "path": "deno.json",
+      "jsonpath": "$.version"
+    }
+  ],
+  "packages": {
+    ".": {}
   }
 }
