@@ -14,6 +14,7 @@ import { DoublyLinkedList } from './doubly-linked-list.ts';
  * - O(1) dequeue operations
  * - FIFO (First-In-First-Out) behavior
  * - Implements Iterable interface for use in for...of loops
+ * - Generator-based drain() method for processing and removing all elements
  * - Type-safe implementation using generics
  *
  * @template T The type of elements stored in the queue
@@ -30,6 +31,10 @@ import { DoublyLinkedList } from './doubly-linked-list.ts';
  * // Iteration (front to back)
  * for (const value of queue) {
  *   console.log(value);
+ * }
+ * // Drain all elements
+ * for (const value of queue.drain()) {
+ *   await process(value);
  * }
  * ```
  */
@@ -113,6 +118,43 @@ export class Queue<T> implements Iterable<T> {
    */
   toArray(): T[] {
     return this.list.toArray();
+  }
+
+  /**
+   * Creates a generator that removes and yields elements from the front of the queue.
+   * This is a destructive operation that modifies the queue by removing elements as they are yielded.
+   *
+   * @yields Elements from the front of the queue until the queue is empty
+   *
+   * @example
+   * ```typescript
+   * const queue = new Queue<number>();
+   * queue.enqueue(1);
+   * queue.enqueue(2);
+   * queue.enqueue(3);
+   *
+   * // Synchronous processing
+   * for (const item of queue.drain()) {
+   *   console.log(item); // 1, 2, 3
+   * }
+   * console.log(queue.size); // 0 - queue is now empty
+   *
+   * // Asynchronous processing
+   * for (const item of queue.drain()) {
+   *   await process(item);
+   * }
+   *
+   * // Early termination - remaining items stay in queue
+   * for (const item of queue.drain()) {
+   *   if (item === 2) break;
+   * }
+   * console.log(queue.size); // 1 - item 3 remains
+   * ```
+   */
+  *drain(): IterableIterator<T> {
+    while (!this.isEmpty()) {
+      yield this.dequeue();
+    }
   }
 
   /**

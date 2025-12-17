@@ -118,3 +118,126 @@ Deno.test('Queue - basic operations', async (t) => {
     assertEquals(queue.toArray(), [3, 4]);
   });
 });
+
+Deno.test('Queue - drain operations', async (t) => {
+  await t.step('should drain all elements in FIFO order', () => {
+    const queue = new Queue<number>();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    const drained = [...queue.drain()];
+    assertEquals(drained, [1, 2, 3]);
+    assertEquals(queue.size, 0);
+    assertEquals(queue.isEmpty(), true);
+  });
+
+  await t.step('should drain empty queue without errors', () => {
+    const queue = new Queue<number>();
+    const drained = [...queue.drain()];
+    assertEquals(drained, []);
+    assertEquals(queue.size, 0);
+  });
+
+  await t.step('should support early termination with break', () => {
+    const queue = new Queue<number>();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    const drained: number[] = [];
+    for (const item of queue.drain()) {
+      drained.push(item);
+      if (item === 2) break;
+    }
+    assertEquals(drained, [1, 2]);
+    assertEquals(queue.size, 1);
+    assertEquals(queue.peek(), 3);
+  });
+
+  await t.step('should work with synchronous processing', () => {
+    const queue = new Queue<number>();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    const results: number[] = [];
+    for (const item of queue.drain()) {
+      results.push(item * 2);
+    }
+    assertEquals(results, [2, 4, 6]);
+    assertEquals(queue.isEmpty(), true);
+  });
+
+  await t.step('should work with asynchronous processing', async () => {
+    const queue = new Queue<number>();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+    const results: number[] = [];
+    const process = async (item: number) => {
+      await new Promise((resolve) => setTimeout(resolve, 1));
+      return item * 2;
+    };
+    for (const item of queue.drain()) {
+      results.push(await process(item));
+    }
+    assertEquals(results, [2, 4, 6]);
+    assertEquals(queue.isEmpty(), true);
+  });
+
+  await t.step('should work with different data types', async (t) => {
+    await t.step('should drain strings', () => {
+      const queue = new Queue<string>();
+      queue.enqueue('hello');
+      queue.enqueue('world');
+      const drained = [...queue.drain()];
+      assertEquals(drained, ['hello', 'world']);
+      assertEquals(queue.isEmpty(), true);
+    });
+
+    await t.step('should drain objects', () => {
+      const queue = new Queue<{ id: number }>();
+      queue.enqueue({ id: 1 });
+      queue.enqueue({ id: 2 });
+      const drained = [...queue.drain()];
+      assertEquals(drained, [{ id: 1 }, { id: 2 }]);
+      assertEquals(queue.isEmpty(), true);
+    });
+  });
+
+  await t.step('should handle multiple drain calls', () => {
+    const queue = new Queue<number>();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+
+    const first = [...queue.drain()];
+    assertEquals(first, [1, 2, 3]);
+    assertEquals(queue.isEmpty(), true);
+
+    const second = [...queue.drain()];
+    assertEquals(second, []);
+    assertEquals(queue.isEmpty(), true);
+  });
+
+  await t.step('should work correctly after partial drain', () => {
+    const queue = new Queue<number>();
+    queue.enqueue(1);
+    queue.enqueue(2);
+    queue.enqueue(3);
+
+    const drained: number[] = [];
+    for (const item of queue.drain()) {
+      drained.push(item);
+      if (item === 1) break;
+    }
+
+    assertEquals(drained, [1]);
+    assertEquals(queue.size, 2);
+
+    queue.enqueue(4);
+    assertEquals(queue.toArray(), [2, 3, 4]);
+
+    const remaining = [...queue.drain()];
+    assertEquals(remaining, [2, 3, 4]);
+    assertEquals(queue.isEmpty(), true);
+  });
+});
