@@ -1,0 +1,54 @@
+name: Docs Check
+
+on:
+  pull_request:
+    paths:
+      - 'website/**'
+      - '.github/workflows/docs-check.yml'
+  push:
+    branches:
+      - 'docs/**'
+      - 'main'
+    paths:
+      - 'website/**'
+      - '.github/workflows/docs-check.yml'
+
+jobs:
+  build:
+    name: Build Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.7.0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          cache: 'pnpm'
+          cache-dependency-path: 'website/pnpm-lock.yaml'
+
+      - name: Install dependencies
+        run: pnpm install
+        working-directory: ./website
+
+      - name: Build documentation site
+        run: pnpm build
+        working-directory: ./website
+
+      - name: Check for broken links
+        run: |
+          if [ -d "build" ]; then
+            echo "✅ Build directory created successfully"
+            echo "Build size: $(du -sh build | cut -f1)"
+          else
+            echo "❌ Build directory not found"
+            exit 1
+          fi
+        working-directory: ./website

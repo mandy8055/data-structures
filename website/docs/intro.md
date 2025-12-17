@@ -43,7 +43,7 @@ console.log(cache.get('key')); // 42
 
 ## Available Data Structures
 
-### Queues & Deques
+### Queues
 
 - **[Queue](./api/queue)** - FIFO queue with O(1) enqueue/dequeue operations
 - **[Deque](./api/deque)** - Double-ended queue with O(1) operations at both ends
