@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/mandy8055/data-structures/compare/v1.3.1...v1.4.0) (2025-12-17)
+
+
+### ✨ Features
+
+* ✨ add drain method in queue API ([8a3df4d](https://github.com/mandy8055/data-structures/commit/8a3df4d95649ad77c913112f67c8a9043bb5d2ee))
+
 ## [1.3.1](https://github.com/mandy8055/data-structures/compare/v1.3.0...v1.3.1) (2025-12-16)
 
 
