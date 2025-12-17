@@ -6,8 +6,7 @@ description: First-In-First-Out (FIFO) queue implementation with O(1) enqueue an
 keywords: [queue, fifo, data-structure, typescript, javascript]
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import InstallTabs from '@site/src/components/InstallTabs';
 
 # Queue
 
@@ -15,31 +14,7 @@ A First-In-First-Out (FIFO) queue implementation that efficiently supports inser
 
 ## Installation
 
-<Tabs>
-<TabItem value="npm" label="npm" default>
-
-```bash
-npm install @msnkr/data-structures
-```
-
-</TabItem>
-<TabItem value="deno" label="Deno (JSR)">
-
-```typescript
-import { Queue } from 'jsr:@mskr/data-structures';
-```
-
-</TabItem>
-<TabItem value="browser" label="Browser (CDN)">
-
-```html
-<script type="module">
-  import { Queue } from 'https://esm.sh/jsr/@mskr/data-structures';
-</script>
-```
-
-</TabItem>
-</Tabs>
+<InstallTabs packageName='@msnkr/data-structures' importName='Queue' />
 
 ## Usage
 
@@ -231,25 +206,26 @@ Calling `dequeue()` or `peek()` on an empty queue throws an `EmptyStructureError
 
 ## Performance Characteristics
 
-| Operation | Time Complexity | Description |
-|-----------|----------------|-------------|
-| `enqueue()` | O(1) | Add element to back |
-| `dequeue()` | O(1) | Remove element from front |
-| `peek()` | O(1) | View front element |
-| `contains()` | O(n) | Search for element |
-| `clear()` | O(1) | Remove all elements |
-| `toArray()` | O(n) | Convert to array |
+| Operation    | Time Complexity | Description               |
+| ------------ | --------------- | ------------------------- |
+| `enqueue()`  | O(1)            | Add element to back       |
+| `dequeue()`  | O(1)            | Remove element from front |
+| `peek()`     | O(1)            | View front element        |
+| `contains()` | O(n)            | Search for element        |
+| `clear()`    | O(1)            | Remove all elements       |
+| `toArray()`  | O(n)            | Convert to array          |
 
 :::tip Use Cases
-Queue is perfect for:
+
 - Task scheduling
 - Request processing
 - Buffer management
 - Message queues
 - Breadth-First Search (BFS)
-:::
+  :::
 
 ## See Also
 
-- **Deque** - Double-ended queue with operations at both ends _(coming soon)_
-- **PriorityQueue** - Queue with priority-based ordering _(coming soon)_
+- [Deque](./deque) - Double-ended queue with O(1) operations at both ends
+- [PriorityQueue](./priority-queue) - Queue with priority-based ordering
+- [LinkedList](./linked-list) - Singly linked list (alternative queue implementation)

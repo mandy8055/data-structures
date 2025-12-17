@@ -1,10 +1,11 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'data-structures',
-  tagline: 'Type-safe, zero-dependency data structures for TypeScript/JavaScript',
+  tagline:
+    'Type-safe, zero-dependency data structures for TypeScript/JavaScript',
   favicon: 'img/favicon.ico',
 
   future: {
@@ -19,7 +20,11 @@ const config: Config = {
   projectName: 'data-structures',
 
   onBrokenLinks: 'throw',
-  onBrokenMarkdownLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   i18n: {
     defaultLocale: 'en',
@@ -32,7 +37,8 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          editUrl: 'https://github.com/mandy8055/data-structures/tree/main/website/',
+          editUrl:
+            'https://github.com/mandy8055/data-structures/tree/main/website/',
           remarkPlugins: [],
           rehypePlugins: [],
         },

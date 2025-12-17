@@ -43,28 +43,31 @@ console.log(cache.get('key')); // 42
 
 ## Available Data Structures
 
-### Lists
-- **LinkedList** - Singly linked list with O(1) insertions at ends
-- **DoublyLinkedList** - Bidirectional linked list
-
 ### Queues & Deques
-- **[Queue](./api/queue)** - FIFO queue with O(1) operations ✅
-- **Deque** - Double-ended queue
-- **PriorityQueue** - Priority-based queue
+
+- **[Queue](./api/queue)** - FIFO queue with O(1) enqueue/dequeue operations
+- **[Deque](./api/deque)** - Double-ended queue with O(1) operations at both ends
+- **[PriorityQueue](./api/priority-queue)** - Priority-based queue backed by binary heap
+
+### Lists
+
+- **[LinkedList](./api/linked-list)** - Singly linked list with O(1) insertions at ends
+- **[DoublyLinkedList](./api/doubly-linked-list)** - Bidirectional linked list with reverse iteration
 
 ### Heaps
-- **BinaryHeap** - MinHeap and MaxHeap implementations
+
+- **[BinaryHeap](./api/binary-heap)** - MinHeap and MaxHeap implementations with O(log n) operations
 
 ### Trees
-- **Trie** - Prefix tree for string operations
-- **RedBlackTree** - Self-balancing binary search tree
+
+- **[Trie](./api/trie)** - Prefix tree for efficient string operations and autocomplete
+- **[RedBlackTree](./api/red-black-tree)** - Self-balancing binary search tree with guaranteed O(log n)
 
 ### Maps & Caches
-- **SortedMap** - Key-value map with sorted keys
-- **BiDirectionalMap** - One-to-one bidirectional mapping
-- **LRUCache** - Least Recently Used cache
 
-_More API documentation coming soon!_
+- **[SortedMap](./api/sorted-map)** - Key-value map with sorted keys (Red-Black Tree backed)
+- **[BiDirectionalMap](./api/bi-map)** - One-to-one bidirectional mapping with O(1) lookups
+- **[LRUCache](./api/lru-cache)** - Least Recently Used cache with automatic eviction
 
 ## Next Steps
 
@@ -75,10 +78,7 @@ _More API documentation coming soon!_
         <h3>📖 Learn the Basics</h3>
       </div>
       <div className="card__body">
-        <p>Get familiar with installation and basic usage.</p>
-      </div>
-      <div className="card__body">
-        <p>Get familiar with installation and basic usage. _(Coming soon)_</p>
+        <p>Get familiar with installation and basic usage. <em>(Coming in Checkpoint 3)</em></p>
       </div>
     </div>
   </div>
@@ -89,7 +89,7 @@ _More API documentation coming soon!_
         <h3>📚 API Reference</h3>
       </div>
       <div className="card__body">
-        <p>Explore complete API documentation. _(More docs coming soon)_</p>
+        <p>Explore complete API documentation for all 11 data structures above!</p>
       </div>
     </div>
   </div>
