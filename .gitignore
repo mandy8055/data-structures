@@ -25,3 +25,11 @@ cov_profile
 
 # npm directory
 npm/
+tmp/
+
+# Docusaurus website artifacts
+website/node_modules/
+website/.docusaurus/
+website/build/
+website/.pnpm-store/
+website/.cache/
