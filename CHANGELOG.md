@@ -1,5 +1,24 @@
 # Changelog
 
+## [1.4.1](https://github.com/mandy8055/data-structures/compare/v1.4.0...v1.4.1) (2025-12-17)
+
+
+### 🐛 Bug Fixes
+
+* 🦖 update copyright information ([5d68012](https://github.com/mandy8055/data-structures/commit/5d68012ea2111c3634b972fd201130d9f7d1e840))
+
+
+### 📝 Documentation
+
+* 📝 complete API documentation migration ([8f0f628](https://github.com/mandy8055/data-structures/commit/8f0f628790e245463744964b538f17ce584d9ca6))
+* 📝 initialize docusaurus documentation site ([56c83ae](https://github.com/mandy8055/data-structures/commit/56c83aefadacac782451a1d3ea9104c1ca9adfbb))
+
+
+### ✅ Others
+
+* 💚 add docs-check workflow for docs deployment ([7214e26](https://github.com/mandy8055/data-structures/commit/7214e2685589468506ccac50488cfa19d9ffe573))
+* 🙈 exclude website folder from deno task list ([be91b31](https://github.com/mandy8055/data-structures/commit/be91b3184524b056f2b366781c6351d32a4164be))
+
 ## [1.4.0](https://github.com/mandy8055/data-structures/compare/v1.3.1...v1.4.0) (2025-12-17)
 
 
