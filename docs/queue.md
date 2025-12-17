@@ -46,9 +46,14 @@ const exists = queue.contains(1);
 #### Iteration
 
 ```typescript
-// Forward iteration (front to back)
+// Forward iteration (front to back) - non-destructive
 for (const value of queue) {
   console.log(value);
+}
+
+// Drain elements (removes as it iterates) - O(n)
+for (const value of queue.drain()) {
+  console.log(value); // Process and remove each element
 }
 ```
 
@@ -123,6 +128,43 @@ function processBuffer() {
 receiveData('chunk1');
 receiveData('chunk2');
 processBuffer(); // Processes in order: chunk1, chunk2
+```
+
+### Draining Queue Elements
+
+The `drain()` method provides a cleaner way to process and remove all elements:
+
+```typescript
+const queue = new Queue<number>();
+queue.enqueue(1);
+queue.enqueue(2);
+queue.enqueue(3);
+
+// Synchronous processing - drains all elements
+for (const item of queue.drain()) {
+  console.log(item); // 1, 2, 3
+}
+console.log(queue.size); // 0 - queue is now empty
+
+// Asynchronous processing
+const asyncQueue = new Queue<string>();
+asyncQueue.enqueue('task1');
+asyncQueue.enqueue('task2');
+
+for (const task of asyncQueue.drain()) {
+  await processTask(task);
+}
+
+// Early termination - remaining items stay in queue
+const partialQueue = new Queue<number>();
+partialQueue.enqueue(1);
+partialQueue.enqueue(2);
+partialQueue.enqueue(3);
+
+for (const item of partialQueue.drain()) {
+  if (item === 2) break;
+}
+console.log(partialQueue.size); // 1 - item 3 remains
 ```
 
 ## Error Handling
