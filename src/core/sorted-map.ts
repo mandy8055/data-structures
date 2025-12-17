@@ -1,4 +1,4 @@
-// Copyright 2024-2025 the @mskr/data-structures authors. All rights reserved. MIT license.
+// Copyright 2025-2026 the @mskr/data-structures authors. All rights reserved. MIT license.
 
 import { EmptyStructureError } from '../errors/index.ts';
 import { RedBlackTree } from './red-black-tree.ts';
