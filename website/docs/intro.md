@@ -78,7 +78,7 @@ console.log(cache.get('key')); // 42
         <h3>📖 Learn the Basics</h3>
       </div>
       <div className="card__body">
-        <p>Get familiar with installation and basic usage. <em>(Coming in Checkpoint 3)</em></p>
+        <p>Get familiar with installation and basic usage. <em>(Coming Soon)</em></p>
       </div>
     </div>
   </div>

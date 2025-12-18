@@ -16,37 +16,37 @@
     {
       "type": "docs",
       "section": "📝 Documentation",
-      "hidden": false
+      "hidden": true
     },
     {
       "type": "perf",
       "section": "✅ Others",
-      "hidden": false
+      "hidden": true
     },
     {
       "type": "refactor",
       "section": "✅ Others",
-      "hidden": false
+      "hidden": true
     },
     {
       "type": "test",
       "section": "✅ Others",
-      "hidden": false
+      "hidden": true
     },
     {
       "type": "build",
       "section": "✅ Others",
-      "hidden": false
+      "hidden": true
     },
     {
       "type": "ci",
       "section": "✅ Others",
-      "hidden": false
+      "hidden": true
     },
     {
       "type": "chore",
       "section": "✅ Others",
-      "hidden": false
+      "hidden": true
     }
   ],
   "extra-files": [
