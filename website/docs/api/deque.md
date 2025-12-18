@@ -181,4 +181,4 @@ Deque is perfect for:
 ## See Also
 
 - [Queue](./queue) - First-In-First-Out (FIFO) queue with O(1) enqueue/dequeue
-- **PriorityQueue** - Queue with priority-based ordering _(coming soon)_
+- **[PriorityQueue](./priority-queue.md)** - Queue with priority-based ordering

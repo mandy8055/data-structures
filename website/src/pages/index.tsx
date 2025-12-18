@@ -26,7 +26,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className='button button--secondary button--lg'
-            to='/docs/api/queue'
+            to='/docs/api/bi-map'
             style={{ marginLeft: '1rem' }}
           >
             API Reference 📚
