@@ -35,7 +35,6 @@ updates:
     # Commit message prefix for consistency
     commit-message:
       prefix: "chore(deps): :pushpin:"
-      include: "scope"
 
   # Separate config for GitHub Actions
   - package-ecosystem: "github-actions"
@@ -46,4 +45,4 @@ updates:
       - "dependencies"
       - "github-actions"
     commit-message:
-      prefix: "ci: :pushpin:"
+      prefix: "ci: :green_heart:"
