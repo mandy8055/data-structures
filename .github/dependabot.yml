@@ -1,0 +1,49 @@
+version: 2
+updates:
+  # Documentation website dependencies
+  - package-ecosystem: "npm"
+    directory: "/website"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+    # Group all Docusaurus packages together to avoid multiple PRs
+    groups:
+      docusaurus:
+        patterns:
+          - "@docusaurus/*"
+      react:
+        patterns:
+          - "react"
+          - "react-dom"
+          - "@types/react*"
+      development-dependencies:
+        dependency-type: "development"
+    # Limit number of open PRs to avoid noise
+    open-pull-requests-limit: 5
+    # Add helpful labels
+    labels:
+      - "dependencies"
+      - "documentation"
+    # Automatically rebase PRs when they become outdated
+    rebase-strategy: "auto"
+    # Only allow patch and minor updates for production deps
+    # (major updates require manual review)
+    ignore:
+      - dependency-name: "*"
+        update-types: ["version-update:semver-major"]
+    # Commit message prefix for consistency
+    commit-message:
+      prefix: "chore(deps): :pushpin:"
+      include: "scope"
+
+  # Separate config for GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "ci: :pushpin:"
