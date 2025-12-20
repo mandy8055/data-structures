@@ -12,7 +12,6 @@ const config: Config = {
     v4: true,
   },
 
-  // TODO: Update with actual Vercel deployment URL after deployment
   url: 'https://data-structures-docs.vercel.app',
   baseUrl: '/',
 
@@ -25,6 +24,16 @@ const config: Config = {
       onBrokenMarkdownLinks: 'warn',
     },
   },
+
+  headTags: [
+    {
+      tagName: 'meta',
+      attributes: {
+        name: 'algolia-site-verification',
+        content: '2C4808A3A4C8CBA4',
+      },
+    },
+  ],
 
   i18n: {
     defaultLocale: 'en',
@@ -71,6 +80,13 @@ const config: Config = {
     image: 'img/docusaurus-social-card.jpg',
     colorMode: {
       respectPrefersColorScheme: true,
+    },
+    algolia: {
+      appId: 'MBU391DY7J',
+      apiKey: '03202b604f21b33d56f3f3fc875f3675',
+      indexName: 'Documentation-site',
+      contextualSearch: true,
+      searchParameters: {},
     },
     navbar: {
       title: 'data-structures',
