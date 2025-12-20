@@ -1,0 +1,50 @@
+{
+  "link.title.Docs": {
+    "message": "文档",
+    "description": "The title of the footer links column with title=Docs in the footer"
+  },
+  "link.title.Community": {
+    "message": "社区",
+    "description": "The title of the footer links column with title=Community in the footer"
+  },
+  "link.title.More": {
+    "message": "更多",
+    "description": "The title of the footer links column with title=More in the footer"
+  },
+  "link.title.Packages": {
+    "message": "软件包",
+    "description": "The title of the footer links column with title=Packages in the footer"
+  },
+  "link.item.label.Getting Started": {
+    "message": "快速开始",
+    "description": "The label of footer link with label=Getting Started linking to /docs/intro"
+  },
+  "link.item.label.GitHub Discussions": {
+    "message": "GitHub 讨论",
+    "description": "The label of footer link with label=GitHub Discussions linking to https://github.com/mandy8055/data-structures/discussions"
+  },
+  "link.item.label.Issues": {
+    "message": "问题",
+    "description": "The label of footer link with label=Issues linking to https://github.com/mandy8055/data-structures/issues"
+  },
+  "link.item.label.GitHub": {
+    "message": "GitHub",
+    "description": "The label of footer link with label=GitHub linking to https://github.com/mandy8055/data-structures"
+  },
+  "link.item.label.Changelog": {
+    "message": "更新日志",
+    "description": "The label of footer link with label=Changelog linking to https://github.com/mandy8055/data-structures/blob/main/CHANGELOG.md"
+  },
+  "link.item.label.JSR": {
+    "message": "JSR",
+    "description": "The label of footer link with label=JSR linking to https://jsr.io/@mskr/data-structures"
+  },
+  "link.item.label.npm": {
+    "message": "npm",
+    "description": "The label of footer link with label=npm linking to https://www.npmjs.com/package/@msnkr/data-structures"
+  },
+  "copyright": {
+    "message": "版权所有 © 2025 data-structures。使用 Docusaurus 构建。",
+    "description": "The footer copyright"
+  }
+}
