@@ -78,7 +78,7 @@ console.log(cache.get('key')); // 42
         <h3>📖 学习基础知识</h3>
       </div>
       <div className="card__body">
-        <p>熟悉安装和基本用法。<em>(即将推出)</em></p>
+        <p>熟悉安装和基本用法。</p>
       </div>
     </div>
   </div>

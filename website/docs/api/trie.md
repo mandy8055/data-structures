@@ -3,7 +3,8 @@ id: trie
 title: Trie
 sidebar_label: Trie
 description: Prefix tree for efficient string operations and autocomplete
-keywords: [trie, prefix-tree, autocomplete, data-structure, typescript, javascript]
+keywords:
+  [trie, prefix-tree, autocomplete, data-structure, typescript, javascript]
 ---
 
 import InstallTabs from '@site/src/components/InstallTabs';
@@ -89,27 +90,6 @@ console.log(trie.search('hell')); // null (partial word not stored)
 console.log(trie.size); // 3
 ```
 
-### Autocomplete System
-
-```typescript
-const autocomplete = new Trie<number>();
-
-// Add words with frequency/score
-autocomplete.insert('apple', 100);
-autocomplete.insert('application', 85);
-autocomplete.insert('apply', 90);
-autocomplete.insert('appetite', 75);
-autocomplete.insert('banana', 80);
-
-// Get autocomplete suggestions
-const suggestions = autocomplete.getAllWithPrefix('app');
-console.log(suggestions); // ["apple", "application", "apply", "appetite"]
-
-// Check if prefix is valid
-console.log(autocomplete.hasPrefix('ban')); // true
-console.log(autocomplete.hasPrefix('xyz')); // false
-```
-
 ### Case Sensitivity Options
 
 ```typescript
@@ -130,68 +110,6 @@ console.log(insensitiveTrie.search('HeLLo')); // 1
 :::tip Case Sensitivity
 Use case-insensitive mode for user-facing features like search and autocomplete to provide better UX.
 :::
-
-### Dictionary with Definitions
-
-```typescript
-interface Definition {
-  meaning: string;
-  partOfSpeech: string;
-}
-
-const dictionary = new Trie<Definition>();
-
-dictionary.insert('trie', {
-  meaning: 'A tree data structure for storing strings',
-  partOfSpeech: 'noun',
-});
-
-dictionary.insert('algorithm', {
-  meaning: 'A step-by-step procedure for solving a problem',
-  partOfSpeech: 'noun',
-});
-
-const def = dictionary.search('trie');
-if (def) {
-  console.log(`${def.partOfSpeech}: ${def.meaning}`);
-}
-```
-
-### IP Address Routing Table
-
-```typescript
-interface Route {
-  gateway: string;
-  metric: number;
-}
-
-const routingTable = new Trie<Route>();
-
-// Add routes with IP prefixes
-routingTable.insert('192.168.1', { gateway: '192.168.1.1', metric: 10 });
-routingTable.insert('192.168', { gateway: '192.168.0.1', metric: 20 });
-routingTable.insert('10.0', { gateway: '10.0.0.1', metric: 5 });
-
-// Find most specific route
-const route = routingTable.search('192.168.1');
-console.log(route); // { gateway: '192.168.1.1', metric: 10 }
-```
-
-### Search History with Prefixes
-
-```typescript
-const searchHistory = new Trie<Date>();
-
-// Track when searches were performed
-searchHistory.insert('javascript', new Date());
-searchHistory.insert('java', new Date());
-searchHistory.insert('typescript', new Date());
-searchHistory.insert('python', new Date());
-
-// Get all searches starting with 'java'
-const javaSearches = searchHistory.getAllWithPrefix('java');
-console.log(javaSearches); // ["java", "javascript"]
-```
 
 ### Working with Entries
 
@@ -258,18 +176,19 @@ Trie methods don't throw exceptions. Search operations return `null` or `false` 
 
 ## Performance Characteristics
 
-| Operation            | Time Complexity | Description                    |
-| -------------------- | --------------- | ------------------------------ |
-| `insert()`           | O(m)            | Add word with value            |
-| `search()`           | O(m)            | Find value for word            |
-| `remove()`           | O(m)            | Remove word                    |
-| `contains()`         | O(m)            | Check if word exists           |
-| `hasPrefix()`        | O(p)            | Check if prefix exists         |
-| `getAllWithPrefix()` | O(p + n)        | Get all words with prefix      |
-| `entries()`          | O(n * k)        | Get all entries                |
-| `clear()`            | O(1)            | Remove all words               |
+| Operation            | Time Complexity | Description               |
+| -------------------- | --------------- | ------------------------- |
+| `insert()`           | O(m)            | Add word with value       |
+| `search()`           | O(m)            | Find value for word       |
+| `remove()`           | O(m)            | Remove word               |
+| `contains()`         | O(m)            | Check if word exists      |
+| `hasPrefix()`        | O(p)            | Check if prefix exists    |
+| `getAllWithPrefix()` | O(p + n)        | Get all words with prefix |
+| `entries()`          | O(n \* k)       | Get all entries           |
+| `clear()`            | O(1)            | Remove all words          |
 
 where:
+
 - `m` = length of word
 - `p` = length of prefix
 - `n` = number of matching words
@@ -312,34 +231,42 @@ The prefix "car" is stored only once and shared by all three words.
 
 :::info When to Use Trie
 Perfect for:
+
 - **Autocomplete** - Get all words with a prefix
 - **Spell checking** - Find similar words
 - **IP routing** - Longest prefix matching
 - **Dictionary** - Fast word lookups
 - **Search suggestions** - Real-time filtering
 - **Phone directories** - Prefix-based contact search
-:::
+  :::
 
 :::warning When to Avoid
 Consider alternatives when:
+
 - **Few common prefixes** → Use HashMap/Map for better space efficiency
 - **Exact matches only** → HashMap is simpler and faster O(1) vs O(m)
 - **Need range queries** → Use [SortedMap](./sorted-map)
 - **Memory constrained** → HashMap uses less memory without prefix sharing benefits
-:::
+  :::
 
 ## Comparison with HashMap
 
-| Feature             | Trie              | HashMap           |
-| ------------------- | ----------------- | ----------------- |
-| **Exact lookup**    | O(m)              | O(1) average      |
-| **Prefix search**   | O(p + n)          | O(n × m) (scan all) |
-| **Space (similar words)** | Efficient  | Duplicate storage |
-| **Space (unique words)** | Higher overhead | More efficient |
-| **Autocomplete**    | Native support    | Requires full scan |
+| Feature                   | Trie            | HashMap             |
+| ------------------------- | --------------- | ------------------- |
+| **Exact lookup**          | O(m)            | O(1) average        |
+| **Prefix search**         | O(p + n)        | O(n × m) (scan all) |
+| **Space (similar words)** | Efficient       | Duplicate storage   |
+| **Space (unique words)**  | Higher overhead | More efficient      |
+| **Autocomplete**          | Native support  | Requires full scan  |
 
 ## See Also
 
-- [SortedMap](./sorted-map) - Key-value store with ordered keys
-- [BiMap](./bi-map) - Bidirectional map
-- [LRUCache](./lru-cache) - Least recently used cache
+### Related Examples
+
+- [Autocomplete System](../examples/autocomplete-trie.md)
+- [Phone Directory](../examples/phone-directory.md)
+
+### Other Data Structures
+
+- [SortedMap](./sorted-map.md) - Key-value store with ordered keys
+- [RedBlackTree](./red-black-tree.md) - Sorted unique values

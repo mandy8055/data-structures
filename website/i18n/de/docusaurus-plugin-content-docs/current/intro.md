@@ -78,7 +78,7 @@ console.log(cache.get('key')); // 42
         <h3>📖 Grundlagen lernen</h3>
       </div>
       <div className="card__body">
-        <p>Machen Sie sich mit Installation und grundlegender Verwendung vertraut. <em>(Demnächst verfügbar)</em></p>
+        <p>Machen Sie sich mit Installation und grundlegender Verwendung vertraut.</p>
       </div>
     </div>
   </div>

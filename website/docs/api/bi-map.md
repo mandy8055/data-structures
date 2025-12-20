@@ -3,7 +3,15 @@ id: bi-map
 title: BiDirectionalMap
 sidebar_label: BiMap
 description: Bidirectional map with O(1) lookups in both directions
-keywords: [bi-map, bidirectional-map, two-way-map, data-structure, typescript, javascript]
+keywords:
+  [
+    bi-map,
+    bidirectional-map,
+    two-way-map,
+    data-structure,
+    typescript,
+    javascript,
+  ]
 ---
 
 import InstallTabs from '@site/src/components/InstallTabs';
@@ -144,22 +152,6 @@ console.log(statusCodes.get(404)); // "Not Found"
 console.log(statusCodes.getKey('OK')); // 200
 ```
 
-### Country Code Registry
-
-```typescript
-const countryCodes = new BiDirectionalMap<string, string>();
-
-countryCodes.set('US', 'United States');
-countryCodes.set('GB', 'United Kingdom');
-countryCodes.set('FR', 'France');
-
-// Get country name by code
-console.log(countryCodes.get('US')); // "United States"
-
-// Get country code by name
-console.log(countryCodes.getKey('France')); // "FR"
-```
-
 ### Handling Duplicate Values (One-to-One Constraint)
 
 ```typescript
@@ -178,92 +170,6 @@ console.log(biMap.size); // 1 (only one mapping exists)
 :::caution One-to-One Constraint
 BiMap enforces one-to-one mappings. Setting a key with an existing value removes the previous key-value pair.
 :::
-
-### User ID to Username Mapping
-
-```typescript
-const userRegistry = new BiDirectionalMap<number, string>();
-
-// Register users
-userRegistry.set(1, 'alice');
-userRegistry.set(2, 'bob');
-userRegistry.set(3, 'charlie');
-
-// Find username by ID
-const username = userRegistry.get(2); // "bob"
-
-// Find ID by username
-const userId = userRegistry.getKey('alice'); // 1
-
-// Check if username is taken
-if (userRegistry.hasValue('newuser')) {
-  console.log('Username already taken!');
-}
-```
-
-### Enum-Like Bidirectional Mapping
-
-```typescript
-const permissions = new BiDirectionalMap<string, number>();
-
-permissions.set('READ', 1);
-permissions.set('WRITE', 2);
-permissions.set('DELETE', 4);
-permissions.set('ADMIN', 8);
-
-// Permission name to value
-const writePermission = permissions.get('WRITE'); // 2
-
-// Permission value to name
-const permissionName = permissions.getKey(4); // "DELETE"
-```
-
-### Type-Safe Object Registry
-
-```typescript
-interface Handler {
-  handle: (data: unknown) => void;
-}
-
-const handlerRegistry = new BiDirectionalMap<string, Handler>();
-
-const saveHandler: Handler = { handle: (d) => console.log('Saving', d) };
-const loadHandler: Handler = { handle: (d) => console.log('Loading', d) };
-
-// Register handlers
-handlerRegistry.set('save', saveHandler);
-handlerRegistry.set('load', loadHandler);
-
-// Look up handler by name
-const handler = handlerRegistry.get('save');
-if (handler) handler.handle({ id: 1 });
-
-// Look up name by handler reference
-const handlerName = handlerRegistry.getKey(saveHandler); // "save"
-```
-
-### Database ID to Entity Mapping
-
-```typescript
-interface Entity {
-  id: number;
-  name: string;
-}
-
-const entityCache = new BiDirectionalMap<number, Entity>();
-
-const entity1: Entity = { id: 101, name: 'Product A' };
-const entity2: Entity = { id: 102, name: 'Product B' };
-
-entityCache.set(101, entity1);
-entityCache.set(102, entity2);
-
-// Find entity by ID
-const product = entityCache.get(101); // Entity { id: 101, name: 'Product A' }
-
-// Find ID by entity reference
-const productId = entityCache.getKey(entity2); // 102
-```
 
 ### Create from Entries
 
@@ -302,19 +208,19 @@ BiMap methods don't throw exceptions. Lookups return `undefined` and deletions r
 
 ## Performance Characteristics
 
-| Operation      | Time Complexity | Description                        |
-| -------------- | --------------- | ---------------------------------- |
-| `set()`        | O(1)            | Add/update key-value pair          |
-| `get()`        | O(1)            | Get value by key                   |
-| `getKey()`     | O(1)            | Get key by value                   |
-| `hasKey()`     | O(1)            | Check if key exists                |
-| `hasValue()`   | O(1)            | Check if value exists              |
-| `deleteKey()`  | O(1)            | Remove by key                      |
-| `deleteValue()` | O(1)           | Remove by value                    |
-| `clear()`      | O(1)            | Remove all mappings                |
-| `keys()`       | O(n)            | Get all keys                       |
-| `values()`     | O(n)            | Get all values                     |
-| `entries()`    | O(n)            | Get all entries                    |
+| Operation       | Time Complexity | Description               |
+| --------------- | --------------- | ------------------------- |
+| `set()`         | O(1)            | Add/update key-value pair |
+| `get()`         | O(1)            | Get value by key          |
+| `getKey()`      | O(1)            | Get key by value          |
+| `hasKey()`      | O(1)            | Check if key exists       |
+| `hasValue()`    | O(1)            | Check if value exists     |
+| `deleteKey()`   | O(1)            | Remove by key             |
+| `deleteValue()` | O(1)            | Remove by value           |
+| `clear()`       | O(1)            | Remove all mappings       |
+| `keys()`        | O(n)            | Get all keys              |
+| `values()`      | O(n)            | Get all values            |
+| `entries()`     | O(n)            | Get all entries           |
 
 **Space Complexity:** O(2n) - maintains two internal maps (key→value and value→key)
 
@@ -331,39 +237,49 @@ BiMap methods don't throw exceptions. Lookups return `undefined` and deletions r
 ### One-to-One Enforcement
 
 When setting a key-value pair:
+
 1. If the key already exists with a different value, the old value mapping is removed
 2. If the value already exists with a different key, the old key mapping is removed
 3. Both internal maps are updated consistently
 
 :::info When to Use BiDirectionalMap
 Perfect for:
+
 - **HTTP status codes** - Code ↔ Message mappings
 - **Country codes** - Code ↔ Country name
 - **User registries** - ID ↔ Username
 - **Enum-like mappings** - Name ↔ Value
 - **Object registries** - Name ↔ Handler/Entity
 - **Language translations** - Key ↔ Translation
-:::
+  :::
 
 :::warning When to Avoid
 Consider alternatives when:
+
 - **Don't need reverse lookups** → Use regular Map (less memory)
 - **Need one-to-many** → Use `Map<K, Set<V>>`
 - **Need many-to-many** → Use custom structure or graph
 - **Values aren't unique** → BiMap requires unique values
-:::
+  :::
 
 ## Comparison with Regular Map
 
-| Feature             | BiDirectionalMap           | Map                     |
-| ------------------- | -------------------------- | ----------------------- |
-| **Key → Value**     | O(1)                       | O(1)                    |
-| **Value → Key**     | O(1)                       | O(n) (must scan)        |
-| **Memory**          | 2× (two maps)              | 1× (one map)            |
-| **Uniqueness**      | Keys AND values unique     | Only keys unique        |
-| **Use case**        | Bidirectional lookups      | One-way lookups         |
+| Feature         | BiDirectionalMap       | Map              |
+| --------------- | ---------------------- | ---------------- |
+| **Key → Value** | O(1)                   | O(1)             |
+| **Value → Key** | O(1)                   | O(n) (must scan) |
+| **Memory**      | 2× (two maps)          | 1× (one map)     |
+| **Uniqueness**  | Keys AND values unique | Only keys unique |
+| **Use case**    | Bidirectional lookups  | One-way lookups  |
 
 ## See Also
+
+**Examples:**
+
+- [Country Code Lookup](../examples/country-code-bimap) - Country code ↔ name registry
+- [User Registry](../examples/user-registry-bimap) - User ID ↔ username mapping
+
+**Related Data Structures:**
 
 - [SortedMap](./sorted-map) - Key-value store with ordered keys
 - [LRUCache](./lru-cache) - Cache with automatic eviction

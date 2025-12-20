@@ -3,7 +3,16 @@ id: binary-heap
 title: BinaryHeap (MinHeap, MaxHeap)
 sidebar_label: BinaryHeap
 description: Min-heap and max-heap implementations with O(log n) insert/remove
-keywords: [binary-heap, min-heap, max-heap, heap, data-structure, typescript, javascript]
+keywords:
+  [
+    binary-heap,
+    min-heap,
+    max-heap,
+    heap,
+    data-structure,
+    typescript,
+    javascript,
+  ]
 ---
 
 import InstallTabs from '@site/src/components/InstallTabs';
@@ -145,62 +154,6 @@ minHeap.insert({ name: 'Charlie', age: 30 });
 console.log(minHeap.peek()); // { name: "Bob", age: 20 }
 ```
 
-### Finding K Largest Elements
-
-```typescript
-function findKLargest(arr: number[], k: number): number[] {
-  const minHeap = new MinHeap<number>();
-
-  for (const num of arr) {
-    minHeap.insert(num);
-    if (minHeap.size > k) {
-      minHeap.remove(); // Remove smallest
-    }
-  }
-
-  return minHeap.toArray().sort((a, b) => b - a);
-}
-
-const numbers = [3, 1, 5, 12, 2, 11, 9, 7];
-console.log(findKLargest(numbers, 3)); // [12, 11, 9]
-```
-
-### Median Finder
-
-```typescript
-class MedianFinder {
-  private maxHeap = new MaxHeap<number>(); // Lower half
-  private minHeap = new MinHeap<number>(); // Upper half
-
-  addNum(num: number): void {
-    // Add to max heap (lower half) first
-    this.maxHeap.insert(num);
-
-    // Balance: move largest from lower to upper
-    this.minHeap.insert(this.maxHeap.remove());
-
-    // Balance sizes: maxHeap should have equal or 1 more element
-    if (this.maxHeap.size < this.minHeap.size) {
-      this.maxHeap.insert(this.minHeap.remove());
-    }
-  }
-
-  findMedian(): number {
-    if (this.maxHeap.size > this.minHeap.size) {
-      return this.maxHeap.peek();
-    }
-    return (this.maxHeap.peek() + this.minHeap.peek()) / 2;
-  }
-}
-
-const mf = new MedianFinder();
-mf.addNum(1);
-mf.addNum(2);
-console.log(mf.findMedian()); // 1.5
-mf.addNum(3);
-console.log(mf.findMedian()); // 2
-```
-
 ### Type-Safe Comparable Objects
 
 ```typescript
@@ -249,15 +202,15 @@ try {
 
 ## Performance Characteristics
 
-| Operation        | Time Complexity | Description                  |
-| ---------------- | --------------- | ---------------------------- |
-| `insert()`       | O(log n)        | Add element to heap          |
-| `remove()`       | O(log n)        | Remove root element          |
-| `peek()`         | O(1)            | View root element            |
-| `contains()`     | O(n)            | Search for element           |
-| `toArray()`      | O(n)            | Convert to array             |
-| `clear()`        | O(1)            | Remove all elements          |
-| **Construction** | O(n)            | Build heap from array        |
+| Operation        | Time Complexity | Description           |
+| ---------------- | --------------- | --------------------- |
+| `insert()`       | O(log n)        | Add element to heap   |
+| `remove()`       | O(log n)        | Remove root element   |
+| `peek()`         | O(1)            | View root element     |
+| `contains()`     | O(n)            | Search for element    |
+| `toArray()`      | O(n)            | Convert to array      |
+| `clear()`        | O(1)            | Remove all elements   |
+| **Construction** | O(n)            | Build heap from array |
 
 **Space Complexity:** O(n) where n is the number of elements
 
@@ -290,41 +243,51 @@ Indices: 0  1  2  3  4
 ### Heapify Algorithm
 
 When initializing with an array, the heap uses Floyd's heapify algorithm:
+
 - Starts from the last non-leaf node
 - Works backwards, "sifting down" each node
 - Time complexity: O(n) - more efficient than n insertions (O(n log n))
 
 :::info When to Use BinaryHeap
 Perfect for:
+
 - Finding min/max element efficiently
 - Priority queue implementations
 - K largest/smallest elements problems
 - Heap sort algorithm
 - Median finding (two-heap approach)
 - Streaming data with top-k queries
-:::
+  :::
 
 :::warning MinHeap vs MaxHeap
 Choose based on your needs:
+
 - **MinHeap**: Quick access to minimum element
 - **MaxHeap**: Quick access to maximum element
 - Can't efficiently access both min and max simultaneously
-:::
+  :::
 
 ## Comparison with PriorityQueue
 
-| Feature             | BinaryHeap                | PriorityQueue                |
-| ------------------- | ------------------------- | ---------------------------- |
-| **API**             | `insert()`, `remove()`    | `enqueue()`, `dequeue()`     |
-| **Use Case**        | Low-level heap operations | Queue-like priority handling |
-| **Abstraction**     | Direct heap manipulation  | Higher-level queue interface |
+| Feature         | BinaryHeap                | PriorityQueue                |
+| --------------- | ------------------------- | ---------------------------- |
+| **API**         | `insert()`, `remove()`    | `enqueue()`, `dequeue()`     |
+| **Use Case**    | Low-level heap operations | Queue-like priority handling |
+| **Abstraction** | Direct heap manipulation  | Higher-level queue interface |
 
 :::tip Which to Use?
+
 - Use **PriorityQueue** for task scheduling, event queues (queue semantics)
 - Use **BinaryHeap** for algorithms requiring direct heap operations (heap sort, etc.)
-:::
+  :::
 
 ## See Also
+
+**Guides:**
+
+- [Heap Algorithms](../guides/heap-algorithms) - K-largest elements, median finder, and more
+
+**Related Data Structures:**
 
 - [PriorityQueue](./priority-queue) - Higher-level priority queue built on heap
 - [Queue](./queue) - First-In-First-Out (FIFO) queue

@@ -3,7 +3,8 @@ id: linked-list
 title: LinkedList
 sidebar_label: LinkedList
 description: Singly linked list with O(1) insertions at both ends
-keywords: [linked-list, singly-linked-list, data-structure, typescript, javascript]
+keywords:
+  [linked-list, singly-linked-list, data-structure, typescript, javascript]
 ---
 
 import InstallTabs from '@site/src/components/InstallTabs';
@@ -132,28 +133,13 @@ while (!tasks.isEmpty()) {
 }
 ```
 
-### Managing a Navigation History
-
-```typescript
-const history = new LinkedList<string>();
-
-// User navigation
-history.append('/home');
-history.append('/products');
-history.append('/cart');
-
-// Get current page
-const current = history.get(history.size - 1);
-console.log(current); // "/cart"
-
-// Check if visited
-const visited = history.contains('/products'); // true
-```
-
 ## Error Handling
 
 ```typescript
-import { EmptyStructureError, IndexOutOfBoundsError } from '@msnkr/data-structures';
+import {
+  EmptyStructureError,
+  IndexOutOfBoundsError,
+} from '@msnkr/data-structures';
 
 try {
   const empty = new LinkedList<number>();
@@ -176,25 +162,26 @@ try {
 ```
 
 :::caution Error Conditions
+
 - `removeFirst()` throws `EmptyStructureError` on empty list
 - `get()`, `insertAt()`, `removeAt()` throw `IndexOutOfBoundsError` for invalid indices
-:::
+  :::
 
 ## Performance Characteristics
 
-| Operation     | Time Complexity | Description                   |
-| ------------- | --------------- | ----------------------------- |
-| `append()`    | O(1)            | Add element to end            |
-| `prepend()`   | O(1)            | Add element to start          |
-| `insertAt()`  | O(n)            | Insert at specific position   |
-| `removeFirst()` | O(1)          | Remove element from start     |
-| `removeAt()`  | O(n)            | Remove at specific position   |
-| `remove()`    | O(n)            | Remove first occurrence       |
-| `get()`       | O(n)            | Access element at position    |
-| `indexOf()`   | O(n)            | Find position of element      |
-| `contains()`  | O(n)            | Search for element            |
-| `clear()`     | O(1)            | Remove all elements           |
-| `toArray()`   | O(n)            | Convert to array              |
+| Operation       | Time Complexity | Description                 |
+| --------------- | --------------- | --------------------------- |
+| `append()`      | O(1)            | Add element to end          |
+| `prepend()`     | O(1)            | Add element to start        |
+| `insertAt()`    | O(n)            | Insert at specific position |
+| `removeFirst()` | O(1)            | Remove element from start   |
+| `removeAt()`    | O(n)            | Remove at specific position |
+| `remove()`      | O(n)            | Remove first occurrence     |
+| `get()`         | O(n)            | Access element at position  |
+| `indexOf()`     | O(n)            | Find position of element    |
+| `contains()`    | O(n)            | Search for element          |
+| `clear()`       | O(1)            | Remove all elements         |
+| `toArray()`     | O(n)            | Convert to array            |
 
 **Space Complexity:** O(n) where n is the number of elements
 
@@ -208,20 +195,29 @@ try {
 
 :::info When to Use LinkedList
 Perfect for:
+
 - Frequent insertions/deletions at the beginning
 - Forward-only traversal
 - When memory overhead of doubly linked list isn't needed
 - Building queues, stacks, or simple lists
-:::
+  :::
 
 :::warning When to Avoid
 Consider alternatives when:
+
 - **Random access is frequent** → Use Array
 - **Bidirectional traversal needed** → Use [DoublyLinkedList](./doubly-linked-list)
 - **Memory is extremely constrained** → Use Array
-:::
+  :::
 
 ## See Also
+
+**Examples:**
+
+- [Task Queue](../examples/task-queue-linked-list) - Building a task processing queue
+- [Navigation History](../examples/navigation-history) - Managing navigation history
+
+**Related Data Structures:**
 
 - [DoublyLinkedList](./doubly-linked-list) - Bidirectional linked list with reverse iteration
 - [Queue](./queue) - First-In-First-Out (FIFO) queue

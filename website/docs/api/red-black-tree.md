@@ -3,7 +3,15 @@ id: red-black-tree
 title: RedBlackTree
 sidebar_label: RedBlackTree
 description: Self-balancing binary search tree with O(log n) guaranteed operations
-keywords: [red-black-tree, self-balancing-tree, bst, data-structure, typescript, javascript]
+keywords:
+  [
+    red-black-tree,
+    self-balancing-tree,
+    bst,
+    data-structure,
+    typescript,
+    javascript,
+  ]
 ---
 
 import InstallTabs from '@site/src/components/InstallTabs';
@@ -161,51 +169,6 @@ console.log(tree.size); // 7
 console.log(tree.toArray()); // [1, 3, 4, 5, 6, 7, 9]
 ```
 
-### Case-Insensitive String Sorting
-
-```typescript
-const names = new RedBlackTree<string>({
-  comparator: (a, b) => a.toLowerCase().localeCompare(b.toLowerCase()),
-});
-
-names.insert('Charlie');
-names.insert('alice');
-names.insert('BOB');
-
-// Will iterate in case-insensitive alphabetical order
-for (const name of names) {
-  console.log(name); // alice, BOB, Charlie
-}
-```
-
-### Task Priority System
-
-```typescript
-interface Task {
-  id: number;
-  priority: number;
-  name: string;
-}
-
-// Higher priority number = higher priority
-const tasks = new RedBlackTree<Task>({
-  comparator: (a, b) => {
-    if (a.priority !== b.priority) {
-      return b.priority - a.priority; // Descending
-    }
-    return a.id - b.id; // Tie-breaker by ID
-  },
-});
-
-tasks.insert({ id: 1, priority: 2, name: 'Medium task' });
-tasks.insert({ id: 2, priority: 3, name: 'High priority task' });
-tasks.insert({ id: 3, priority: 1, name: 'Low priority task' });
-
-// Get highest priority task
-const highestPriority = tasks.min();
-console.log(highestPriority); // { id: 2, priority: 3, name: 'High priority task' }
-```
-
 ### Event Timeline
 
 ```typescript
@@ -320,15 +283,15 @@ console.log(tree.remove(999)); // false
 
 ## Performance Characteristics
 
-| Operation   | Time Complexity | Description                  |
-| ----------- | --------------- | ---------------------------- |
-| `insert()`  | O(log n)        | Add element to tree          |
-| `remove()`  | O(log n)        | Remove element from tree     |
-| `contains()` | O(log n)       | Check if element exists      |
-| `min()`     | O(log n)        | Get minimum element          |
-| `max()`     | O(log n)        | Get maximum element          |
-| `toArray()` | O(n)            | Convert to sorted array      |
-| `clear()`   | O(1)            | Remove all elements          |
+| Operation    | Time Complexity | Description              |
+| ------------ | --------------- | ------------------------ |
+| `insert()`   | O(log n)        | Add element to tree      |
+| `remove()`   | O(log n)        | Remove element from tree |
+| `contains()` | O(log n)        | Check if element exists  |
+| `min()`      | O(log n)        | Get minimum element      |
+| `max()`      | O(log n)        | Get maximum element      |
+| `toArray()`  | O(n)            | Convert to sorted array  |
+| `clear()`    | O(1)            | Remove all elements      |
 
 **Space Complexity:** O(n) where n is the number of elements
 
@@ -353,10 +316,12 @@ The tree maintains these invariants for balanced performance:
 The tree stays balanced through:
 
 **Rotations:**
+
 - **Left rotation**: When right subtree becomes too heavy
 - **Right rotation**: When left subtree becomes too heavy
 
 **Recoloring:**
+
 - Color flips to maintain red-black properties
 - Applied during insertion and deletion
 
@@ -375,47 +340,56 @@ The tree stays balanced through:
 
 :::info When to Use RedBlackTree
 Perfect for:
+
 - **Sorted unique values** - Maintain sorted set
 - **Range queries** - Need min/max efficiently
 - **Ordered iteration** - Always traverse in sorted order
 - **Guaranteed performance** - Need O(log n) worst-case
 - **Set operations** - Union, intersection (via sorted iteration)
 - **Database indexing** - Efficient lookups with ordering
-:::
+  :::
 
 :::warning When to Avoid
 Consider alternatives when:
+
 - **Don't need sorting** → Use HashSet/Set (O(1) operations)
 - **Need duplicates** → Red-Black Tree stores unique values only
 - **Memory constrained** → Each node has color and 2-3 pointers
 - **Simple use case** → Regular Set might be simpler
-:::
+  :::
 
 ## Comparison with Other Structures
 
-| Feature             | RedBlackTree          | Set/HashSet           | Array (sorted)       |
-| ------------------- | --------------------- | --------------------- | -------------------- |
-| **Insert**          | O(log n)              | O(1) average          | O(n) (shift elements) |
-| **Search**          | O(log n)              | O(1) average          | O(log n) (binary search) |
-| **Delete**          | O(log n)              | O(1) average          | O(n) (shift elements) |
-| **Min/Max**         | O(log n)              | O(n) (must scan)      | O(1) (at ends)       |
-| **Sorted iteration** | O(n)                 | O(n log n) (must sort) | O(n) (already sorted) |
-| **Memory**          | Higher (tree nodes)   | Lower (hash table)    | Lowest (contiguous)  |
-| **Duplicates**      | No                    | No                    | Yes (if allowed)     |
+| Feature              | RedBlackTree        | Set/HashSet            | Array (sorted)           |
+| -------------------- | ------------------- | ---------------------- | ------------------------ |
+| **Insert**           | O(log n)            | O(1) average           | O(n) (shift elements)    |
+| **Search**           | O(log n)            | O(1) average           | O(log n) (binary search) |
+| **Delete**           | O(log n)            | O(1) average           | O(n) (shift elements)    |
+| **Min/Max**          | O(log n)            | O(n) (must scan)       | O(1) (at ends)           |
+| **Sorted iteration** | O(n)                | O(n log n) (must sort) | O(n) (already sorted)    |
+| **Memory**           | Higher (tree nodes) | Lower (hash table)     | Lowest (contiguous)      |
+| **Duplicates**       | No                  | No                     | Yes (if allowed)         |
 
 ## Red-Black Tree vs AVL Tree
 
 Both are self-balancing BSTs, but with trade-offs:
 
-| Feature              | RedBlackTree                | AVL Tree               |
-| -------------------- | --------------------------- | ---------------------- |
-| **Balancing**        | Less strict (faster insert/delete) | More strict (faster search) |
-| **Height**           | ≤ 2 × log(n)                | ≤ 1.44 × log(n)        |
-| **Use case**         | Frequent modifications      | Read-heavy workloads   |
-| **Rotations**        | Fewer (faster updates)      | More (better balance)  |
+| Feature       | RedBlackTree                       | AVL Tree                    |
+| ------------- | ---------------------------------- | --------------------------- |
+| **Balancing** | Less strict (faster insert/delete) | More strict (faster search) |
+| **Height**    | ≤ 2 × log(n)                       | ≤ 1.44 × log(n)             |
+| **Use case**  | Frequent modifications             | Read-heavy workloads        |
+| **Rotations** | Fewer (faster updates)             | More (better balance)       |
 
 ## See Also
 
-- [SortedMap](./sorted-map) - Key-value store built on Red-Black Tree
-- [BinaryHeap](./binary-heap) - For priority queue operations
-- [Trie](./trie) - For string prefix operations
+### Related Examples
+
+- [Task Priority System](../examples/task-priority-tree.md)
+- [Case-Insensitive Sorting](../examples/case-insensitive-sorting.md)
+
+### Other Data Structures
+
+- [SortedMap](./sorted-map.md) - Key-value store built on Red-Black Tree
+- [BinaryHeap](./binary-heap.md) - For priority queue operations
+- [PriorityQueue](./priority-queue.md) - Alternative for priority-based processing

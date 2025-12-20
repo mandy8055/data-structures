@@ -3,7 +3,15 @@ id: sorted-map
 title: SortedMap
 sidebar_label: SortedMap
 description: Key-value map with O(log n) operations and sorted key iteration
-keywords: [sorted-map, red-black-tree, ordered-map, data-structure, typescript, javascript]
+keywords:
+  [
+    sorted-map,
+    red-black-tree,
+    ordered-map,
+    data-structure,
+    typescript,
+    javascript,
+  ]
 ---
 
 import InstallTabs from '@site/src/components/InstallTabs';
@@ -130,64 +138,33 @@ for (const [key, value] of map) {
 // 7 "seven"
 ```
 
-### Leaderboard System
+### Custom Object Keys with Comparator
 
 ```typescript
-interface PlayerScore {
-  username: string;
-  timestamp: Date;
+interface User {
+  id: number;
+  name: string;
 }
 
-// Sorted by score (higher is better)
-const leaderboard = new SortedMap<number, PlayerScore>({
-  comparator: (a, b) => b - a, // Descending order
+const userMap = new SortedMap<User, string>({
+  comparator: (a, b) => a.id - b.id,
 });
 
-leaderboard.set(100, { username: 'alice', timestamp: new Date() });
-leaderboard.set(250, { username: 'bob', timestamp: new Date() });
-leaderboard.set(180, { username: 'charlie', timestamp: new Date() });
+userMap.set({ id: 1, name: 'Alice' }, 'admin');
+userMap.set({ id: 3, name: 'Charlie' }, 'user');
+userMap.set({ id: 2, name: 'Bob' }, 'moderator');
 
-// Get top player
-const [topScore, topPlayer] = leaderboard.firstEntry();
-console.log(`${topPlayer.username} leads with ${topScore} points!`);
-
-// Iterate from highest to lowest score
-for (const [score, player] of leaderboard) {
-  console.log(`${player.username}: ${score}`);
+// Iterate by user ID order
+for (const [user, role] of userMap) {
+  console.log(`${user.name} (ID: ${user.id}): ${role}`);
 }
 // Output:
-// bob: 250
-// charlie: 180
-// alice: 100
+// Alice (ID: 1): admin
+// Bob (ID: 2): moderator
+// Charlie (ID: 3): user
 ```
 
-### Time-Series Data Storage
-
-```typescript
-interface DataPoint {
-  value: number;
-  source: string;
-}
-
-const timeSeries = new SortedMap<Date, DataPoint>({
-  comparator: (a, b) => a.getTime() - b.getTime(),
-});
-
-timeSeries.set(new Date('2025-12-17T10:00'), { value: 42, source: 'sensor1' });
-timeSeries.set(new Date('2025-12-17T09:00'), { value: 38, source: 'sensor1' });
-timeSeries.set(new Date('2025-12-17T11:00'), { value: 45, source: 'sensor1' });
-
-// Get earliest data point
-const [earliestTime, earliestData] = timeSeries.firstEntry();
-console.log(`First reading: ${earliestData.value} at ${earliestTime}`);
-
-// Iterate chronologically
-for (const [timestamp, data] of timeSeries) {
-  console.log(`${timestamp.toISOString()}: ${data.value}`);
-}
-```
-
-### Custom Object Keys with Comparator
+### Initialize with Entries
 
 ```typescript
 interface User {
@@ -283,9 +260,9 @@ const products = new SortedMap<number, string>();
 
 products.set(10.99, 'Notebook');
 products.set(5.49, 'Pen');
-products.set(25.00, 'Calculator');
+products.set(25.0, 'Calculator');
 products.set(2.99, 'Eraser');
-products.set(15.50, 'Ruler');
+products.set(15.5, 'Ruler');
 
 // Get cheapest and most expensive
 console.log(`Cheapest: ${products.firstEntry()}`); // [2.99, "Eraser"]
@@ -332,20 +309,20 @@ console.log(map.delete(999)); // false
 
 ## Performance Characteristics
 
-| Operation       | Time Complexity | Description                     |
-| --------------- | --------------- | ------------------------------- |
-| `set()`         | O(log n)        | Add or update key-value pair    |
-| `get()`         | O(log n)        | Retrieve value by key           |
-| `has()`         | O(log n)        | Check if key exists             |
-| `delete()`      | O(log n)        | Remove entry by key             |
-| `firstKey()`    | O(log n)        | Get smallest key                |
-| `lastKey()`     | O(log n)        | Get largest key                 |
-| `firstEntry()`  | O(log n)        | Get entry with smallest key     |
-| `lastEntry()`   | O(log n)        | Get entry with largest key      |
-| `keys()`        | O(n)            | Get all keys (sorted)           |
-| `values()`      | O(n)            | Get all values (key order)      |
-| `entries()`     | O(n)            | Get all entries (key order)     |
-| `clear()`       | O(1)            | Remove all entries              |
+| Operation      | Time Complexity | Description                  |
+| -------------- | --------------- | ---------------------------- |
+| `set()`        | O(log n)        | Add or update key-value pair |
+| `get()`        | O(log n)        | Retrieve value by key        |
+| `has()`        | O(log n)        | Check if key exists          |
+| `delete()`     | O(log n)        | Remove entry by key          |
+| `firstKey()`   | O(log n)        | Get smallest key             |
+| `lastKey()`    | O(log n)        | Get largest key              |
+| `firstEntry()` | O(log n)        | Get entry with smallest key  |
+| `lastEntry()`  | O(log n)        | Get entry with largest key   |
+| `keys()`       | O(n)            | Get all keys (sorted)        |
+| `values()`     | O(n)            | Get all values (key order)   |
+| `entries()`    | O(n)            | Get all entries (key order)  |
+| `clear()`      | O(1)            | Remove all entries           |
 
 **Space Complexity:** O(n) where n is the number of entries
 
@@ -361,6 +338,7 @@ console.log(map.delete(999)); // false
 ### Comparator Function
 
 The comparator determines key ordering:
+
 - **Return negative**: `a` comes before `b`
 - **Return positive**: `b` comes before `a`
 - **Return zero**: Keys are equal (update value)
@@ -378,35 +356,42 @@ The comparator determines key ordering:
 
 :::info When to Use SortedMap
 Perfect for:
+
 - **Leaderboards** - Maintain scores in sorted order
 - **Time-series data** - Store events chronologically
 - **Priority-based configs** - Process by priority
 - **Range queries** - Need min/max efficiently
 - **Ordered iteration** - Always iterate in sorted order
 - **Log storage** - Timestamp-based retrieval
-:::
+  :::
 
 :::warning When to Avoid
 Consider alternatives when:
+
 - **Don't need sorting** → Use regular Map (O(1) operations)
 - **Need O(1) access** → Use Map or [LRUCache](./lru-cache)
 - **Keys aren't comparable** → Use Map with custom keys
 - **Memory constrained** → Map has less overhead than tree structure
-:::
+  :::
 
 ## Comparison with Map
 
-| Feature              | SortedMap            | Map                   |
-| -------------------- | -------------------- | --------------------- |
-| **set/get/delete**   | O(log n)             | O(1) average          |
-| **Iteration order**  | Sorted by key        | Insertion order       |
-| **firstKey/lastKey** | O(log n)             | N/A (must iterate)    |
-| **Memory overhead**  | Higher (tree nodes)  | Lower (hash table)    |
-| **Use case**         | Ordered data         | Fast unordered access |
+| Feature              | SortedMap           | Map                   |
+| -------------------- | ------------------- | --------------------- |
+| **set/get/delete**   | O(log n)            | O(1) average          |
+| **Iteration order**  | Sorted by key       | Insertion order       |
+| **firstKey/lastKey** | O(log n)            | N/A (must iterate)    |
+| **Memory overhead**  | Higher (tree nodes) | Lower (hash table)    |
+| **Use case**         | Ordered data        | Fast unordered access |
 
 ## See Also
 
-- [RedBlackTree](./red-black-tree) - Underlying self-balancing tree structure
-- [BiMap](./bi-map) - Bidirectional map with O(1) lookups
-- [LRUCache](./lru-cache) - Cache with automatic eviction
-- [Trie](./trie) - Prefix tree for string keys
+### Related Examples
+
+- [Leaderboard System](../examples/leaderboard-sorted-map.md)
+
+### Other Data Structures
+
+- [RedBlackTree](./red-black-tree.md) - Underlying self-balancing tree structure
+- [BiMap](./bi-map.md) - Bidirectional map with O(1) lookups
+- [LRUCache](./lru-cache.md) - Cache with automatic eviction
