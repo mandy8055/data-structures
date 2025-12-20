@@ -28,12 +28,17 @@ const config: Config = {
 
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'zh-CN'],
+    locales: ['en', 'de', 'zh-CN'],
     localeConfigs: {
       en: {
         label: 'English',
         direction: 'ltr',
         htmlLang: 'en-US',
+      },
+      de: {
+        label: 'Deutsch',
+        direction: 'ltr',
+        htmlLang: 'de-DE',
       },
       'zh-CN': {
         label: '简体中文',
