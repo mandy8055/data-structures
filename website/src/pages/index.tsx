@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import clsx from 'clsx';
 import Link from '@docusaurus/Link';
+import Translate from '@docusaurus/Translate';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
 import Layout from '@theme/Layout';
 import HomepageFeatures from '@site/src/components/HomepageFeatures/index.tsx';
@@ -22,14 +23,14 @@ function HomepageHeader() {
             className='button button--secondary button--lg'
             to='/docs/intro'
           >
-            Get Started 🚀
+            <Translate id='homepage.getStarted'>Get Started</Translate> 🚀
           </Link>
           <Link
             className='button button--secondary button--lg'
             to='/docs/api/bi-map'
             style={{ marginLeft: '1rem' }}
           >
-            API Reference 📚
+            <Translate id='homepage.apiReference'>API Reference</Translate> 📚
           </Link>
         </div>
       </div>

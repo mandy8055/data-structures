@@ -1,0 +1,26 @@
+{
+  "title": {
+    "message": "data-structures",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "data-structures 标志",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.Docs": {
+    "message": "文档",
+    "description": "Navbar item with label Docs"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  },
+  "item.label.JSR": {
+    "message": "JSR",
+    "description": "Navbar item with label JSR"
+  },
+  "item.label.npm": {
+    "message": "npm",
+    "description": "Navbar item with label npm"
+  }
+}
