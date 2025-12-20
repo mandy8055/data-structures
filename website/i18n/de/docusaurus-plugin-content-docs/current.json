@@ -1,0 +1,10 @@
+{
+  "version.label": {
+    "message": "Aktuell",
+    "description": "The label for version current"
+  },
+  "sidebar.tutorialSidebar.category.api": {
+    "message": "API",
+    "description": "The label for category 'api' in sidebar 'tutorialSidebar'"
+  }
+}
