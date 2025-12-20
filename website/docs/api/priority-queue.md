@@ -3,7 +3,8 @@ id: priority-queue
 title: PriorityQueue
 sidebar_label: PriorityQueue
 description: Priority queue with O(log n) enqueue/dequeue backed by binary heap
-keywords: [priority-queue, heap, data-structure, typescript, javascript, min-heap]
+keywords:
+  [priority-queue, heap, data-structure, typescript, javascript, min-heap]
 ---
 
 import InstallTabs from '@site/src/components/InstallTabs';
@@ -135,92 +136,6 @@ console.log(queue.peek()); // 3
 Initializing with an array uses an O(n) heapify algorithm, which is more efficient than enqueueing elements one by one (O(n log n)).
 :::
 
-### Task Scheduling System
-
-```typescript
-interface ScheduledTask {
-  name: string;
-  priority: number;
-  deadline: Date;
-}
-
-const scheduler = new PriorityQueue<ScheduledTask>({
-  comparator: (a, b) => {
-    // First compare by priority (higher is more urgent)
-    if (a.priority !== b.priority) {
-      return b.priority - a.priority;
-    }
-    // Then by deadline (earlier is more urgent)
-    return a.deadline.getTime() - b.deadline.getTime();
-  },
-});
-
-scheduler.enqueue({
-  name: 'Review PR',
-  priority: 2,
-  deadline: new Date('2025-12-20'),
-});
-
-scheduler.enqueue({
-  name: 'Fix critical bug',
-  priority: 3,
-  deadline: new Date('2025-12-18'),
-});
-
-scheduler.enqueue({
-  name: 'Update docs',
-  priority: 1,
-  deadline: new Date('2025-12-19'),
-});
-
-// Process tasks in priority order
-while (!scheduler.isEmpty()) {
-  const task = scheduler.dequeue();
-  console.log(`Processing: ${task.name} (Priority: ${task.priority})`);
-}
-```
-
-### Event Queue with Timestamps
-
-```typescript
-interface Event {
-  type: string;
-  timestamp: Date;
-}
-
-const events = new PriorityQueue<Event>({
-  comparator: (a, b) => a.timestamp.getTime() - b.timestamp.getTime(),
-});
-
-events.enqueue({ type: 'login', timestamp: new Date('2025-12-17T10:00:00') });
-events.enqueue({ type: 'click', timestamp: new Date('2025-12-17T09:30:00') });
-events.enqueue({ type: 'logout', timestamp: new Date('2025-12-17T11:00:00') });
-
-// Process events in chronological order
-console.log(events.dequeue()); // { type: "click", timestamp: ... }
-```
-
-### Dijkstra's Algorithm Helper
-
-```typescript
-interface PathNode {
-  id: string;
-  distance: number;
-}
-
-// Min-heap for Dijkstra's shortest path
-const frontier = new PriorityQueue<PathNode>({
-  comparator: (a, b) => a.distance - b.distance,
-});
-
-frontier.enqueue({ id: 'A', distance: 0 });
-frontier.enqueue({ id: 'B', distance: 5 });
-frontier.enqueue({ id: 'C', distance: 3 });
-
-// Always get closest node first
-const closest = frontier.dequeue(); // { id: "A", distance: 0 }
-```
-
 ## Error Handling
 
 ```typescript
@@ -251,16 +166,16 @@ try {
 
 ## Performance Characteristics
 
-| Operation       | Time Complexity | Description                      |
-| --------------- | --------------- | -------------------------------- |
-| `enqueue()`     | O(log n)        | Add element with priority        |
-| `dequeue()`     | O(log n)        | Remove highest priority element  |
-| `peek()`        | O(1)            | View highest priority element    |
-| `contains()`    | O(n)            | Search for element               |
-| `toArray()`     | O(n)            | Convert to array (heap order)    |
-| `toSortedArray()` | O(n log n)    | Convert to sorted array          |
-| `clear()`       | O(1)            | Remove all elements              |
-| **Initialization** | O(n)         | Create from array                |
+| Operation          | Time Complexity | Description                     |
+| ------------------ | --------------- | ------------------------------- |
+| `enqueue()`        | O(log n)        | Add element with priority       |
+| `dequeue()`        | O(log n)        | Remove highest priority element |
+| `peek()`           | O(1)            | View highest priority element   |
+| `contains()`       | O(n)            | Search for element              |
+| `toArray()`        | O(n)            | Convert to array (heap order)   |
+| `toSortedArray()`  | O(n log n)      | Convert to sorted array         |
+| `clear()`          | O(1)            | Remove all elements             |
+| **Initialization** | O(n)            | Create from array               |
 
 **Space Complexity:** O(n) where n is the number of elements
 
@@ -276,6 +191,7 @@ try {
 ### Comparator Function
 
 The comparator function determines priority:
+
 - **Return negative**: `a` has higher priority than `b`
 - **Return positive**: `b` has higher priority than `a`
 - **Return zero**: Equal priority
@@ -290,23 +206,35 @@ The comparator function determines priority:
 
 :::info When to Use PriorityQueue
 Perfect for:
+
 - Task scheduling with priorities
 - Event-driven simulations
 - Dijkstra's shortest path algorithm
 - Huffman coding
-- A* pathfinding
+- A\* pathfinding
 - Job scheduling systems
 - Merge k sorted lists
-:::
+  :::
 
 :::warning When to Avoid
 Consider alternatives when:
+
 - **Need FIFO order** → Use [Queue](./queue)
 - **Need LIFO order** → Use [Deque](./deque) as stack
 - **Need stable ordering** → Priority queue doesn't guarantee order for equal priorities
-:::
+  :::
 
 ## See Also
+
+**Examples:**
+
+- [Event Queue](../examples/event-queue) - Processing events by timestamp
+
+**Guides:**
+
+- [Heap Algorithms](../guides/heap-algorithms) - Dijkstra's algorithm and more
+
+**Related Data Structures:**
 
 - [BinaryHeap](./binary-heap) - Low-level heap implementation (MinHeap, MaxHeap)
 - [Queue](./queue) - First-In-First-Out (FIFO) queue

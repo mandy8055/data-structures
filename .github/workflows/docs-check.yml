@@ -3,15 +3,14 @@ name: Docs Check
 on:
   pull_request:
     paths:
-      - 'website/**'
-      - '.github/workflows/docs-check.yml'
+      - "website/**"
+      - ".github/workflows/docs-check.yml"
   push:
     branches:
-      - 'docs/**'
-      - 'main'
+      - "main"
     paths:
-      - 'website/**'
-      - '.github/workflows/docs-check.yml'
+      - "website/**"
+      - ".github/workflows/docs-check.yml"
 
 jobs:
   build:
@@ -30,9 +29,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: '22.x'
-          cache: 'pnpm'
-          cache-dependency-path: 'website/pnpm-lock.yaml'
+          node-version: "22.x"
+          cache: "pnpm"
+          cache-dependency-path: "website/pnpm-lock.yaml"
 
       - name: Install dependencies
         run: pnpm install

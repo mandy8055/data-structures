@@ -3,7 +3,15 @@ id: doubly-linked-list
 title: DoublyLinkedList
 sidebar_label: DoublyLinkedList
 description: Doubly linked list with O(1) operations at both ends and bidirectional traversal
-keywords: [doubly-linked-list, linked-list, data-structure, typescript, javascript, bidirectional]
+keywords:
+  [
+    doubly-linked-list,
+    linked-list,
+    data-structure,
+    typescript,
+    javascript,
+    bidirectional,
+  ]
 ---
 
 import InstallTabs from '@site/src/components/InstallTabs';
@@ -135,73 +143,6 @@ console.log('Forward:', [...list]); // [1, 2, 3]
 console.log('Reverse:', [...list.reverseIterator()]); // [3, 2, 1]
 ```
 
-### Browser History Implementation
-
-```typescript
-class BrowserHistory {
-  private history = new DoublyLinkedList<string>();
-  private currentIndex = -1;
-
-  visit(url: string): void {
-    // Remove forward history
-    while (this.currentIndex < this.history.size - 1) {
-      this.history.removeLast();
-    }
-
-    this.history.append(url);
-    this.currentIndex++;
-  }
-
-  back(): string | null {
-    if (this.currentIndex > 0) {
-      this.currentIndex--;
-      return this.history.get(this.currentIndex);
-    }
-    return null;
-  }
-
-  forward(): string | null {
-    if (this.currentIndex < this.history.size - 1) {
-      this.currentIndex++;
-      return this.history.get(this.currentIndex);
-    }
-    return null;
-  }
-}
-
-const browser = new BrowserHistory();
-browser.visit('google.com');
-browser.visit('github.com');
-browser.visit('stackoverflow.com');
-
-console.log(browser.back()); // "github.com"
-console.log(browser.back()); // "google.com"
-console.log(browser.forward()); // "github.com"
-```
-
-### Music Playlist with Shuffle
-
-```typescript
-const playlist = new DoublyLinkedList<string>();
-
-playlist.append('Song 1');
-playlist.append('Song 2');
-playlist.append('Song 3');
-playlist.append('Song 4');
-
-// Play forward
-console.log('Playing forward:');
-for (const song of playlist) {
-  console.log(`♪ ${song}`);
-}
-
-// Play backward
-console.log('\nPlaying backward:');
-for (const song of playlist.reverseIterator()) {
-  console.log(`♪ ${song}`);
-}
-```
-
 ### Efficient Operations at Both Ends
 
 ```typescript
@@ -221,7 +162,10 @@ console.log(deque.isEmpty()); // true
 ## Error Handling
 
 ```typescript
-import { EmptyStructureError, IndexOutOfBoundsError } from '@msnkr/data-structures';
+import {
+  EmptyStructureError,
+  IndexOutOfBoundsError,
+} from '@msnkr/data-structures';
 
 try {
   const empty = new DoublyLinkedList<number>();
@@ -244,26 +188,27 @@ try {
 ```
 
 :::caution Error Conditions
+
 - `removeFirst()`, `removeLast()` throw `EmptyStructureError` on empty list
 - `get()`, `insertAt()`, `removeAt()` throw `IndexOutOfBoundsError` for invalid indices
-:::
+  :::
 
 ## Performance Characteristics
 
-| Operation       | Time Complexity    | Description                   |
-| --------------- | ------------------ | ----------------------------- |
-| `append()`      | O(1)               | Add element to end            |
-| `prepend()`     | O(1)               | Add element to start          |
-| `insertAt()`    | O(n)               | Insert at specific position   |
-| `removeFirst()` | O(1)               | Remove element from start     |
-| `removeLast()`  | O(1)               | Remove element from end       |
-| `removeAt()`    | O(n)               | Remove at specific position   |
-| `remove()`      | O(n)               | Remove first occurrence       |
-| `get()`         | O(min(n/2, k))     | Access element (optimized)    |
-| `indexOf()`     | O(n)               | Find position of element      |
-| `contains()`    | O(n)               | Search for element            |
-| `clear()`       | O(1)               | Remove all elements           |
-| `toArray()`     | O(n)               | Convert to array              |
+| Operation       | Time Complexity | Description                 |
+| --------------- | --------------- | --------------------------- |
+| `append()`      | O(1)            | Add element to end          |
+| `prepend()`     | O(1)            | Add element to start        |
+| `insertAt()`    | O(n)            | Insert at specific position |
+| `removeFirst()` | O(1)            | Remove element from start   |
+| `removeLast()`  | O(1)            | Remove element from end     |
+| `removeAt()`    | O(n)            | Remove at specific position |
+| `remove()`      | O(n)            | Remove first occurrence     |
+| `get()`         | O(min(n/2, k))  | Access element (optimized)  |
+| `indexOf()`     | O(n)            | Find position of element    |
+| `contains()`    | O(n)            | Search for element          |
+| `clear()`       | O(1)            | Remove all elements         |
+| `toArray()`     | O(n)            | Convert to array            |
 
 **Space Complexity:** O(n) where n is the number of elements (2 pointers per node vs 1 for singly linked)
 
@@ -290,21 +235,30 @@ try {
 
 :::info When to Use DoublyLinkedList
 Perfect for:
+
 - Browser history, undo/redo functionality
 - Music players with forward/backward navigation
 - LRU cache implementations
 - When frequent removals from both ends are needed
 - Applications requiring bidirectional traversal
-:::
+  :::
 
 :::warning When to Use LinkedList Instead
 Consider singly LinkedList when:
+
 - Memory is constrained (only need 1 pointer per node)
 - Only forward traversal is needed
 - Don't need O(1) removal from the end
-:::
+  :::
 
 ## See Also
+
+**Examples:**
+
+- [Browser History](../examples/browser-history-doubly-linked) - Back/forward navigation
+- [Music Playlist](../examples/music-playlist) - Bidirectional playlist traversal
+
+**Related Data Structures:**
 
 - [LinkedList](./linked-list) - Singly linked list with lower memory overhead
 - [Deque](./deque) - Double-ended queue (array-based alternative)
