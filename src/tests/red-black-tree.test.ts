@@ -1,6 +1,42 @@
-import { assertEquals, assertThrows } from '@std/assert';
+import { assert, assertEquals, assertThrows } from '@std/assert';
 import { EmptyStructureError } from '../errors/index.ts';
 import { RedBlackTree } from '../core/red-black-tree.ts';
+import { RBColor, type RBNode } from '../types/index.ts';
+
+/**
+ * Walks the tree's internal node structure and verifies red-black
+ * invariants: the root is black, no red node has a red child, and every
+ * root-to-leaf path has the same black-height.
+ */
+function assertRedBlackInvariants<T>(tree: RedBlackTree<T>): void {
+  // deno-lint-ignore no-explicit-any
+  const root = (tree as any).root as RBNode<T> | null;
+
+  if (!root) return;
+  assertEquals(root.color, RBColor.BLACK, 'root must be black');
+
+  function blackHeight(node: RBNode<T> | null): number {
+    if (!node) return 1;
+
+    if (node.color === RBColor.RED) {
+      const leftRed = node.left?.color === RBColor.RED;
+      const rightRed = node.right?.color === RBColor.RED;
+      assert(!leftRed && !rightRed, 'red node must not have a red child');
+    }
+
+    const leftHeight = blackHeight(node.left);
+    const rightHeight = blackHeight(node.right);
+    assertEquals(
+      leftHeight,
+      rightHeight,
+      'left and right subtrees must have equal black-height',
+    );
+
+    return leftHeight + (node.color === RBColor.BLACK ? 1 : 0);
+  }
+
+  blackHeight(root);
+}
 
 Deno.test('RedBlackTree - Basic Operations', async (t) => {
   await t.step('constructor - creates empty tree', () => {
@@ -371,6 +407,91 @@ Deno.test('RedBlackTree - Complex Delete Cases', async (t) => {
       assertEquals(tree.size, values.length - removeSequence.length);
       const finalArray = tree.toArray();
       assertEquals(finalArray, [10, 15, 20, 22, 25, 30, 35, 37, 40, 45]);
+    },
+  );
+});
+
+Deno.test('RedBlackTree - Balance Invariants After Deletion', async (t) => {
+  await t.step(
+    'maintains black-height when deleting a black node whose replacement is null',
+    () => {
+      // Regression test: deleting a black leaf (or a black node with a null
+      // replacement child) must still trigger rebalancing, otherwise the
+      // tree's black-height invariant silently breaks.
+      const tree = new RedBlackTree<number>();
+      const values = [
+        31,
+        23,
+        22,
+        5,
+        28,
+        44,
+        21,
+        42,
+        13,
+        29,
+        10,
+        25,
+        46,
+        3,
+        8,
+        7,
+        39,
+        24,
+        40,
+        22,
+      ];
+      for (const value of values) {
+        tree.insert(value);
+      }
+
+      tree.remove(3);
+
+      assertRedBlackInvariants(tree);
+    },
+  );
+
+  await t.step(
+    'maintains invariants across randomized insert/delete sequences',
+    () => {
+      let seed = 42;
+      const random = () => {
+        // Simple deterministic PRNG (mulberry32) for reproducible test runs.
+        seed |= 0;
+        seed = (seed + 0x6d2b79f5) | 0;
+        let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+        t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+        return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+      };
+
+      for (let trial = 0; trial < 25; trial++) {
+        const tree = new RedBlackTree<number>();
+        const present = new Set<number>();
+        const insertCount = 30 + Math.floor(random() * 50);
+
+        for (let i = 0; i < insertCount; i++) {
+          const value = Math.floor(random() * 500);
+          tree.insert(value);
+          present.add(value);
+        }
+        assertRedBlackInvariants(tree);
+
+        const deletionOrder = Array.from(present);
+        for (let i = deletionOrder.length - 1; i > 0; i--) {
+          const j = Math.floor(random() * (i + 1));
+          [deletionOrder[i], deletionOrder[j]] = [
+            deletionOrder[j],
+            deletionOrder[i],
+          ];
+        }
+
+        for (const value of deletionOrder) {
+          tree.remove(value);
+          assertRedBlackInvariants(tree);
+        }
+
+        assertEquals(tree.size, 0);
+      }
     },
   );
 });
