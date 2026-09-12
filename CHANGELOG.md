@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.2](https://github.com/mandy8055/data-structures/compare/v1.4.1...v1.4.2) (2026-09-12)
+
+
+### 🐛 Bug Fixes
+
+* 🐛 rebalance RBtree post deleting black node with null replacement ([449c2ea](https://github.com/mandy8055/data-structures/commit/449c2ea6ecc9095bd5b4b3595ce08dca18f53f49))
+
 ## [1.4.1](https://github.com/mandy8055/data-structures/compare/v1.4.0...v1.4.1) (2025-12-17)
 
 
