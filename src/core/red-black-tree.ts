@@ -396,14 +396,19 @@ export class RedBlackTree<T> implements Iterable<T> {
    */
   private deleteNode(node: RBNode<T>): void {
     let x: RBNode<T> | null;
+    // Tracks x's parent explicitly, since x itself may be null (an implicit
+    // black NIL leaf) and therefore cannot carry its own parent pointer.
+    let xParent: RBNode<T> | null;
     let y = node;
     let yOriginalColor = y.color;
 
     if (!node.left) {
       x = node.right;
+      xParent = node.parent;
       this.transplant(node, node.right);
     } else if (!node.right) {
       x = node.left;
+      xParent = node.parent;
       this.transplant(node, node.left);
     } else {
       y = this.minimum(node.right);
@@ -411,8 +416,10 @@ export class RedBlackTree<T> implements Iterable<T> {
       x = y.right;
 
       if (y.parent === node) {
+        xParent = y;
         if (x) x.parent = y;
       } else {
+        xParent = y.parent;
         this.transplant(y, y.right);
         y.right = node.right;
         y.right.parent = y;
@@ -424,27 +431,33 @@ export class RedBlackTree<T> implements Iterable<T> {
       y.color = node.color;
     }
 
-    if (yOriginalColor === RBColor.BLACK && x) {
-      this.fixDelete(x);
+    if (yOriginalColor === RBColor.BLACK) {
+      this.fixDelete(x, xParent);
     }
   }
 
   /**
    * @ignore
-   * Fixes the Red-Black Tree properties after deletion
+   * Fixes the Red-Black Tree properties after deletion. `node` may be null,
+   * representing an implicit black NIL leaf left behind by the deletion —
+   * `parent` is required in that case since a null node cannot carry its own
+   * parent pointer.
    * @private
-   * @param node The node to start fixing from
+   * @param node The node to start fixing from, or null for a NIL leaf
+   * @param parent The parent of `node` (authoritative when node is null)
    */
-  private fixDelete(node: RBNode<T>): void {
-    while (node !== this.root && node.color === RBColor.BLACK) {
-      if (node === node.parent!.left) {
-        let w = node.parent!.right!;
+  private fixDelete(node: RBNode<T> | null, parent: RBNode<T> | null): void {
+    while (node !== this.root && (!node || node.color === RBColor.BLACK)) {
+      if (!parent) break;
+
+      if (node === parent.left) {
+        let w = parent.right!;
 
         if (w.color === RBColor.RED) {
           w.color = RBColor.BLACK;
-          node.parent!.color = RBColor.RED;
-          this.rotateLeft(node.parent!);
-          w = node.parent!.right!;
+          parent.color = RBColor.RED;
+          this.rotateLeft(parent);
+          w = parent.right!;
         }
 
         if (
@@ -452,29 +465,31 @@ export class RedBlackTree<T> implements Iterable<T> {
           (!w.right || w.right.color === RBColor.BLACK)
         ) {
           w.color = RBColor.RED;
-          node = node.parent!;
+          node = parent;
+          parent = node.parent;
         } else {
           if (!w.right || w.right.color === RBColor.BLACK) {
             if (w.left) w.left.color = RBColor.BLACK;
             w.color = RBColor.RED;
             this.rotateRight(w);
-            w = node.parent!.right!;
+            w = parent.right!;
           }
 
-          w.color = node.parent!.color;
-          node.parent!.color = RBColor.BLACK;
+          w.color = parent.color;
+          parent.color = RBColor.BLACK;
           if (w.right) w.right.color = RBColor.BLACK;
-          this.rotateLeft(node.parent!);
-          node = this.root!;
+          this.rotateLeft(parent);
+          node = this.root;
+          parent = null;
         }
       } else {
-        let w = node.parent!.left!;
+        let w = parent.left!;
 
         if (w.color === RBColor.RED) {
           w.color = RBColor.BLACK;
-          node.parent!.color = RBColor.RED;
-          this.rotateRight(node.parent!);
-          w = node.parent!.left!;
+          parent.color = RBColor.RED;
+          this.rotateRight(parent);
+          w = parent.left!;
         }
 
         if (
@@ -482,25 +497,27 @@ export class RedBlackTree<T> implements Iterable<T> {
           (!w.left || w.left.color === RBColor.BLACK)
         ) {
           w.color = RBColor.RED;
-          node = node.parent!;
+          node = parent;
+          parent = node.parent;
         } else {
           if (!w.left || w.left.color === RBColor.BLACK) {
             if (w.right) w.right.color = RBColor.BLACK;
             w.color = RBColor.RED;
             this.rotateLeft(w);
-            w = node.parent!.left!;
+            w = parent.left!;
           }
 
-          w.color = node.parent!.color;
-          node.parent!.color = RBColor.BLACK;
+          w.color = parent.color;
+          parent.color = RBColor.BLACK;
           if (w.left) w.left.color = RBColor.BLACK;
-          this.rotateRight(node.parent!);
-          node = this.root!;
+          this.rotateRight(parent);
+          node = this.root;
+          parent = null;
         }
       }
     }
 
-    node.color = RBColor.BLACK;
+    if (node) node.color = RBColor.BLACK;
   }
 
   /**
