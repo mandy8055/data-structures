@@ -63,6 +63,13 @@
     }
   ],
   "packages": {
-    ".": {}
+    ".": {
+      "include-paths": [
+        "src",
+        "scripts",
+        "deno.json",
+        "deno.lock"
+      ]
+    }
   }
 }
