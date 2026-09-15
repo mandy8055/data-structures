@@ -92,7 +92,6 @@ await build({
         '',
         '# Build files',
         'tsconfig.json',
-        'script/',
         '',
         '# Development files',
         '.vscode/',
