@@ -251,7 +251,7 @@ Perfect for:
 - **Enum-like mappings** - Name ↔ Value
 - **Object registries** - Name ↔ Handler/Entity
 - **Language translations** - Key ↔ Translation
-  :::
+:::
 
 :::warning When to Avoid
 Consider alternatives when:
@@ -260,7 +260,7 @@ Consider alternatives when:
 - **Need one-to-many** → Use `Map<K, Set<V>>`
 - **Need many-to-many** → Use custom structure or graph
 - **Values aren't unique** → BiMap requires unique values
-  :::
+:::
 
 ## Comparison with Regular Map
 

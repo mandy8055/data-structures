@@ -8,10 +8,6 @@ const config: Config = {
     'Type-safe, zero-dependency data structures for TypeScript/JavaScript',
   favicon: 'img/favicon.ico',
 
-  future: {
-    v4: true,
-  },
-
   url: 'https://data-structures-docs.vercel.app',
   baseUrl: '/',
 

@@ -230,7 +230,7 @@ Perfect for:
 - **Session storage** - Temporary user session data
 - **Image/asset caching** - Recently viewed media
 - **Configuration caching** - User preferences and settings
-  :::
+:::
 
 :::warning When to Avoid
 Consider alternatives when:
@@ -239,7 +239,7 @@ Consider alternatives when:
 - **Need guaranteed persistence** → Use database
 - **Items have varying costs** → Consider weighted LRU
 - **Need distributed caching** → Use Redis or similar
-  :::
+:::
 
 ## Comparison with Native Map
 

@@ -176,7 +176,7 @@ Deque ist ideal für:
 - Gleichzeitiges Implementieren von Warteschlangen und Stapeln
 - Sliding-Window-Algorithmen
 - Rückgängig/Wiederholen-Stapel
-  :::
+:::
 
 ## Siehe auch
 

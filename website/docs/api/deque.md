@@ -176,7 +176,7 @@ Deque is perfect for:
 - Implementing both queues and stacks
 - Sliding window algorithms
 - Undo/redo stacks
-  :::
+:::
 
 ## See Also
 

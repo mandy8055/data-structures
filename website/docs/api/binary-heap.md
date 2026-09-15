@@ -257,7 +257,7 @@ Perfect for:
 - Heap sort algorithm
 - Median finding (two-heap approach)
 - Streaming data with top-k queries
-  :::
+:::
 
 :::warning MinHeap vs MaxHeap
 Choose based on your needs:
@@ -265,7 +265,7 @@ Choose based on your needs:
 - **MinHeap**: Quick access to minimum element
 - **MaxHeap**: Quick access to maximum element
 - Can't efficiently access both min and max simultaneously
-  :::
+:::
 
 ## Comparison with PriorityQueue
 
@@ -279,7 +279,7 @@ Choose based on your needs:
 
 - Use **PriorityQueue** for task scheduling, event queues (queue semantics)
 - Use **BinaryHeap** for algorithms requiring direct heap operations (heap sort, etc.)
-  :::
+:::
 
 ## See Also
 

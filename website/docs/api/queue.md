@@ -222,7 +222,7 @@ Calling `dequeue()` or `peek()` on an empty queue throws an `EmptyStructureError
 - Buffer management
 - Message queues
 - Breadth-First Search (BFS)
-  :::
+:::
 
 ## See Also
 
