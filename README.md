@@ -2,7 +2,7 @@
 
 A comprehensive collection of type-safe, zero-dependency data structure implementations for TypeScript/JavaScript.
 
-[![JSR](https://jsr.io/badges/@mskr/data-structures)](https://jsr.io/@mskr/data-structures) [![JSR Score](https://jsr.io/badges/@mskr/data-structures/score)](https://jsr.io/@mskr/data-structures) [![npm version](https://badge.fury.io/js/@msnkr%2Fdata-structures.svg)](https://www.npmjs.com/package/@msnkr/data-structures) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@msnkr/data-structures)](https://bundlephobia.com/package/@msnkr/data-structures) [![codecov](https://codecov.io/gh/mandy8055/data-structures/branch/main/graph/badge.svg)](https://codecov.io/gh/mandy8055/data-structures) [![CI](https://github.com/mandy8055/data-structures/actions/workflows/release-please.yml/badge.svg)](https://github.com/mandy8055/data-structures/actions/workflows/release-please.yml)
+[![JSR](https://jsr.io/badges/@dstoolkit/data-structures)](https://jsr.io/@dstoolkit/data-structures) [![JSR Score](https://jsr.io/badges/@dstoolkit/data-structures/score)](https://jsr.io/@dstoolkit/data-structures) [![npm version](https://badge.fury.io/js/@dstoolkit%2Fdata-structures.svg)](https://www.npmjs.com/package/@dstoolkit/data-structures) [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@dstoolkit/data-structures)](https://bundlephobia.com/package/@dstoolkit/data-structures) [![codecov](https://codecov.io/gh/mandy8055/data-structures/branch/main/graph/badge.svg)](https://codecov.io/gh/mandy8055/data-structures) [![CI](https://github.com/mandy8055/data-structures/actions/workflows/release-please.yml/badge.svg)](https://github.com/mandy8055/data-structures/actions/workflows/release-please.yml)
 
 ## 📚 [Full Documentation](https://data-structures-docs.vercel.app)
 
@@ -15,19 +15,19 @@ Visit our comprehensive documentation site for detailed guides, API references, 
 **npm:**
 
 ```bash
-npm install @msnkr/data-structures
+npm install @dstoolkit/data-structures
 ```
 
 **Deno (JSR):**
 
 ```typescript
-import { Queue, LRUCache } from 'jsr:@mskr/data-structures';
+import { Queue, LRUCache } from 'jsr:@dstoolkit/data-structures';
 ```
 
 ### Example
 
 ```typescript
-import { Queue, LRUCache } from '@msnkr/data-structures';
+import { Queue, LRUCache } from '@dstoolkit/data-structures';
 
 // FIFO Queue
 const queue = new Queue<number>();

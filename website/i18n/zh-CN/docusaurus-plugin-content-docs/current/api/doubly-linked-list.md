@@ -22,12 +22,12 @@ import InstallTabs from '@site/src/components/InstallTabs';
 
 ## 安装
 
-<InstallTabs packageName='@msnkr/data-structures' importName='DoublyLinkedList' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='DoublyLinkedList' />
 
 ## 使用方法
 
 ```typescript
-import { DoublyLinkedList } from '@msnkr/data-structures';
+import { DoublyLinkedList } from '@dstoolkit/data-structures';
 
 const list = new DoublyLinkedList<number>();
 ```

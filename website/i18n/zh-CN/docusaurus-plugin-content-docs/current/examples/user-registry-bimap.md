@@ -13,7 +13,7 @@ keywords: [bimap, user, registry, authentication, example]
 ## 实现
 
 ```typescript
-import { BiDirectionalMap } from '@msnkr/data-structures';
+import { BiDirectionalMap } from '@dstoolkit/data-structures';
 
 const userRegistry = new BiDirectionalMap<number, string>();
 

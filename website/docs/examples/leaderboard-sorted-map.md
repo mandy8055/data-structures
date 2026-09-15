@@ -13,7 +13,7 @@ Create a game leaderboard that maintains players in score order.
 ## Implementation
 
 ```typescript
-import { SortedMap } from '@msnkr/data-structures';
+import { SortedMap } from '@dstoolkit/data-structures';
 
 interface PlayerScore {
   username: string;

@@ -13,7 +13,7 @@ keywords: [trie, phone, directory, contacts, search, example]
 ## 实现
 
 ```typescript
-import { Trie } from '@msnkr/data-structures';
+import { Trie } from '@dstoolkit/data-structures';
 
 interface Contact {
   name: string;

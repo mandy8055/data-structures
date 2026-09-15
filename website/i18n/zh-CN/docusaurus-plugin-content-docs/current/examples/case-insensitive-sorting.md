@@ -13,7 +13,7 @@ keywords: [red-black-tree, sorting, case-insensitive, strings, example]
 ## 实现
 
 ```typescript
-import { RedBlackTree } from '@msnkr/data-structures';
+import { RedBlackTree } from '@dstoolkit/data-structures';
 
 // 不区分大小写的比较器
 const names = new RedBlackTree<string>({

@@ -15,12 +15,12 @@ import InstallTabs from '@site/src/components/InstallTabs';
 
 ## 安装
 
-<InstallTabs packageName='@msnkr/data-structures' importName='PriorityQueue' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='PriorityQueue' />
 
 ## 使用方法
 
 ```typescript
-import { PriorityQueue } from '@msnkr/data-structures';
+import { PriorityQueue } from '@dstoolkit/data-structures';
 
 const queue = new PriorityQueue<number>();
 ```

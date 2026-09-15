@@ -22,12 +22,12 @@ Eine bidirektionale Map (BiMap) h√§lt eine Eins-zu-Eins-Zuordnung zwischen Schl√
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='BiDirectionalMap' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='BiDirectionalMap' />
 
 ## Verwendung
 
 ```typescript
-import { BiDirectionalMap } from '@msnkr/data-structures';
+import { BiDirectionalMap } from '@dstoolkit/data-structures';
 
 const biMap = new BiDirectionalMap<string, number>();
 ```

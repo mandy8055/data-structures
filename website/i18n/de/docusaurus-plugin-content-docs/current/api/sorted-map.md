@@ -22,12 +22,12 @@ Generische Schlüssel-Wert-Sammlung, die Einträge nach Schlüsseln unter Verwen
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='SortedMap' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='SortedMap' />
 
 ## Verwendung
 
 ```typescript
-import { SortedMap } from '@msnkr/data-structures';
+import { SortedMap } from '@dstoolkit/data-structures';
 
 const map = new SortedMap<number, string>();
 ```

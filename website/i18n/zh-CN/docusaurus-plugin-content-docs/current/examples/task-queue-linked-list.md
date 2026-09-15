@@ -13,7 +13,7 @@ keywords: [linked-list, queue, task, example]
 ## 实现
 
 ```typescript
-import { LinkedList } from '@msnkr/data-structures';
+import { LinkedList } from '@dstoolkit/data-structures';
 
 interface Task {
   id: number;

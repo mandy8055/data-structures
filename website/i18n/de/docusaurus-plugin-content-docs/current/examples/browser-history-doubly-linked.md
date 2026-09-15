@@ -13,7 +13,7 @@ Implementieren Sie browserähnliche Zurück-/Vorwärts-Navigation.
 ## Implementierung
 
 ```typescript
-import { DoublyLinkedList } from '@msnkr/data-structures';
+import { DoublyLinkedList } from '@dstoolkit/data-structures';
 
 class BrowserHistory {
   private history = new DoublyLinkedList<string>();

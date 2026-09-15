@@ -15,12 +15,12 @@ A singly linked list implementation that provides efficient operations for addin
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='LinkedList' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='LinkedList' />
 
 ## Usage
 
 ```typescript
-import { LinkedList } from '@msnkr/data-structures';
+import { LinkedList } from '@dstoolkit/data-structures';
 
 const list = new LinkedList<number>();
 ```
@@ -139,7 +139,7 @@ while (!tasks.isEmpty()) {
 import {
   EmptyStructureError,
   IndexOutOfBoundsError,
-} from '@msnkr/data-structures';
+} from '@dstoolkit/data-structures';
 
 try {
   const empty = new LinkedList<number>();

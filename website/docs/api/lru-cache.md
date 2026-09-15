@@ -22,12 +22,12 @@ A Least Recently Used (LRU) cache implementation that provides O(1) operations f
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='LRUCache' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='LRUCache' />
 
 ## Usage
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 const cache = new LRUCache<string, number>({ capacity: 3 });
 ```

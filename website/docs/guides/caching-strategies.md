@@ -23,7 +23,7 @@ LRUCache automatically evicts the **Least Recently Used** items when capacity is
 ## Basic LRU Pattern
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 const cache = new LRUCache<string, any>({ capacity: 100 });
 

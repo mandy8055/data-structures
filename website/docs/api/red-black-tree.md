@@ -22,12 +22,12 @@ A self-balancing binary search tree implementation that maintains balance using 
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='RedBlackTree' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='RedBlackTree' />
 
 ## Usage
 
 ```typescript
-import { RedBlackTree } from '@msnkr/data-structures';
+import { RedBlackTree } from '@dstoolkit/data-structures';
 
 const tree = new RedBlackTree<number>();
 ```
@@ -251,7 +251,7 @@ console.log(tree.toArray()); // [1, 5, 7, 9]
 ## Error Handling
 
 ```typescript
-import { EmptyStructureError } from '@msnkr/data-structures';
+import { EmptyStructureError } from '@dstoolkit/data-structures';
 
 try {
   const empty = new RedBlackTree<number>();

@@ -13,7 +13,7 @@ keywords: [lru-cache, image, thumbnail, ttl, caching, example]
 ## 实现
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 interface Thumbnail {
   url: string;

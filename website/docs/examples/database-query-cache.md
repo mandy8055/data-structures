@@ -13,7 +13,7 @@ Cache expensive database queries to improve application performance.
 ## Implementation
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 interface QueryResult {
   rows: unknown[];

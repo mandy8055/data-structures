@@ -22,12 +22,12 @@ import InstallTabs from '@site/src/components/InstallTabs';
 
 ## 安装
 
-<InstallTabs packageName='@msnkr/data-structures' importName='BiDirectionalMap' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='BiDirectionalMap' />
 
 ## 使用方法
 
 ```typescript
-import { BiDirectionalMap } from '@msnkr/data-structures';
+import { BiDirectionalMap } from '@dstoolkit/data-structures';
 
 const biMap = new BiDirectionalMap<string, number>();
 ```

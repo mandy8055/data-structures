@@ -13,7 +13,7 @@ Build a phone directory with fast prefix-based contact search.
 ## Implementation
 
 ```typescript
-import { Trie } from '@msnkr/data-structures';
+import { Trie } from '@dstoolkit/data-structures';
 
 interface Contact {
   name: string;

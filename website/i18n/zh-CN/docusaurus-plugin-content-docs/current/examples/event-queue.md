@@ -13,7 +13,7 @@ keywords: [priority-queue, event, timestamp, chronological, example]
 ## 实现
 
 ```typescript
-import { PriorityQueue } from '@msnkr/data-structures';
+import { PriorityQueue } from '@dstoolkit/data-structures';
 
 interface Event {
   type: string;

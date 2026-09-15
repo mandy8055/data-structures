@@ -1,5 +1,5 @@
 {
-  "name": "@mskr/data-structures",
+  "name": "@dstoolkit/data-structures",
   "version": "1.4.2",
   "exports": "./src/mod.ts",
   "license": "MIT",

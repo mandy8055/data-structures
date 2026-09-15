@@ -22,12 +22,12 @@ A bidirectional map (BiMap) that maintains one-to-one mappings between keys and 
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='BiDirectionalMap' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='BiDirectionalMap' />
 
 ## Usage
 
 ```typescript
-import { BiDirectionalMap } from '@msnkr/data-structures';
+import { BiDirectionalMap } from '@dstoolkit/data-structures';
 
 const biMap = new BiDirectionalMap<string, number>();
 ```

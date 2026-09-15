@@ -15,12 +15,12 @@ Einfach verkettete Listenimplementierung, die effiziente Operationen zum Hinzuf√
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='LinkedList' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='LinkedList' />
 
 ## Verwendung
 
 ```typescript
-import { LinkedList } from '@msnkr/data-structures';
+import { LinkedList } from '@dstoolkit/data-structures';
 
 const list = new LinkedList<number>();
 ```
@@ -157,7 +157,7 @@ const visited = history.contains('/products'); // true
 import {
   EmptyStructureError,
   IndexOutOfBoundsError,
-} from '@msnkr/data-structures';
+} from '@dstoolkit/data-structures';
 
 try {
   const empty = new LinkedList<number>();

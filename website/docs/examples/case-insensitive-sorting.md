@@ -13,7 +13,7 @@ Sort strings in case-insensitive alphabetical order.
 ## Implementation
 
 ```typescript
-import { RedBlackTree } from '@msnkr/data-structures';
+import { RedBlackTree } from '@dstoolkit/data-structures';
 
 // Case-insensitive comparator
 const names = new RedBlackTree<string>({

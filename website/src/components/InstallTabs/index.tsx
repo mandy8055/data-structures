@@ -7,7 +7,7 @@ type Props = {
 };
 
 export default function InstallTabs({
-  packageName = '@msnkr/data-structures',
+  packageName = '@dstoolkit/data-structures',
   importName = 'MyImport',
 }: Props) {
   return (
@@ -29,12 +29,12 @@ export default function InstallTabs({
       </TabItem>
       <TabItem value='deno' label='Deno (JSR)'>
         <pre>
-          <code className='language-ts'>{`import { ${importName} } from 'jsr:@mskr/data-structures';`}</code>
+          <code className='language-ts'>{`import { ${importName} } from 'jsr:@dstoolkit/data-structures';`}</code>
         </pre>
       </TabItem>
       <TabItem value='browser' label='Browser (CDN)'>
         <pre>
-          <code className='language-html'>{`<script type="module">\n  import { ${importName} } from 'https://esm.sh/jsr/@mskr/data-structures';\n</script>`}</code>
+          <code className='language-html'>{`<script type="module">\n  import { ${importName} } from 'https://esm.sh/jsr/@dstoolkit/data-structures';\n</script>`}</code>
         </pre>
       </TabItem>
     </Tabs>

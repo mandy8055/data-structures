@@ -22,12 +22,12 @@ Doppelt verkettete Listenimplementierung mit effizienten Operationen an beiden E
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='DoublyLinkedList' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='DoublyLinkedList' />
 
 ## Verwendung
 
 ```typescript
-import { DoublyLinkedList } from '@msnkr/data-structures';
+import { DoublyLinkedList } from '@dstoolkit/data-structures';
 
 const list = new DoublyLinkedList<number>();
 ```

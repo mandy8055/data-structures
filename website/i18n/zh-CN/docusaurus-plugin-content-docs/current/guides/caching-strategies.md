@@ -23,7 +23,7 @@ LRUCache 在达到容量时会自动驱逐**最近最少使用**的项，非常�
 ## 基本 LRU 模式
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 const cache = new LRUCache<string, any>({ capacity: 100 });
 

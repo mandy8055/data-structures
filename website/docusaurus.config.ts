@@ -111,12 +111,12 @@ const config: Config = {
           position: 'right',
         },
         {
-          href: 'https://jsr.io/@mskr/data-structures',
+          href: 'https://jsr.io/@dstoolkit/data-structures',
           label: 'JSR',
           position: 'right',
         },
         {
-          href: 'https://www.npmjs.com/package/@msnkr/data-structures',
+          href: 'https://www.npmjs.com/package/@dstoolkit/data-structures',
           label: 'npm',
           position: 'right',
         },
@@ -165,11 +165,11 @@ const config: Config = {
           items: [
             {
               label: 'JSR',
-              href: 'https://jsr.io/@mskr/data-structures',
+              href: 'https://jsr.io/@dstoolkit/data-structures',
             },
             {
               label: 'npm',
-              href: 'https://www.npmjs.com/package/@msnkr/data-structures',
+              href: 'https://www.npmjs.com/package/@dstoolkit/data-structures',
             },
           ],
         },

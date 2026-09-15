@@ -15,12 +15,12 @@ Generische Prioritätswarteschlangen-Implementierung, unterstützt von einem bin
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='PriorityQueue' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='PriorityQueue' />
 
 ## Verwendung
 
 ```typescript
-import { PriorityQueue } from '@msnkr/data-structures';
+import { PriorityQueue } from '@dstoolkit/data-structures';
 
 const queue = new PriorityQueue<number>();
 ```

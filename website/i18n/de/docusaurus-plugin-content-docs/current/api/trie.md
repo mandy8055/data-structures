@@ -15,12 +15,12 @@ Generische Trie (Präfixbaum) Implementierung zum effizienten Speichern und Abru
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='Trie' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='Trie' />
 
 ## Verwendung
 
 ```typescript
-import { Trie } from '@msnkr/data-structures';
+import { Trie } from '@dstoolkit/data-structures';
 
 const trie = new Trie<number>();
 ```

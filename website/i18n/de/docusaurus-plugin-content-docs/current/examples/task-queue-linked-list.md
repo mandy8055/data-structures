@@ -13,7 +13,7 @@ Verarbeiten Sie Aufgaben in First-In-First-Out (FIFO) Reihenfolge.
 ## Implementierung
 
 ```typescript
-import { LinkedList } from '@msnkr/data-structures';
+import { LinkedList } from '@dstoolkit/data-structures';
 
 interface Task {
   id: number;

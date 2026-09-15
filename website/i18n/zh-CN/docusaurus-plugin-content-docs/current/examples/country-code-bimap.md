@@ -13,7 +13,7 @@ keywords: [bimap, country, code, mapping, example]
 ## 实现
 
 ```typescript
-import { BiDirectionalMap } from '@msnkr/data-structures';
+import { BiDirectionalMap } from '@dstoolkit/data-structures';
 
 const countryCodes = new BiDirectionalMap<string, string>();
 

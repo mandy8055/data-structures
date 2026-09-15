@@ -13,7 +13,7 @@ Erstellen Sie ein Telefonverzeichnis mit schneller präfixbasierter Kontaktsuche
 ## Implementierung
 
 ```typescript
-import { Trie } from '@msnkr/data-structures';
+import { Trie } from '@dstoolkit/data-structures';
 
 interface Contact {
   name: string;

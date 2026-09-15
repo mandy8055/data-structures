@@ -13,7 +13,7 @@ Bidirektionale Zuordnung zwischen Benutzer-IDs und Benutzernamen verwalten.
 ## Implementierung
 
 ```typescript
-import { BiDirectionalMap } from '@msnkr/data-structures';
+import { BiDirectionalMap } from '@dstoolkit/data-structures';
 
 const userRegistry = new BiDirectionalMap<number, string>();
 

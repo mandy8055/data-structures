@@ -13,7 +13,7 @@ Verfolgen Sie den Navigationsverlauf für Zurück-/Vorwärts-Funktionalität.
 ## Implementierung
 
 ```typescript
-import { LinkedList } from '@msnkr/data-structures';
+import { LinkedList } from '@dstoolkit/data-structures';
 
 const history = new LinkedList<string>();
 

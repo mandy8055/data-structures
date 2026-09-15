@@ -13,7 +13,7 @@ keywords: [trie, autocomplete, search, prefix, example]
 ## 实现
 
 ```typescript
-import { Trie } from '@msnkr/data-structures';
+import { Trie } from '@dstoolkit/data-structures';
 
 // 存储带有频率分数的单词
 const autocomplete = new Trie<number>();

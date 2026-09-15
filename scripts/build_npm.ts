@@ -28,7 +28,7 @@ await build({
   scriptModule: 'cjs',
 
   package: {
-    name: '@msnkr/data-structures',
+    name: '@dstoolkit/data-structures',
     version,
     description:
       'A comprehensive collection of generic data structure implementations for TypeScript/JavaScript, published on npm.',

@@ -22,12 +22,12 @@ A doubly linked list implementation that supports efficient operations at both e
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='DoublyLinkedList' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='DoublyLinkedList' />
 
 ## Usage
 
 ```typescript
-import { DoublyLinkedList } from '@msnkr/data-structures';
+import { DoublyLinkedList } from '@dstoolkit/data-structures';
 
 const list = new DoublyLinkedList<number>();
 ```
@@ -165,7 +165,7 @@ console.log(deque.isEmpty()); // true
 import {
   EmptyStructureError,
   IndexOutOfBoundsError,
-} from '@msnkr/data-structures';
+} from '@dstoolkit/data-structures';
 
 try {
   const empty = new DoublyLinkedList<number>();

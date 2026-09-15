@@ -15,12 +15,12 @@ import InstallTabs from '@site/src/components/InstallTabs';
 
 ## 安装
 
-<InstallTabs packageName='@msnkr/data-structures' importName='Trie' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='Trie' />
 
 ## 使用方法
 
 ```typescript
-import { Trie } from '@msnkr/data-structures';
+import { Trie } from '@dstoolkit/data-structures';
 
 const trie = new Trie<number>();
 ```

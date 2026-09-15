@@ -13,7 +13,7 @@ Maintain bidirectional mapping between user IDs and usernames.
 ## Implementation
 
 ```typescript
-import { BiDirectionalMap } from '@msnkr/data-structures';
+import { BiDirectionalMap } from '@dstoolkit/data-structures';
 
 const userRegistry = new BiDirectionalMap<number, string>();
 

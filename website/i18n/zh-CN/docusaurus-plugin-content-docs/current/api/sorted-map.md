@@ -22,12 +22,12 @@ import InstallTabs from '@site/src/components/InstallTabs';
 
 ## 安装
 
-<InstallTabs packageName='@msnkr/data-structures' importName='SortedMap' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='SortedMap' />
 
 ## 使用方法
 
 ```typescript
-import { SortedMap } from '@msnkr/data-structures';
+import { SortedMap } from '@dstoolkit/data-structures';
 
 const map = new SortedMap<number, string>();
 ```

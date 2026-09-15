@@ -13,7 +13,7 @@ Verwenden Sie RedBlackTree, um Aufgaben in Prioritätsreihenfolge mit effiziente
 ## Implementierung
 
 ```typescript
-import { RedBlackTree } from '@msnkr/data-structures';
+import { RedBlackTree } from '@dstoolkit/data-structures';
 
 interface Task {
   id: number;

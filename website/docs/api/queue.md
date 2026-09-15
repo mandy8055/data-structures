@@ -14,12 +14,12 @@ A First-In-First-Out (FIFO) queue implementation that efficiently supports inser
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='Queue' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='Queue' />
 
 ## Usage
 
 ```typescript
-import { Queue } from '@msnkr/data-structures';
+import { Queue } from '@dstoolkit/data-structures';
 
 const queue = new Queue<number>();
 ```
@@ -188,7 +188,7 @@ console.log(partialQueue.size); // 1 - item 3 remains
 ## Error Handling
 
 ```typescript
-import { EmptyStructureError } from '@msnkr/data-structures';
+import { EmptyStructureError } from '@dstoolkit/data-structures';
 
 try {
   const empty = new Queue<number>();

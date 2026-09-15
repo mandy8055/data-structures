@@ -14,12 +14,12 @@ Doppelendige Warteschlangenimplementierung mit effizienten Einfüge- und Löscho
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='Deque' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='Deque' />
 
 ## Verwendung
 
 ```typescript
-import { Deque } from '@msnkr/data-structures';
+import { Deque } from '@dstoolkit/data-structures';
 
 const deque = new Deque<number>();
 ```
@@ -139,7 +139,7 @@ const top = stack.removeFirst(); // 2
 ## Fehlerbehandlung
 
 ```typescript
-import { EmptyStructureError } from '@msnkr/data-structures';
+import { EmptyStructureError } from '@dstoolkit/data-structures';
 
 try {
   const empty = new Deque<number>();
