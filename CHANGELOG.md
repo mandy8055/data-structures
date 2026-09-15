@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.5.1](https://github.com/mandy8055/data-structures/compare/v1.5.0...v1.5.1) (2026-09-15)
+
+
+### 🐛 Bug Fixes
+
+* 🐛 use correct exclude-paths field for release-please scoping ([19f85f9](https://github.com/mandy8055/data-structures/commit/19f85f9dfb69df919cd3d4dba8a89ba5ef799b47))
+* 🐛 use directory-only exclude-paths entries ([3a2fb41](https://github.com/mandy8055/data-structures/commit/3a2fb411629653374e4816b6fc9055d374c96a9a))
+
 ## [1.5.0](https://github.com/mandy8055/data-structures/compare/v1.4.2...v1.5.0) (2026-09-15)
 
 
