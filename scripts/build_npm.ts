@@ -65,7 +65,7 @@ await build({
       'collections',
     ],
     engines: {
-      node: '>=14.0.0',
+      node: '>=20.0.0',
     },
   },
 
