@@ -183,7 +183,7 @@ try {
 
 - `removeFirst()` wirft `EmptyStructureError` bei leerer Liste
 - `get()`, `insertAt()`, `removeAt()` werfen `IndexOutOfBoundsError` bei ungültigem Index
-  :::
+:::
 
 ## Leistungsmerkmale
 
@@ -218,7 +218,7 @@ Ideal für:
 - Nur Vorwärtsdurchlauf erforderlich
 - Kein Speicher-Overhead einer doppelt verketteten Liste benötigt
 - Erstellen von Warteschlangen, Stapeln oder einfachen Listen
-  :::
+:::
 
 :::warning Wann vermeiden
 Alternativen in Betracht ziehen für:
@@ -226,7 +226,7 @@ Alternativen in Betracht ziehen für:
 - **Häufiger Direktzugriff** → Array verwenden
 - **Bidirektionaler Durchlauf benötigt** → [DoublyLinkedList](./doubly-linked-list) verwenden
 - **Extrem speicherbeschränkt** → Array verwenden
-  :::
+:::
 
 ## Siehe auch
 

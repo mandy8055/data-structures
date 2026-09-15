@@ -165,7 +165,7 @@ try {
 
 - `removeFirst()` throws `EmptyStructureError` on empty list
 - `get()`, `insertAt()`, `removeAt()` throw `IndexOutOfBoundsError` for invalid indices
-  :::
+:::
 
 ## Performance Characteristics
 
@@ -200,7 +200,7 @@ Perfect for:
 - Forward-only traversal
 - When memory overhead of doubly linked list isn't needed
 - Building queues, stacks, or simple lists
-  :::
+:::
 
 :::warning When to Avoid
 Consider alternatives when:
@@ -208,7 +208,7 @@ Consider alternatives when:
 - **Random access is frequent** → Use Array
 - **Bidirectional traversal needed** → Use [DoublyLinkedList](./doubly-linked-list)
 - **Memory is extremely constrained** → Use Array
-  :::
+:::
 
 ## See Also
 

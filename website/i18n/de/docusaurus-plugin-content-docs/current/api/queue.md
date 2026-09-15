@@ -222,7 +222,7 @@ Der Aufruf von `dequeue()` oder `peek()` auf einer leeren Warteschlange wirft ei
 - Pufferverwaltung
 - Nachrichtenwarteschlangen
 - Breitensuche (BFS)
-  :::
+:::
 
 ## Siehe auch
 

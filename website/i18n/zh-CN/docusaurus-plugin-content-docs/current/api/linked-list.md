@@ -183,7 +183,7 @@ try {
 
 - `removeFirst()` 在空链表上抛出 `EmptyStructureError`
 - `get()`, `insertAt()`, `removeAt()` 对于无效索引抛出 `IndexOutOfBoundsError`
-  :::
+:::
 
 ## 性能特征
 
@@ -218,7 +218,7 @@ try {
 - 仅需正向遍历
 - 不需要双向链表的内存开销
 - 构建队列、栈或简单列表
-  :::
+:::
 
 :::warning 何时避免使用
 在以下情况考虑替代方案：
@@ -226,7 +226,7 @@ try {
 - **频繁随机访问** → 使用 Array
 - **需要双向遍历** → 使用 [DoublyLinkedList](./doubly-linked-list)
 - **内存极度受限** → 使用 Array
-  :::
+:::
 
 ## 另请参阅
 

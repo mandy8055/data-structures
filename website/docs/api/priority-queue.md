@@ -214,7 +214,7 @@ Perfect for:
 - A\* pathfinding
 - Job scheduling systems
 - Merge k sorted lists
-  :::
+:::
 
 :::warning When to Avoid
 Consider alternatives when:
@@ -222,7 +222,7 @@ Consider alternatives when:
 - **Need FIFO order** → Use [Queue](./queue)
 - **Need LIFO order** → Use [Deque](./deque) as stack
 - **Need stable ordering** → Priority queue doesn't guarantee order for equal priorities
-  :::
+:::
 
 ## See Also
 

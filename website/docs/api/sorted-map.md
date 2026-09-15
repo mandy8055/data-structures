@@ -363,7 +363,7 @@ Perfect for:
 - **Range queries** - Need min/max efficiently
 - **Ordered iteration** - Always iterate in sorted order
 - **Log storage** - Timestamp-based retrieval
-  :::
+:::
 
 :::warning When to Avoid
 Consider alternatives when:
@@ -372,7 +372,7 @@ Consider alternatives when:
 - **Need O(1) access** → Use Map or [LRUCache](./lru-cache)
 - **Keys aren't comparable** → Use Map with custom keys
 - **Memory constrained** → Map has less overhead than tree structure
-  :::
+:::
 
 ## Comparison with Map
 

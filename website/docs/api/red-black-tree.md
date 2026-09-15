@@ -347,7 +347,7 @@ Perfect for:
 - **Guaranteed performance** - Need O(log n) worst-case
 - **Set operations** - Union, intersection (via sorted iteration)
 - **Database indexing** - Efficient lookups with ordering
-  :::
+:::
 
 :::warning When to Avoid
 Consider alternatives when:
@@ -356,7 +356,7 @@ Consider alternatives when:
 - **Need duplicates** → Red-Black Tree stores unique values only
 - **Memory constrained** → Each node has color and 2-3 pointers
 - **Simple use case** → Regular Set might be simpler
-  :::
+:::
 
 ## Comparison with Other Structures
 

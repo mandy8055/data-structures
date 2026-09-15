@@ -191,7 +191,7 @@ try {
 
 - `removeFirst()`, `removeLast()` throw `EmptyStructureError` on empty list
 - `get()`, `insertAt()`, `removeAt()` throw `IndexOutOfBoundsError` for invalid indices
-  :::
+:::
 
 ## Performance Characteristics
 
@@ -241,7 +241,7 @@ Perfect for:
 - LRU cache implementations
 - When frequent removals from both ends are needed
 - Applications requiring bidirectional traversal
-  :::
+:::
 
 :::warning When to Use LinkedList Instead
 Consider singly LinkedList when:
@@ -249,7 +249,7 @@ Consider singly LinkedList when:
 - Memory is constrained (only need 1 pointer per node)
 - Only forward traversal is needed
 - Don't need O(1) removal from the end
-  :::
+:::
 
 ## See Also
 

@@ -238,7 +238,7 @@ Perfect for:
 - **Dictionary** - Fast word lookups
 - **Search suggestions** - Real-time filtering
 - **Phone directories** - Prefix-based contact search
-  :::
+:::
 
 :::warning When to Avoid
 Consider alternatives when:
@@ -247,7 +247,7 @@ Consider alternatives when:
 - **Exact matches only** → HashMap is simpler and faster O(1) vs O(m)
 - **Need range queries** → Use [SortedMap](./sorted-map)
 - **Memory constrained** → HashMap uses less memory without prefix sharing benefits
-  :::
+:::
 
 ## Comparison with HashMap
 
