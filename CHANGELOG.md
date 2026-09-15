@@ -1,5 +1,17 @@
 # Changelog
 
+## [1.5.0](https://github.com/mandy8055/data-structures/compare/v1.4.2...v1.5.0) (2026-09-15)
+
+
+### ✨ Features
+
+* 💥 rename package scope ([c3bbcdc](https://github.com/mandy8055/data-structures/commit/c3bbcdc98dc45584ee399d9a32ce78158e4efb7b))
+
+
+### 🐛 Bug Fixes
+
+* 🐛 include script/ dir in npm package for CJS support ([d252f71](https://github.com/mandy8055/data-structures/commit/d252f71edb1acf76a9271d78f96760b937acf3cd))
+
 ## [1.4.2](https://github.com/mandy8055/data-structures/compare/v1.4.1...v1.4.2) (2026-09-12)
 
 
