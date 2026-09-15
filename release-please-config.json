@@ -65,7 +65,16 @@
   "packages": {
     ".": {
       "exclude-paths": [
-        "website"
+        "website",
+        ".github",
+        ".vscode",
+        ".claude",
+        "release-please-config.json",
+        ".release-please-manifest.json",
+        "codecov.yml",
+        "README.md",
+        "CHANGELOG.md",
+        "LICENSE"
       ]
     }
   }
