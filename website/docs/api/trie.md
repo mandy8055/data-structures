@@ -15,12 +15,12 @@ A generic trie (prefix tree) implementation that efficiently stores and retrieve
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='Trie' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='Trie' />
 
 ## Usage
 
 ```typescript
-import { Trie } from '@msnkr/data-structures';
+import { Trie } from '@dstoolkit/data-structures';
 
 const trie = new Trie<number>();
 ```

@@ -15,12 +15,12 @@ A generic priority queue implementation backed by a binary min-heap, where eleme
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='PriorityQueue' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='PriorityQueue' />
 
 ## Usage
 
 ```typescript
-import { PriorityQueue } from '@msnkr/data-structures';
+import { PriorityQueue } from '@dstoolkit/data-structures';
 
 const queue = new PriorityQueue<number>();
 ```
@@ -139,7 +139,7 @@ Initializing with an array uses an O(n) heapify algorithm, which is more efficie
 ## Error Handling
 
 ```typescript
-import { EmptyStructureError } from '@msnkr/data-structures';
+import { EmptyStructureError } from '@dstoolkit/data-structures';
 
 try {
   const empty = new PriorityQueue<number>();

@@ -14,12 +14,12 @@ Eine First-In-First-Out (FIFO) Warteschlangenimplementierung, die effizient das 
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='Queue' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='Queue' />
 
 ## Verwendung
 
 ```typescript
-import { Queue } from '@msnkr/data-structures';
+import { Queue } from '@dstoolkit/data-structures';
 
 const queue = new Queue<number>();
 ```
@@ -188,7 +188,7 @@ console.log(partialQueue.size); // 1 - Element 3 bleibt
 ## Fehlerbehandlung
 
 ```typescript
-import { EmptyStructureError } from '@msnkr/data-structures';
+import { EmptyStructureError } from '@dstoolkit/data-structures';
 
 try {
   const empty = new Queue<number>();

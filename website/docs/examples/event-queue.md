@@ -13,7 +13,7 @@ Process events in chronological order using PriorityQueue.
 ## Implementation
 
 ```typescript
-import { PriorityQueue } from '@msnkr/data-structures';
+import { PriorityQueue } from '@dstoolkit/data-structures';
 
 interface Event {
   type: string;

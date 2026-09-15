@@ -22,12 +22,12 @@ Selbstbalancierende binäre Suchbaumimplementierung, die Balance durch Rot-Schwa
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='RedBlackTree' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='RedBlackTree' />
 
 ## Verwendung
 
 ```typescript
-import { RedBlackTree } from '@msnkr/data-structures';
+import { RedBlackTree } from '@dstoolkit/data-structures';
 
 const tree = new RedBlackTree<number>();
 ```

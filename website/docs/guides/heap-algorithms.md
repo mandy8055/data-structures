@@ -17,7 +17,7 @@ Find the K largest elements from a stream or array efficiently.
 ### Using MinHeap
 
 ```typescript
-import { MinHeap } from '@msnkr/data-structures';
+import { MinHeap } from '@dstoolkit/data-structures';
 
 function findKLargest(arr: number[], k: number): number[] {
   const minHeap = new MinHeap<number>();
@@ -47,7 +47,7 @@ console.log(findKLargest(numbers, 3)); // [12, 11, 9]
 ### For K Smallest Elements
 
 ```typescript
-import { MaxHeap } from '@msnkr/data-structures';
+import { MaxHeap } from '@dstoolkit/data-structures';
 
 function findKSmallest(arr: number[], k: number): number[] {
   const maxHeap = new MaxHeap<number>();
@@ -73,7 +73,7 @@ Find the median of a stream of numbers in real-time.
 ### Two-Heap Approach
 
 ```typescript
-import { MinHeap, MaxHeap } from '@msnkr/data-structures';
+import { MinHeap, MaxHeap } from '@dstoolkit/data-structures';
 
 class MedianFinder {
   private maxHeap = new MaxHeap<number>(); // Lower half
@@ -143,7 +143,7 @@ console.log(mf.findMedian()); // 2.5
 Find the K most frequent elements in an array.
 
 ```typescript
-import { MinHeap } from '@msnkr/data-structures';
+import { MinHeap } from '@dstoolkit/data-structures';
 
 interface FrequencyPair {
   element: number;
@@ -182,7 +182,7 @@ console.log(topKFrequent(numbers, 2)); // [1, 4]
 Efficiently merge multiple sorted arrays using a heap.
 
 ```typescript
-import { MinHeap } from '@msnkr/data-structures';
+import { MinHeap } from '@dstoolkit/data-structures';
 
 interface HeapNode {
   value: number;
@@ -242,7 +242,7 @@ console.log(mergeKSorted(arrays)); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 Find the maximum in each sliding window using a heap.
 
 ```typescript
-import { MaxHeap } from '@msnkr/data-structures';
+import { MaxHeap } from '@dstoolkit/data-structures';
 
 interface WindowElement {
   value: number;
@@ -283,7 +283,7 @@ console.log(slidingWindowMaximum(arr, 3)); // [3, 3, 5, 5, 6, 7]
 Maintain the Kth largest element as new numbers arrive.
 
 ```typescript
-import { MinHeap } from '@msnkr/data-structures';
+import { MinHeap } from '@dstoolkit/data-structures';
 
 class KthLargest {
   private minHeap: MinHeap<number>;
@@ -323,7 +323,7 @@ console.log(kthLargest.add(10)); // 5 (3rd largest: [10,8,5])
 Sort an array using heap data structure.
 
 ```typescript
-import { MaxHeap } from '@msnkr/data-structures';
+import { MaxHeap } from '@dstoolkit/data-structures';
 
 function heapSort(arr: number[]): number[] {
   // Build heap from array - O(n)
@@ -351,7 +351,7 @@ console.log(heapSort(arr)); // [1, 1, 2, 3, 4, 5, 6, 9]
 Schedule tasks with cooldown periods using a heap.
 
 ```typescript
-import { MaxHeap } from '@msnkr/data-structures';
+import { MaxHeap } from '@dstoolkit/data-structures';
 
 interface Task {
   name: string;

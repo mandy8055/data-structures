@@ -22,12 +22,12 @@ import InstallTabs from '@site/src/components/InstallTabs';
 
 ## 安装
 
-<InstallTabs packageName='@msnkr/data-structures' importName='RedBlackTree' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='RedBlackTree' />
 
 ## 使用方法
 
 ```typescript
-import { RedBlackTree } from '@msnkr/data-structures';
+import { RedBlackTree } from '@dstoolkit/data-structures';
 
 const tree = new RedBlackTree<number>();
 ```

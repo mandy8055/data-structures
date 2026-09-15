@@ -14,12 +14,12 @@ import InstallTabs from '@site/src/components/InstallTabs';
 
 ## 安装
 
-<InstallTabs packageName='@msnkr/data-structures' importName='Deque' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='Deque' />
 
 ## 使用方法
 
 ```typescript
-import { Deque } from '@msnkr/data-structures';
+import { Deque } from '@dstoolkit/data-structures';
 
 const deque = new Deque<number>();
 ```
@@ -139,7 +139,7 @@ const top = stack.removeFirst(); // 2
 ## 错误处理
 
 ```typescript
-import { EmptyStructureError } from '@msnkr/data-structures';
+import { EmptyStructureError } from '@dstoolkit/data-structures';
 
 try {
   const empty = new Deque<number>();

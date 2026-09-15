@@ -14,12 +14,12 @@ import InstallTabs from '@site/src/components/InstallTabs';
 
 ## 安装
 
-<InstallTabs packageName='@msnkr/data-structures' importName='Queue' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='Queue' />
 
 ## 使用方法
 
 ```typescript
-import { Queue } from '@msnkr/data-structures';
+import { Queue } from '@dstoolkit/data-structures';
 
 const queue = new Queue<number>();
 ```
@@ -188,7 +188,7 @@ console.log(partialQueue.size); // 1 - 项 3 仍然存在
 ## 错误处理
 
 ```typescript
-import { EmptyStructureError } from '@msnkr/data-structures';
+import { EmptyStructureError } from '@dstoolkit/data-structures';
 
 try {
   const empty = new Queue<number>();

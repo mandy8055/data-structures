@@ -17,7 +17,7 @@ keywords: [binary-heap, heap, algorithms, k-largest, median, top-k]
 ### 使用 MinHeap
 
 ```typescript
-import { MinHeap } from '@msnkr/data-structures';
+import { MinHeap } from '@dstoolkit/data-structures';
 
 function findKLargest(arr: number[], k: number): number[] {
   const minHeap = new MinHeap<number>();
@@ -47,7 +47,7 @@ console.log(findKLargest(numbers, 3)); // [12, 11, 9]
 ### 查找 K 个最小元素
 
 ```typescript
-import { MaxHeap } from '@msnkr/data-structures';
+import { MaxHeap } from '@dstoolkit/data-structures';
 
 function findKSmallest(arr: number[], k: number): number[] {
   const maxHeap = new MaxHeap<number>();
@@ -73,7 +73,7 @@ console.log(findKSmallest(numbers, 3)); // [1, 2, 3]
 ### 双 Heap 方法
 
 ```typescript
-import { MinHeap, MaxHeap } from '@msnkr/data-structures';
+import { MinHeap, MaxHeap } from '@dstoolkit/data-structures';
 
 class MedianFinder {
   private maxHeap = new MaxHeap<number>(); // 较小的一半
@@ -143,7 +143,7 @@ console.log(mf.findMedian()); // 2.5
 查找数组中 K 个最频繁出现的元素。
 
 ```typescript
-import { MinHeap } from '@msnkr/data-structures';
+import { MinHeap } from '@dstoolkit/data-structures';
 
 interface FrequencyPair {
   element: number;
@@ -182,7 +182,7 @@ console.log(topKFrequent(numbers, 2)); // [1, 4]
 使用 heap 高效合并多个有序数组。
 
 ```typescript
-import { MinHeap } from '@msnkr/data-structures';
+import { MinHeap } from '@dstoolkit/data-structures';
 
 interface HeapNode {
   value: number;
@@ -242,7 +242,7 @@ console.log(mergeKSorted(arrays)); // [1, 2, 3, 4, 5, 6, 7, 8, 9]
 使用 heap 查找每个滑动窗口中的最大值。
 
 ```typescript
-import { MaxHeap } from '@msnkr/data-structures';
+import { MaxHeap } from '@dstoolkit/data-structures';
 
 interface WindowElement {
   value: number;
@@ -283,7 +283,7 @@ console.log(slidingWindowMaximum(arr, 3)); // [3, 3, 5, 5, 6, 7]
 随着新数字的到来，维护第 K 大元素。
 
 ```typescript
-import { MinHeap } from '@msnkr/data-structures';
+import { MinHeap } from '@dstoolkit/data-structures';
 
 class KthLargest {
   private minHeap: MinHeap<number>;
@@ -323,7 +323,7 @@ console.log(kthLargest.add(10)); // 5 (第3大：[10,8,5])
 使用 heap 数据结构对数组排序。
 
 ```typescript
-import { MaxHeap } from '@msnkr/data-structures';
+import { MaxHeap } from '@dstoolkit/data-structures';
 
 function heapSort(arr: number[]): number[] {
   // 从数组构建 heap - O(n)
@@ -351,7 +351,7 @@ console.log(heapSort(arr)); // [1, 1, 2, 3, 4, 5, 6, 9]
 使用 heap 调度带有冷却期的任务。
 
 ```typescript
-import { MaxHeap } from '@msnkr/data-structures';
+import { MaxHeap } from '@dstoolkit/data-structures';
 
 interface Task {
   name: string;

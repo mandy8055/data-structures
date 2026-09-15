@@ -22,12 +22,12 @@ A generic key-value collection that maintains entries sorted by key using a Red-
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='SortedMap' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='SortedMap' />
 
 ## Usage
 
 ```typescript
-import { SortedMap } from '@msnkr/data-structures';
+import { SortedMap } from '@dstoolkit/data-structures';
 
 const map = new SortedMap<number, string>();
 ```
@@ -277,7 +277,7 @@ for (const [price, product] of products) {
 ## Error Handling
 
 ```typescript
-import { EmptyStructureError } from '@msnkr/data-structures';
+import { EmptyStructureError } from '@dstoolkit/data-structures';
 
 try {
   const empty = new SortedMap<number, string>();

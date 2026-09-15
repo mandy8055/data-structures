@@ -13,7 +13,7 @@ Map between country codes and names bidirectionally.
 ## Implementation
 
 ```typescript
-import { BiDirectionalMap } from '@msnkr/data-structures';
+import { BiDirectionalMap } from '@dstoolkit/data-structures';
 
 const countryCodes = new BiDirectionalMap<string, string>();
 

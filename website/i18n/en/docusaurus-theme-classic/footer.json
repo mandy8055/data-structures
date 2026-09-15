@@ -37,11 +37,11 @@
   },
   "link.item.label.JSR": {
     "message": "JSR",
-    "description": "The label of footer link with label=JSR linking to https://jsr.io/@mskr/data-structures"
+    "description": "The label of footer link with label=JSR linking to https://jsr.io/@dstoolkit/data-structures"
   },
   "link.item.label.npm": {
     "message": "npm",
-    "description": "The label of footer link with label=npm linking to https://www.npmjs.com/package/@msnkr/data-structures"
+    "description": "The label of footer link with label=npm linking to https://www.npmjs.com/package/@dstoolkit/data-structures"
   },
   "copyright": {
     "message": "Copyright © 2025 data-structures. Built with Docusaurus.",

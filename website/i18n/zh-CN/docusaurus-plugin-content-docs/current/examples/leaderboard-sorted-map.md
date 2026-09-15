@@ -13,7 +13,7 @@ keywords: [sorted-map, leaderboard, ranking, game, example]
 ## 实现
 
 ```typescript
-import { SortedMap } from '@msnkr/data-structures';
+import { SortedMap } from '@dstoolkit/data-structures';
 
 interface PlayerScore {
   username: string;

@@ -22,12 +22,12 @@ Least Recently Used (LRU) Cache-Implementierung, die O(1) Operationen zum Zugrei
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='LRUCache' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='LRUCache' />
 
 ## Verwendung
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 const cache = new LRUCache<string, number>({ capacity: 3 });
 ```

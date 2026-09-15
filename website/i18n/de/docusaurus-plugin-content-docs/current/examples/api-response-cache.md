@@ -13,7 +13,7 @@ Verwenden Sie LRUCache, um API-Antworten zwischenzuspeichern und Netzwerkaufrufe
 ## Implementierung
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 interface APIResponse {
   data: unknown;

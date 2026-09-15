@@ -14,12 +14,12 @@ import InstallTabs from '@site/src/components/InstallTabs';
 
 ## 安装
 
-<InstallTabs packageName='@msnkr/data-structures' importName='MinHeap, MaxHeap' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='MinHeap, MaxHeap' />
 
 ## 使用方法
 
 ```typescript
-import { MinHeap, MaxHeap } from '@msnkr/data-structures';
+import { MinHeap, MaxHeap } from '@dstoolkit/data-structures';
 
 const minHeap = new MinHeap<number>();
 const maxHeap = new MaxHeap<number>();
@@ -222,7 +222,7 @@ console.log(heap.peek()); // ComparablePerson { name: "Bob", age: 20 }
 ## 错误处理
 
 ```typescript
-import { EmptyStructureError } from '@msnkr/data-structures';
+import { EmptyStructureError } from '@dstoolkit/data-structures';
 
 try {
   const empty = new MinHeap<number>();

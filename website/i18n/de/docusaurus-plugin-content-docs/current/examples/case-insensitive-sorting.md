@@ -13,7 +13,7 @@ Sortieren Sie Zeichenketten in unabhängig von Groß-/Kleinschreibung alphabetis
 ## Implementierung
 
 ```typescript
-import { RedBlackTree } from '@msnkr/data-structures';
+import { RedBlackTree } from '@dstoolkit/data-structures';
 
 // Case-insensitive Comparator
 const names = new RedBlackTree<string>({

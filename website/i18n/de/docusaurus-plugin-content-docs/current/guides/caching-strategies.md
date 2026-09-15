@@ -23,7 +23,7 @@ LRUCache entfernt automatisch die **Least Recently Used** (am wenigsten kürzlic
 ## Grundlegendes LRU-Muster
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 const cache = new LRUCache<string, any>({ capacity: 100 });
 

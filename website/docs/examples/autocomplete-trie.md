@@ -13,7 +13,7 @@ Implement fast autocomplete suggestions using a Trie data structure.
 ## Implementation
 
 ```typescript
-import { Trie } from '@msnkr/data-structures';
+import { Trie } from '@dstoolkit/data-structures';
 
 // Store words with frequency scores
 const autocomplete = new Trie<number>();

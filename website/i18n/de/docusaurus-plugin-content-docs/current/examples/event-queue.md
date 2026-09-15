@@ -13,7 +13,7 @@ Verarbeiten Sie Ereignisse in chronologischer Reihenfolge mit PriorityQueue.
 ## Implementierung
 
 ```typescript
-import { PriorityQueue } from '@msnkr/data-structures';
+import { PriorityQueue } from '@dstoolkit/data-structures';
 
 interface Event {
   type: string;

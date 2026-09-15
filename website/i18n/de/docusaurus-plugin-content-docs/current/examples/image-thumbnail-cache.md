@@ -13,7 +13,7 @@ Speichern Sie Bild-Thumbnails mit automatischem Ablauf zwischen.
 ## Implementierung
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 interface Thumbnail {
   url: string;

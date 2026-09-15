@@ -13,7 +13,7 @@ Use RedBlackTree to maintain tasks in priority order with efficient lookups.
 ## Implementation
 
 ```typescript
-import { RedBlackTree } from '@msnkr/data-structures';
+import { RedBlackTree } from '@dstoolkit/data-structures';
 
 interface Task {
   id: number;

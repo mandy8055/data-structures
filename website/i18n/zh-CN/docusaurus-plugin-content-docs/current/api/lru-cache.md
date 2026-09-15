@@ -22,12 +22,12 @@ import InstallTabs from '@site/src/components/InstallTabs';
 
 ## 安装
 
-<InstallTabs packageName='@msnkr/data-structures' importName='LRUCache' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='LRUCache' />
 
 ## 使用方法
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 const cache = new LRUCache<string, number>({ capacity: 3 });
 ```

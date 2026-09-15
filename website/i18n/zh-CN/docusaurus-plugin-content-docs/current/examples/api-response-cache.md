@@ -13,7 +13,7 @@ keywords: [lru-cache, api, caching, example, http]
 ## 实现
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 interface APIResponse {
   data: unknown;

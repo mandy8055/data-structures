@@ -13,7 +13,7 @@ keywords: [doubly-linked-list, browser, history, navigation, example]
 ## 实现
 
 ```typescript
-import { DoublyLinkedList } from '@msnkr/data-structures';
+import { DoublyLinkedList } from '@dstoolkit/data-structures';
 
 class BrowserHistory {
   private history = new DoublyLinkedList<string>();

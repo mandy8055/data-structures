@@ -13,7 +13,7 @@ Implementieren Sie schnelle Autocomplete-Vorschläge mit einer Trie-Datenstruktu
 ## Implementierung
 
 ```typescript
-import { Trie } from '@msnkr/data-structures';
+import { Trie } from '@dstoolkit/data-structures';
 
 // Wörter mit Häufigkeitsbewertungen speichern
 const autocomplete = new Trie<number>();

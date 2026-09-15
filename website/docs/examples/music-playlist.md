@@ -13,7 +13,7 @@ Create a music playlist with forward and backward navigation.
 ## Implementation
 
 ```typescript
-import { DoublyLinkedList } from '@msnkr/data-structures';
+import { DoublyLinkedList } from '@dstoolkit/data-structures';
 
 interface Song {
   id: number;

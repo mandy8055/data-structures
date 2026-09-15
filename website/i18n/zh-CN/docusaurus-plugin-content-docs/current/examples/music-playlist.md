@@ -13,7 +13,7 @@ keywords: [doubly-linked-list, music, playlist, example]
 ## 实现
 
 ```typescript
-import { DoublyLinkedList } from '@msnkr/data-structures';
+import { DoublyLinkedList } from '@dstoolkit/data-structures';
 
 interface Song {
   id: number;

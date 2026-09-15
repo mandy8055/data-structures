@@ -13,7 +13,7 @@ Use LRUCache to cache API responses and reduce network calls.
 ## Implementation
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 interface APIResponse {
   data: unknown;

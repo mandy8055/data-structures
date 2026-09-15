@@ -23,11 +23,11 @@ A comprehensive collection of type-safe, zero-dependency data structure implemen
 Get started in seconds:
 
 ```bash
-npm install @msnkr/data-structures
+npm install @dstoolkit/data-structures
 ```
 
 ```typescript
-import { Queue, LRUCache } from '@msnkr/data-structures';
+import { Queue, LRUCache } from '@dstoolkit/data-structures';
 
 // FIFO Queue
 const queue = new Queue<number>();

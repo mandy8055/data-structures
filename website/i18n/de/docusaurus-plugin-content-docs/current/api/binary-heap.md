@@ -14,12 +14,12 @@ Eine generische binäre Heap-Implementierung, die sowohl MinHeap- als auch MaxHe
 
 ## Installation
 
-<InstallTabs packageName='@msnkr/data-structures' importName='MinHeap, MaxHeap' />
+<InstallTabs packageName='@dstoolkit/data-structures' importName='MinHeap, MaxHeap' />
 
 ## Verwendung
 
 ```typescript
-import { MinHeap, MaxHeap } from '@msnkr/data-structures';
+import { MinHeap, MaxHeap } from '@dstoolkit/data-structures';
 
 const minHeap = new MinHeap<number>();
 const maxHeap = new MaxHeap<number>();
@@ -204,7 +204,7 @@ console.log(mf.findMedian()); // 2
 ## Fehlerbehandlung
 
 ```typescript
-import { EmptyStructureError } from '@msnkr/data-structures';
+import { EmptyStructureError } from '@dstoolkit/data-structures';
 
 try {
   const empty = new MinHeap<number>();

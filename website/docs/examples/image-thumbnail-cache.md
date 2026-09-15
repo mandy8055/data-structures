@@ -13,7 +13,7 @@ Cache image thumbnails with automatic expiration.
 ## Implementation
 
 ```typescript
-import { LRUCache } from '@msnkr/data-structures';
+import { LRUCache } from '@dstoolkit/data-structures';
 
 interface Thumbnail {
   url: string;

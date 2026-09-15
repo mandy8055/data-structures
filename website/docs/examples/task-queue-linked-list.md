@@ -13,7 +13,7 @@ Process tasks in First-In-First-Out (FIFO) order.
 ## Implementation
 
 ```typescript
-import { LinkedList } from '@msnkr/data-structures';
+import { LinkedList } from '@dstoolkit/data-structures';
 
 interface Task {
   id: number;

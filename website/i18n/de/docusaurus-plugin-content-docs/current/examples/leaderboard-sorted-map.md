@@ -13,7 +13,7 @@ Erstellen Sie eine Spiel-Bestenliste, die Spieler in Punktereihenfolge verwaltet
 ## Implementierung
 
 ```typescript
-import { SortedMap } from '@msnkr/data-structures';
+import { SortedMap } from '@dstoolkit/data-structures';
 
 interface PlayerScore {
   username: string;
