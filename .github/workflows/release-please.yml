@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
+    inputs:
+      tag_name:
+        description: 'Tag to publish (e.g. v1.5.0). Required for manual runs.'
+        required: true
 
 permissions:
   contents: write
@@ -12,6 +17,7 @@ permissions:
 
 jobs:
   release-please:
+    if: ${{ github.event_name == 'push' }}
     runs-on: ubuntu-latest
     outputs:
       release_created: ${{ steps.release.outputs.release_created }}
@@ -24,11 +30,13 @@ jobs:
 
   test:
     needs: release-please
-    if: ${{ needs.release-please.outputs.release_created }}
+    if: ${{ always() && (needs.release-please.outputs.release_created || github.event_name == 'workflow_dispatch') }}
     runs-on: ubuntu-latest
     steps:
       - name: Setup repo
         uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag_name || github.ref }}
 
       - name: Setup Deno
         uses: denoland/setup-deno@v2
@@ -59,13 +67,15 @@ jobs:
 
   publish-jsr:
     needs: [release-please, test]
-    if: ${{ needs.release-please.outputs.release_created }}
+    if: ${{ always() && needs.test.result == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag_name || github.ref }}
 
       - name: Setup Deno
         uses: denoland/setup-deno@v2
@@ -77,13 +87,15 @@ jobs:
 
   publish-npm:
     needs: [release-please, test]
-    if: ${{ needs.release-please.outputs.release_created }}
+    if: ${{ always() && needs.test.result == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       contents: read
       id-token: write
     steps:
       - uses: actions/checkout@v7
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.tag_name || github.ref }}
 
       - name: Setup Deno
         uses: denoland/setup-deno@v2
