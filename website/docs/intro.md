@@ -13,7 +13,7 @@ A comprehensive collection of type-safe, zero-dependency data structure implemen
 - **🎯 Type Safety**: Full TypeScript support with generics for complete type safety
 - **📦 Zero Dependencies**: No external dependencies - lightweight and secure
 - **⚡ Performance**: Optimized implementations with documented time complexities
-- **🧪 Well Tested**: Comprehensive test coverage (>85%)
+- **🧪 Well Tested**: Comprehensive test coverage (~100%)
 - **🌲 Tree Shakeable**: Import only what you need - minimal bundle impact
 - **📚 Well Documented**: Extensive documentation with examples
 - **🔄 Dual Published**: Available on both JSR and npm for maximum compatibility
@@ -99,7 +99,7 @@ console.log(cache.get('key')); // 42
 
 - **GitHub**: [mandy8055/data-structures](https://github.com/mandy8055/data-structures)
 - **Issues**: [Report bugs or request features](https://github.com/mandy8055/data-structures/issues)
-- **Discussions**: [Join the community](https://github.com/mandy8055/data-structures/discussions)
+- **Discussions**: [Have idea! Let's discuss](https://github.com/mandy8055/data-structures/discussions)
 
 ## License
 

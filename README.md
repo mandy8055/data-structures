@@ -54,7 +54,7 @@ console.log(cache.get('key')); // 42
 - 🎯 **Type Safety** - Full TypeScript support with generics
 - 📦 **Zero Dependencies** - Lightweight and secure
 - ⚡ **Performance** - Optimized implementations with documented time complexities
-- 🧪 **Well Tested** - Comprehensive test coverage (>85%)
+- 🧪 **Well Tested** - Comprehensive test coverage (~100%)
 - 🌲 **Tree Shakeable** - Import only what you need
 - 🔄 **Dual Published** - Available on both JSR and npm
 
@@ -62,7 +62,7 @@ console.log(cache.get('key')); // 42
 
 - 📚 **[Documentation](https://data-structures-docs.vercel.app)** - Complete guides and API reference
 - 🐛 **[Issues](https://github.com/mandy8055/data-structures/issues)** - Report bugs or request features
-- 💬 **[Discussions](https://github.com/mandy8055/data-structures/discussions)** - Join the community
+- 💬 **[Discussions](https://github.com/mandy8055/data-structures/discussions)** - Have Idea! Let's discuss
 
 ## License
 

@@ -46,7 +46,6 @@ Branch naming convention:
 ```
 
 5. Update documentation:
-
    - Update JSDoc comments
    - Update relevant markdown files
    - Update examples if needed
@@ -100,7 +99,7 @@ Follow [Conventional Commits](https://www.conventionalcommits.org/)
 ### Testing
 
 - Write unit tests for all new features
-- Maintain test coverage above 85%
+- Maintain test coverage above 95%
 - Include edge cases in tests
 - Use descriptive test names
 
