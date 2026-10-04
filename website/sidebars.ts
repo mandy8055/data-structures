@@ -18,6 +18,7 @@ const sidebars: SidebarsConfig = {
         'api/queue',
         'api/red-black-tree',
         'api/sorted-map',
+        'api/tree',
         'api/trie',
       ],
     },

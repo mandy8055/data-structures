@@ -57,6 +57,8 @@ await build({
       'min-heap',
       'max-heap',
       'trie',
+      'tree',
+      'n-ary-tree',
       'red-black-tree',
       'sorted-map',
       'lru-cache',

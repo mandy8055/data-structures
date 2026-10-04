@@ -13,7 +13,7 @@ Eine umfassende Sammlung typsicherer, abhängigkeitsfreier Datenstruktur-Impleme
 - **🎯 Typsicherheit**: Vollständige TypeScript-Unterstützung mit Generics für vollständige Typsicherheit
 - **📦 Null Abhängigkeiten**: Keine externen Abhängigkeiten - leichtgewichtig und sicher
 - **⚡ Performance**: Optimierte Implementierungen mit dokumentierten Zeitkomplexitäten
-- **🧪 Gut getestet**: Umfassende Testabdeckung (>85%)
+- **🧪 Gut getestet**: Umfassende Testabdeckung (~100%)
 - **🌲 Tree Shakeable**: Importieren Sie nur, was Sie brauchen - minimale Bundle-Auswirkung
 - **📚 Gut dokumentiert**: Umfangreiche Dokumentation mit Beispielen
 - **🔄 Dual veröffentlicht**: Verfügbar auf JSR und npm für maximale Kompatibilität
@@ -99,7 +99,7 @@ console.log(cache.get('key')); // 42
 
 - **GitHub**: [mandy8055/data-structures](https://github.com/mandy8055/data-structures)
 - **Issues**: [Fehler melden oder Features anfordern](https://github.com/mandy8055/data-structures/issues)
-- **Discussions**: [Treten Sie der Community bei](https://github.com/mandy8055/data-structures/discussions)
+- **Discussions**: [Ich habe eine Idee! Lass uns darüber reden](https://github.com/mandy8055/data-structures/discussions)
 
 ## Lizenz
 
