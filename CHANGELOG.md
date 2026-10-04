@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.6.0](https://github.com/mandy8055/data-structures/compare/v1.5.1...v1.6.0) (2026-10-04)
+
+
+### ✨ Features
+
+* 🌲 add tree data-structure implementation ([547288c](https://github.com/mandy8055/data-structures/commit/547288c6c737638a5203b841bf250ab804f51838))
+
 ## [1.5.1](https://github.com/mandy8055/data-structures/compare/v1.5.0...v1.5.1) (2026-09-15)
 
 
