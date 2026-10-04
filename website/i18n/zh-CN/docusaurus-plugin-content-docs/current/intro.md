@@ -13,7 +13,7 @@ sidebar_position: 1
 - **🎯 类型安全**：完整的 TypeScript 支持，带有泛型，提供完全的类型安全
 - **📦 零依赖**：无外部依赖 - 轻量且安全
 - **⚡ 高性能**：经过优化的实现，并附有时间复杂度文档
-- **🧪 经过充分测试**：全面的测试覆盖率 (>85%)
+- **🧪 经过充分测试**：全面的测试覆盖率 (~100%)
 - **🌲 可 Tree Shake**：只导入您需要的部分 - 最小化打包影响
 - **📚 文档齐全**：提供大量示例的详细文档
 - **🔄 双重发布**：在 JSR 和 npm 上均可用，实现最大兼容性
@@ -99,7 +99,7 @@ console.log(cache.get('key')); // 42
 
 - **GitHub**: [mandy8055/data-structures](https://github.com/mandy8055/data-structures)
 - **问题反馈**: [报告错误或请求功能](https://github.com/mandy8055/data-structures/issues)
-- **讨论**: [加入社区](https://github.com/mandy8055/data-structures/discussions)
+- **讨论**: [有想法了？欢迎一起!](https://github.com/mandy8055/data-structures/discussions)
 
 ## 许可证
 

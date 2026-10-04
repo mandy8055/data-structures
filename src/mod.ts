@@ -23,6 +23,10 @@ export { BinaryHeap, MaxHeap, MinHeap } from './core/binary-heap.ts';
 // Special Trees implementation
 export { RedBlackTree } from './core/red-black-tree.ts';
 export { Trie } from './core/trie.ts';
+export { Tree, TreeNode } from './core/tree.ts';
+
+// Public types
+export type { NestedNode, TreeOptions } from './types/index.ts';
 
 // Optional: Common errors/exceptions
 export {

@@ -81,3 +81,27 @@ export interface RBNode<T> {
   /** Reference to the parent node */
   parent: RBNode<T> | null;
 }
+
+/**
+ * @ignore
+ * Represents a plain nested-object description of an n-ary tree, as accepted
+ * by `Tree.fromNested()` and produced by `Tree.toNested()`.
+ * @template T The type of value stored in each node
+ */
+export interface NestedNode<T> {
+  /** The value stored in the node */
+  value: T;
+  /** Optional ordered list of child nodes */
+  children?: NestedNode<T>[];
+}
+
+/**
+ * @ignore
+ * Configuration options for an n-ary `Tree`.
+ */
+export interface TreeOptions {
+  /** Maximum number of nodes the tree may hold (positive integer, unbounded by default) */
+  maxSize?: number;
+  /** Maximum depth any node may have, where the root has depth 0 (positive integer, unbounded by default) */
+  maxDepth?: number;
+}
